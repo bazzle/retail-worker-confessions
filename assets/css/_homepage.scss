@@ -1,0 +1,46 @@
+.homepage{
+    &__main{
+        .panel__inner{
+            @include break(medium) {
+                @include grid;
+                grid-template-columns:1fr 1fr 1fr;
+                grid-auto-rows: auto;
+                grid-template-areas:
+                "block_1 block_1 block_2";
+            }
+        }
+    }
+    &__hero{
+        margin-bottom: $gap;
+        &__image{
+            display: block;
+            width: 100%;
+            height: auto;
+            &__image{
+                width: 100%;
+                height: auto;
+            }
+        }
+        &__title{
+            @include font-display;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            margin-top: 1em;
+            display: block;
+            @include break(tablet) {
+                font-size: 2.2rem;
+            }
+            @include break-under(phone) {
+                word-break: break-word;
+            }
+        }
+    }
+    &__main{
+        background-color: $off-white;
+    }
+    &__main-col{
+        grid-area: block_1;
+    }
+    &__aside{
+        grid-area: block_2;
+    }
+}

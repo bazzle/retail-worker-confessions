@@ -1,0 +1,43 @@
+.footer{
+    @include component-dark;
+    @include align(center, right);
+    &__inner{
+        display: flex;
+        align-items: center;
+    }
+    &__copyright{
+        margin-right: 2em;
+        border-right:2px solid white;
+        padding-right: 2em;
+        padding-top: .5em;
+        padding-bottom: .5em;
+        flex-shrink: 0;
+    }
+    &__facebook-link{
+        display: flex;
+        align-items: center;
+        &__logo{
+            display:block;
+            width: 26px;
+            height: 26px;
+        }
+        &__label{
+            display: block;
+            margin-left: 1em;
+        }
+    }
+    &__menu{
+        display: none;
+        @include break(sitewidth) {
+            display: block;
+        }
+        flex-grow: 1;
+        &__list{
+            display: flex;
+            gap:1em;
+        }
+        @include break-under(sitewidth){
+            display: none;
+        }
+    }
+}

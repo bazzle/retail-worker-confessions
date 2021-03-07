@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/boofgdxmvmjf/public_html/wp-content/themes/sfc/
+    - /bin/cp -R * $DEPLOYPATH

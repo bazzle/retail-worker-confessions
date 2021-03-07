@@ -1,0 +1,18 @@
+.card{
+    display: block;
+    img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    &__title{
+        @include break-under(tablet) {
+            font-size: 1.4rem;
+        }
+        @include font-bold;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        display: block;
+        margin-top: 1em;
+    }
+}

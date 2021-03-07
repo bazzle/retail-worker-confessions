@@ -1,0 +1,22 @@
+.breadcrumb{
+    @include text-blocky--tiny;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    &__breadcrumb{
+        strong{
+            font-weight: inherit;
+        }
+        a{
+            display: inline-block;
+            margin-right: 2em;
+            position: relative;
+            &:after{
+                position: absolute;
+                right:-1.2em;
+                content:'-';
+                font-size:1em;
+            }
+        }
+    }
+}

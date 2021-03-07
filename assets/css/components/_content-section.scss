@@ -1,0 +1,10 @@
+.content-section{
+    &__item{
+        margin-bottom: $gap*2;
+        &__title{
+            &__title{
+                @include block-title;
+            }
+        }
+    }
+}

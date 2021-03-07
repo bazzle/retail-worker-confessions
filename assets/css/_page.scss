@@ -1,0 +1,52 @@
+.page{
+    &__main{
+        .panel__inner{
+            @include break(medium) {
+                @include grid;
+                grid-template-columns:1fr 1fr 1fr;
+                grid-auto-rows: auto;
+                grid-template-areas:
+                "block_1 block_1 block_2";
+            }
+        }
+    }
+    &__cats{
+        @include align(center, left);
+        margin-bottom: $gap/2;
+        &__cat{
+            border: 1px solid $color-accent;
+            padding: .5em 1.4em;
+            margin-right: 1.2em;
+            @include text-blocky(1.2rem);
+            border-radius: 2px;
+            span{
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
+    &__content-section{
+        margin-bottom: $gap;
+    }
+    &__title{
+        @include title;
+        width: 100%;
+        max-width: 675px;
+    }
+    &__main{
+        background-color: $off-white;
+    }
+    &__main-col{
+        grid-area: block_1;
+    }
+    &__body{
+        @extend %text-body-format;
+    }
+    &__aside{
+        grid-area: block_2;
+    }
+    &__footer{
+        background-color: white;
+        padding:6rem 0;
+    }
+}

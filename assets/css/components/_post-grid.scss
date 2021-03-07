@@ -1,0 +1,6 @@
+.post-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    grid-gap: $gap/2;
+}

@@ -1,0 +1,63 @@
+// back to top button
+.backtop {
+    $color_text: $color-secondary;
+    $color_bg: $white;
+    $color_bg_darken: darken($color_bg, 8);
+    border-radius: $border-radius $border-radius 0 0;
+    text-align: center;
+    position: sticky;
+    width: 100vw;
+    padding-left:5vw;
+    padding-right:5vw;
+    bottom:-1px;
+    left: 0;
+    color: $color-text;
+    @include align(center, right);
+    &.visible{
+        z-index: 999;
+    }
+    &__inner{
+        height:100%;
+        position:relative;
+        background: $white;
+        @keyframes fadeout{
+            from{
+                opacity:1;
+            }
+            to{
+                opacity:0;
+            }
+        }
+        @keyframes fadein{
+            from{
+                opacity:0;
+            }
+            to{
+                opacity:1;
+            }
+        }
+        &.fadeout{
+            animation: fadeout .5s;
+            animation-fill-mode:forwards;
+        }
+        &.fadein{
+            animation: fadein .5s;
+            animation-fill-mode:forwards;
+        }
+        padding:1em 1.7em;
+        @include align(center, center);
+        border-radius: $border-radius;
+        span {
+            @include link-styled;
+            display:inline-block;
+            margin-left:1em;
+            color:$black;
+             @include transition;
+        }
+    }
+    &__icon {
+        transform: rotate(180deg);
+        width: 30px;
+        height: 30px;
+    }
+}

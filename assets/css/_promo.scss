@@ -1,0 +1,132 @@
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+}
+// PAGE ===============================================
+
+.text-medium {
+    font-size: clamp(24px, 3vw, 30px);
+}
+.promo-title{
+    @include title(3rem);
+}
+.tiny {
+    font-size: $font-size-tiny;
+}
+
+.container--promo {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    &:before {
+        width: 50%;
+        content: "";
+        background: url(#{$path-images}/promo-bg-1.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+    &:after {
+        width: 50%;
+        content: "";
+        background: url(#{$path-images}/promo-bg-2.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+}
+.box {
+    position: absolute;
+    @include position-center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-height: 860px) and (min-width: 1300px) {
+        flex-direction: row;
+    }
+    &__section {
+        border-radius: 3px;
+        padding: 6em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: clamp(300px, 90vw, 600px);
+        & > * {
+            padding-bottom: 0;
+            margin-bottom: $gap/2;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__main {
+        background-color: #d8d8d8;
+    }
+    &__foot {
+        position: relative;
+        top: -3px;
+        background-color: #f0f0f0;
+        & > * {
+            margin-bottom: $gap/4;
+        }
+        &__title{
+            @include title(2.4rem);
+        }
+    }
+}
+.logo {
+    display: block;
+    width: max(80%, 230px);
+    height: 50px;
+}
+.icons {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    width: min(100%, 330px);
+    height: 40px;
+    justify-content: space-around;
+    gap: 20px;
+    &__icon {
+        width: clamp(20px, 10vw, 50px);
+    }
+}
+.signup {
+    display: block;
+    margin-top: 0.6em;
+    width: 100%;
+    @include break(phone) {
+        display: flex;
+        align-items: stretch;
+    }
+    & > * {
+        display: block;
+        font-family: inherit;
+        border: 2px solid black;
+        @include break-under(phone) {
+            width: 100%;
+        }
+    }
+    &__input {
+        padding: 0.8em!important;
+        padding-top: 0.6em!important;
+        border-radius: 0!important;
+        flex-grow: 1;
+        @include break-under(phone) {
+            border-bottom: 0!important;
+            text-align: center!important;
+        }
+        @include break(phone) {
+            border-right: 0!important;
+        }
+    }
+    &__submit {
+        padding: 0.8em!important;
+        padding-top: 0.6em!important;
+        border-radius: 0!important;
+        background-color: $color-accent!important;
+        color: black!important;
+        cursor: pointer;
+    }
+}

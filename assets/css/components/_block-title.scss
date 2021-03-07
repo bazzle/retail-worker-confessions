@@ -1,0 +1,22 @@
+@mixin block-title{
+    display: flex;
+    @include text-blocky;
+    margin-bottom: $gap/2;
+    align-items: center;
+    gap: 1em;
+    &__title{
+        margin-right: 1em;
+    }
+    &:after{
+        content: '';
+        display: block;
+        flex-grow: 1;
+        border-top: 1px solid #DBDBDB;
+        height: 1px;
+        background-color: #ffffff;
+    }
+}
+
+.block-title{
+    @include block-title;
+}

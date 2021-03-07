@@ -1,0 +1,7 @@
+.category-info{
+    background-color: white;
+    padding: $gap/2;
+    p{
+        @include font-std--bold;
+    }
+}

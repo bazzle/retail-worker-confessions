@@ -1,0 +1,25 @@
+.facebook-feature{
+    background-color: white;
+    padding: 1.2em;
+    &__description{
+        padding-bottom: $gap/2;
+        margin-bottom: $gap/2;
+        border-bottom: 1px solid #DBDBDB;
+        @include font-std--bold;
+    }
+    &__link{
+        display: flex;
+        align-items: center;
+        &__logo{
+            display:block;
+            width: 26px;
+            height: 26px;
+            color: $facebook;
+        }
+        &__label{
+            display: block;
+            margin-left: 1em;
+            @include font-std--bold;
+        }
+    }
+}

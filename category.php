@@ -1,0 +1,107 @@
+<?php get_header(); ?>
+    <?php
+    $term = get_queried_object();
+    $title = $term->name;
+    $thiscategory = $term->cat_ID;
+    $featuredPostNumber = 4;
+    $count = $term->count;
+    ?>
+    <div class="page">
+        <header class="page__header panel">
+            <div class="panel__inner">
+                <h1 class="page__title"><?php echo $title; ?></h1>
+            </div>
+        </header>
+        <div class="page__main panel">
+            <div class="panel__inner">
+                <div class="page__main-col main-col">
+
+                    <?php
+                        if($count  % 2 == 0){
+                            $featuredPostNumber = $featuredPostNumber;
+                        }
+                        else{
+                            $featuredPostNumber = $count-1;
+                        }
+                    ?>
+                    <div class="content-section">
+                        <div class="content-section__item">
+                            <div class="content-section__item__title">
+                                <h3 class="content-section__item__title__title">Latest</h3>
+                            </div>
+                            <div class="content-section__item__content">
+                                <div class="post-grid">
+                                    <?php
+                                    $recent_posts = get_posts(array(
+                                        'orderby' => 'date',
+                                        'order' => 'DESC',
+                                        'showposts' => $featuredPostNumber,
+                                        'category' => $thiscategory
+                                        ));
+                                    ?>
+                                    <?php foreach ($recent_posts as $recent_post) :
+                                    // var_dump($recent_post);
+                                    $cardtitle = $recent_post->post_title;
+                                    $cardlink = get_permalink($recent_post);
+                                    $cardthumb = get_the_post_thumbnail($recent_post,'thumb');
+                                    ?>
+                                    <?php include( locate_template( 'includes/component-card.php' ) );  ?>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <?php if ( $count > $featuredPostNumber ) : ?>
+                        <div class="content-section__item">
+                            <div class="content-section__item__title">
+                                <h3 class="content-section__item__title__title">All posts</h3>
+                            </div>
+                            <div class="content-section__item__content">
+                                    <div class="post-list__list">
+
+                                        <?php
+                                            $args = array(
+                                                'offset' => $featuredPostNumber,
+                                                'cat' => $thiscategory
+                                            );
+                                            $category_posts = new WP_Query($args);
+
+                                        if($category_posts->have_posts()) :
+                                            while($category_posts->have_posts()) :
+                                                $category_posts->the_post();
+                                                $itemtitle = get_the_title();
+                                                $itemlink = get_the_permalink();
+                                                $itemthumb = get_the_post_thumbnail($itemid,'tiny');
+                                        ?>
+                                        <a href="<?php echo $itemlink ?>" class="post-list__item">
+                                            <div class="post-list__item__image">
+                                                <?php echo $itemthumb; ?>
+                                            </div>
+                                            <span class="post-list__item__title">
+                                                <?php echo $itemtitle; ?>
+                                            </span>
+                                        </a>
+                                        <?php
+                                            endwhile;
+                                            else:
+                                        ?>
+                                        <?php endif; ?>
+                                    </div>
+                            </div>
+                        </div>
+                        <?php endif; ?>
+                    </div><!-- end content section -->
+                    
+                    
+
+
+
+                    
+                </div>
+                <div class="page__aside">
+                    <?php get_template_part('includes/section', 'sidebar-category'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php get_footer(); ?>

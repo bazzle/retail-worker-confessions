@@ -1,0 +1,72 @@
+.header{
+    @include header-height;
+    &__inner{
+        @include header-height;
+        display: flex;
+        @include align(center);
+        justify-content: space-between;
+    }
+    &__menu{
+        @include align(center, right);
+        &__list{
+            display: flex;
+            .menu-item{
+                padding:0 1em;
+                @include align(center);
+                @include text-blocky(1.2rem);
+                &:last-of-type{
+                    margin-right:0;
+                    padding-right: 0;
+                    border-right:none;
+                }
+                &.menu-item-240{
+                    a{
+                        background: $color-primary;
+                        color: white;
+                        padding: .5em 1em;
+                        border-radius: 2px;
+                        display: block;
+                    }
+                }
+            }
+        }
+        @include break-under(sitewidth){
+            display: none;
+        }
+    }
+    &__logo-lockup{
+        width:160px;
+        height: 100%;
+        display: block;
+        &__logo{
+            width:160px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            &__svg{
+                width:100%;
+            }
+        }
+    }
+    &__trigger{
+        color:$black;
+        margin-left:auto;
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        background-color:transparent;
+        &__icon{
+            width:16px;
+            height:16px;
+        }
+        &__label{
+            @include text-blocky(1.6rem);
+            line-height:1;
+            margin-right:.5em;
+            position:relative;
+        }
+        @include break(sitewidth) {
+            display: none;
+        }
+    }
+}

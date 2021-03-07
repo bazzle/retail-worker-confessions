@@ -1,0 +1,8 @@
+.sidebar{
+    &__item{
+        margin-bottom: $gap;
+        &__title{
+            @include block-title;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.wpcf7-form{
+    p{
+        margin-bottom: $gap/2;
+        br{
+            display: none;
+        }
+    }
+    max-width: 650px;
+    input, textarea{
+        width: 100%;
+        @include font-std;
+    }
+    input[type='submit']{
+        width: auto;
+    }
+    .label{
+        display: block;
+        &__label{
+            display: block;
+            padding: .5em 0;
+        }
+    }
+    .wpcf7-list-item{
+        margin: 0;
+        padding: 0;
+        display: block;
+        label{
+            display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+        input{
+            display: block;
+            width: auto;
+        }
+        span{
+            display: block;
+            flex-grow: 1;
+            margin-left: .5em;
+            font-size: .9em;
+            padding: .2em;
+        }
+    }
+}
