@@ -17,7 +17,7 @@
         margin-bottom: $gap/2;
     }
     &__section-title{
-        @include text-blocky--lower;
+        @include block-title;
         margin-bottom: $gap/2;
     }
     &__author-name{

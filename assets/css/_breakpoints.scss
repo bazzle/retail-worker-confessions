@@ -4,7 +4,8 @@ $breakpoints: (
   phone: 560px,
   tablet: 700px,
   medium: 850px,
-  sitewidth: $sitewidth
+  sitewidth: $sitewidth,
+  sitewidthplus: calc(#{$sitewidth} + 64px)
 );
 $breakpoints--h: (
     letterbox: 900px

@@ -48,11 +48,11 @@
         @include align(center, center);
         border-radius: $border-radius;
         span {
-            @include link-styled;
+            @include text-blocky(1.2rem);
             display:inline-block;
             margin-left:1em;
             color:$black;
-             @include transition;
+            @include transition;
         }
     }
     &__icon {

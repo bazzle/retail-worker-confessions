@@ -1,0 +1,16 @@
+@mixin pill{
+    @include font-std--bold;
+    font-size: 1.4rem;
+    height:2.4rem;
+    display: inline-block;
+    background-color: white;
+    box-shadow: $box-shadow;
+    border-radius:1.2rem;
+    @include align(center);
+    display: inline-flex;
+    padding: 0 .8em;
+}
+
+.pill{
+    @include pill;
+}
