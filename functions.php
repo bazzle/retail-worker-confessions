@@ -87,6 +87,12 @@ function posts_list_sidebar($atts = []) {
     return ob_get_clean();
 }
 
+function signup_form(){
+    ob_start();
+    include( locate_template('includes/component-signup-form.php' ) );
+    return ob_get_clean();
+}
+
 function category_info_sidebar(){
     ob_start();
     include( locate_template('includes/section-sidebar-category-info.php' ) );
@@ -127,6 +133,7 @@ function facebook_feature() {
 function shortcodes_init(){
     add_shortcode('posts_list', 'posts_list');
     add_shortcode('posts_list_sidebar', 'posts_list_sidebar');
+    add_shortcode('signup_form', 'signup_form');
     add_shortcode('ad_vertical', 'ad_vertical');
     add_shortcode('ad_square', 'ad_square');
     add_shortcode('facebook_feature', 'facebook_feature');

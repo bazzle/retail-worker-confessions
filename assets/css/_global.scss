@@ -170,7 +170,7 @@ svg path{
     }
 };
 
-@mixin button{
+@mixin button($color-button:$color-primary){
     cursor:pointer;
     padding:1em;
     display: inline-block;
@@ -539,7 +539,7 @@ img{
   }
 }
 
-// FORMS =======================================================================================================
+// FORMS ========================================================================
 
 form{
   input, button, textarea{
@@ -559,8 +559,5 @@ form{
       border-bottom: 0;
       text-align: center;
     }
-  }
-  input[type='submit']{
-    @include button;
   }
 }
