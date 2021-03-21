@@ -7,7 +7,7 @@ $path-images: "../../assets/images";
 // Main sizes ==========================================
 
 $sidegap:20px;
-$thesitewidth:960px;
+$thesitewidth:1200px;
 $sitewidth:calc(#{$thesitewidth} + #{$sidegap});
 $sitewidth--nosidegaps:$thesitewidth;
 

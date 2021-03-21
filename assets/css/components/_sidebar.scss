@@ -5,4 +5,9 @@
             @include block-title;
         }
     }
+    .signup-form{
+        @include break-under(medium) {
+            display: none;
+        };
+    }
 }

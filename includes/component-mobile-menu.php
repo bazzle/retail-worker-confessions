@@ -12,13 +12,16 @@
 ?>
 
 <div class="mobile-menu close">
-    <div class="mobile-menu__main panel panel--nopad">
-        <nav class="mobile-menu__inner panel__inner">
+    <div class="mobile-menu__main">
+        <nav class="mobile-menu__inner">
             <?php wp_nav_menu( $args ) ?>
         </nav>
     </div>
-    <div class="mobile-menu__footer panel">
-        <nav class="mobile-menu__inner panel__inner">
+    <div class="mobile-menu__signup">
+        <?php get_template_part('includes/component','signup-form'); ?>
+    </div>
+    <div class="mobile-menu__footer">
+        <nav class="mobile-menu__inner">
             <?php wp_nav_menu( $args2 ) ?>
         </nav>
     </div>

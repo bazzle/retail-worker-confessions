@@ -554,10 +554,4 @@ form{
     font-size:$font-size-std;
     @include font-std;
   }
-  input{
-    @include break-under(phone) {
-      border-bottom: 0;
-      text-align: center;
-    }
-  }
 }

@@ -1,7 +1,24 @@
 .signup-form{
     @include component-dark;
     background-color: #0091FF;
-    padding: $gap/2;
+    .sidebar &{
+        padding: $gap/2;
+    }
+    .mobile-menu &{
+        padding: $gap;
+        &__title{
+            text-align: right;
+        }
+        &__note{
+            text-align: right;
+        }
+        @include align(center, right);
+        &__form{
+            width: 100%;
+            max-width: 350px;
+            flex-shrink: 0;
+        }
+    }
     &__inner{
         display: flex;
         flex-direction: row;
