@@ -4,7 +4,7 @@ add_action('admin_head', 'acf_cat_edit');
 function acf_cat_edit() {
     echo '<style>
     #edittag{
-        max-width:1400px;
+        max-width:1200px;
     }
     </style>';
 }
