@@ -48,7 +48,23 @@
             display: block;
         }
         &.menu-item-240{
-          border-right: 6px solid $color-primary;
+          border-right: none;
+          margin-right: 0;
+          @include align(center, right);
+          a{
+            cursor:pointer;
+            display: inline-block;
+            width:auto;
+            text-align:center;
+            position:relative;
+            text-decoration:none!important;
+            background-color:$color-button;
+            color:$white;
+            border-radius: 2px;
+            padding: .5em 1em;
+            @include btn-state($color-button, $white);
+            margin-right: 0;
+          }
         }
       }
     }

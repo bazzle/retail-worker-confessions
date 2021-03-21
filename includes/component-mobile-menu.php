@@ -22,7 +22,7 @@
     </div>
     <div class="mobile-menu__footer">
         <nav class="mobile-menu__inner">
-            <?php wp_nav_menu( $args2 ) ?>
+            <?php wp_nav_menu( $args2 ) ?><br><br>
         </nav>
     </div>
 </div>
