@@ -14,7 +14,7 @@
 <div class="mobile-menu close">
     <div class="mobile-menu__main">
         <nav class="mobile-menu__inner">
-            <?php wp_nav_menu( $args1 ) ?>
+            <?php wp_nav_menu( $args2 ) ?>
         </nav>
     </div>
     <div class="mobile-menu__signup">
