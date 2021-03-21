@@ -1,5 +1,5 @@
 <?php
-    $args = array(
+    $args1 = array(
         'theme_location'=> 'mobile-menu-location',
         'menu_class'=> 'mobile-menu__list',
         'container'=> false
@@ -14,7 +14,7 @@
 <div class="mobile-menu close">
     <div class="mobile-menu__main">
         <nav class="mobile-menu__inner">
-            <?php wp_nav_menu( $args ) ?>
+            <?php wp_nav_menu( $args1 ) ?>
         </nav>
     </div>
     <div class="mobile-menu__signup">
