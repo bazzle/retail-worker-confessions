@@ -22,7 +22,6 @@
     </div>
     <div class="mobile-menu__footer">
         <nav class="mobile-menu__inner">
-            <?php wp_nav_menu( $mobilemenufootermenu ) ?><br><br>
         </nav>
     </div>
 </div>
