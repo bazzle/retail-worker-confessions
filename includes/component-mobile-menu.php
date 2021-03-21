@@ -1,10 +1,10 @@
 <?php
-    $args1 = array(
+    $mobilemenumainmenu = array(
         'theme_location'=> 'mobile-menu-location',
         'menu_class'=> 'mobile-menu__list',
         'container'=> false
     );
-    $args2 = array(
+    $mobilemenufootermenu = array(
         'theme_location'=> 'footer-menu-location',
         'menu_class'=> 'mobile-menu__list',
         'container'=> false
@@ -14,7 +14,7 @@
 <div class="mobile-menu close">
     <div class="mobile-menu__main">
         <nav class="mobile-menu__inner">
-            <?php wp_nav_menu( $args2 ) ?>
+            <?php wp_nav_menu( $mobilemenumainmenu ) ?>
         </nav>
     </div>
     <div class="mobile-menu__signup">
@@ -22,7 +22,7 @@
     </div>
     <div class="mobile-menu__footer">
         <nav class="mobile-menu__inner">
-            <?php wp_nav_menu( $args2 ) ?><br><br>
+            <?php wp_nav_menu( $mobilemenufootermenu ) ?><br><br>
         </nav>
     </div>
 </div>
