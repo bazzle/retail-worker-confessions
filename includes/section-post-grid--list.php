@@ -1,4 +1,4 @@
-<div class="sidebar-list">
+<div class="post-grid">
     <?php
     if ($sc_atts['number_of_posts'] == "all"){
         $numberofposts = -1;
@@ -29,6 +29,4 @@
             <?php include(locate_template('includes/component-post-list-item--noimage.php')); ?>
         <?php endif; ?>
     <?php endforeach; ?>
-    
-
 </div>

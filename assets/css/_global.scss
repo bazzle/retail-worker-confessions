@@ -86,7 +86,9 @@ main{
 }
 // to stretch the page
 .main-col{
-  min-height: 1000px;
+  @include break(medium) {
+    min-height: 1000px;
+  }
 }
 
 footer{
@@ -248,32 +250,29 @@ svg path{
 
 @mixin panel{
   position: relative;
-  width:100vw;
+  width:100%;
   padding-top:$gap;
   padding-bottom:$gap;
 }
 
 @mixin panel--nopad{
-  width:100vw;
+  width:100%;
 }
 
 @mixin container{
-  width:100vw;
+  width:100%;
   max-width:$sitewidth--nosidegaps;
   margin:0 auto;
 }
 
 @mixin container--margins{
-  width:100vw;
+  width:100%;
   max-width:$sitewidth--nosidegaps;
   margin:0 auto;
   padding: 0 $sidegap;
-  @include break(sitewidth) {
-    padding: 0 $sidegap;
-  }
 }
 @mixin container--margins--narrow{
-  width:100vw;
+  width:100%;
   max-width:$sitewidth--nosidegaps;
   margin:0 auto;
   padding: 0 $sidegap;

@@ -17,9 +17,19 @@
         z-index: 999;
     }
     &__inner{
-        height:100%;
-        position:relative;
+        @include container;
+        position: relative;
+    }
+    &__button{
+        position:absolute;
+        right: $sidegap;
+        bottom: 0;
         background: $white;
+        height: 60px;
+        @include align(center, center);
+        border-radius: $border-radius;
+        padding-left:1.7em;
+        padding-right:1.7em;
         @keyframes fadeout{
             from{
                 opacity:1;
@@ -44,9 +54,6 @@
             animation: fadein .5s;
             animation-fill-mode:forwards;
         }
-        padding:1em 1.7em;
-        @include align(center, center);
-        border-radius: $border-radius;
         span {
             @include text-blocky(1.2rem);
             display:inline-block;

@@ -1,6 +1,6 @@
 .article{
     &__main{
-        .panel__inner{
+        &__inner{
             @include break(medium) {
                 @include grid;
                 grid-template-columns:1fr 1fr 1fr;
@@ -51,10 +51,6 @@
     &__misc{
         padding-top: $gap;
     }
-    &__footer{
-        background-color: white;
-        padding:6rem 0;
-    }
     &__author{
         position: absolute;
         top: 0;
@@ -83,5 +79,16 @@
         top: 0;
         right: 0;
         transform: translatey(-50%);
+    }
+    &__footer{
+        background-color: white;
+        padding-top: $gap*2;
+        padding-bottom: $gap*2;
+    }
+    &__related{
+        @include component-dark;
+        background-color: $color-dark-gray;
+        padding-top: $gap*2;
+        padding-bottom: calc( #{$gap*2} + 60px );
     }
 }

@@ -69,22 +69,36 @@ add_image_size('main', 630, 360, true);
 
 function posts_list($atts = []) {
     $sc_atts = shortcode_atts([
-        'category' => ''
+        'category' => '',
+        'number_of_posts' => ''
     ], $atts);
 	ob_start();
     include( locate_template('includes/section-post-grid.php' ) );
     return ob_get_clean();
 }
 
+function posts_grid_list($atts = []) {
+    $sc_atts = shortcode_atts([
+        'number_of_posts' => '',
+        'category' => '',
+        'image' => false
+    ], $atts);
+	ob_start();
+    include( locate_template('includes/section-post-grid--list.php' ) );
+    return ob_get_clean();
+    $sc_atts['image'] = filter_var( $args['image'], FILTER_VALIDATE_BOOLEAN );
+}
+
 function posts_list_sidebar($atts = []) {
     $sc_atts = shortcode_atts([
         'number_of_posts' => '',
         'category' => '',
-        'image' => ''
+        'image' => false
     ], $atts);
 	ob_start();
     include( locate_template('includes/section-sidebar-list.php' ) );
     return ob_get_clean();
+    $sc_atts['image'] = filter_var( $args['image'], FILTER_VALIDATE_BOOLEAN );
 }
 
 function signup_form(){
@@ -132,6 +146,7 @@ function facebook_feature() {
 
 function shortcodes_init(){
     add_shortcode('posts_list', 'posts_list');
+    add_shortcode('posts_grid_list', 'posts_grid_list');
     add_shortcode('posts_list_sidebar', 'posts_list_sidebar');
     add_shortcode('signup_form', 'signup_form');
     add_shortcode('ad_vertical', 'ad_vertical');

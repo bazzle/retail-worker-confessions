@@ -3,7 +3,8 @@
 <?php if ( have_posts() ) : 
 while ( have_posts() ) : the_post(); ?>
 
-    <article class="article">
+    <div class="article">
+    <article>
 
         <header class="article__header panel">
             <div class="panel__inner">
@@ -12,7 +13,7 @@ while ( have_posts() ) : the_post(); ?>
         </header>
         
         <div class="article__main panel">
-            <div class="panel__inner">
+            <div class="panel__inner article__main__inner">
                 <div class="article__main-col main-col">
                     <div class="article__body">
                         <?php wpautop(the_content()); ?>
@@ -31,6 +32,7 @@ while ( have_posts() ) : the_post(); ?>
         </div>
 
     </article>
+    </div>
 
 <?php endwhile; 
 endif; ?>
