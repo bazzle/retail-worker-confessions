@@ -86,7 +86,7 @@
 
 
             </div>
-            <div class="page__aside">
+            <div class="page__aside sidebar">
                 <?php get_template_part('includes/section', 'sidebar-category'); ?>
             </div>
         </div>

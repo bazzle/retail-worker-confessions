@@ -10,7 +10,7 @@
             }
         }
     }
-    &__hero{
+    &__hero-item{
         margin-bottom: $gap;
         &__image{
             display: block;
@@ -32,6 +32,9 @@
             @include break-under(phone) {
                 word-break: break-word;
             }
+        }
+        &__excerpt{
+            margin-top: 1em;
         }
     }
     &__main{

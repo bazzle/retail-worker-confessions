@@ -1,0 +1,13 @@
+.post-list-item-basic{
+    height:100%;
+    display: block;
+    border-left: 3px solid $color-primary;
+    padding-left: 1em;
+    &__title{
+        line-height: 1.2em;
+        display: block;
+        margin-bottom:0;
+    }
+    &__excerpt{
+    }
+}

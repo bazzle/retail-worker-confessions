@@ -1,9 +1,18 @@
 .card{
     display: block;
+    background: white;
+    height: 100%;
+    .homepage &{
+        //background-color: $off-white;
+    }
     img{
         display: block;
         width: 100%;
         height: auto;
+    }
+    &__content{
+        padding: 1em;
+        padding-top: 0;
     }
     &__title{
         @include break-under(tablet) {
@@ -13,6 +22,7 @@
         font-size: 1.5rem;
         line-height: 1.2;
         display: block;
-        margin-top: 1em;
+        margin-top: 1.5em;
+        margin-bottom: 1em;
     }
 }

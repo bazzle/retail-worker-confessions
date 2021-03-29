@@ -1,0 +1,17 @@
+.post-list-item-image{
+    height:100%;
+    @include align(center, left);
+    &__image{
+        flex-shrink: 0;
+    }
+    &__title{
+        display: block;
+        margin-bottom:0;
+        padding-left: 1em;
+        align-self: stretch;
+        @include align(center, left);
+        &__title{
+            line-height: 1.2em;
+        }
+    }
+}

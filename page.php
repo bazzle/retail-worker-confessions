@@ -25,7 +25,7 @@ while ( have_posts() ) : the_post(); ?>
                     </div>
                     <?php endif; ?>
                 </div>
-                <aside class="article__aside">
+                <aside class="article__aside sidebar">
                     <?php get_template_part('includes/section', 'sidebar'); ?>
                 </aside>
             </div>

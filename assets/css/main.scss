@@ -14,11 +14,10 @@
 @import 'components/_sidebar';
 @import 'components/_signup-form';
 @import 'components/_sidebar-list';
-@import 'components/_post-list';
+@import 'components/_posts-list';
 @import 'components/_category-info';
 @import 'components/_content-section';
 @import 'components/_card';
-@import 'components/_post-grid';
 @import 'components/_mobile-menu';
 @import 'components/_facebook-feature';
 @import 'components/_breadcrumb';
@@ -27,6 +26,8 @@
 @import 'components/_backtop';
 @import 'components/_footer';
 @import 'components/_post-list-item';
+@import 'components/_post-list-item-basic';
+@import 'components/_post-list-item-image';
 // templates
 @import '_homepage';
 @import '_page';

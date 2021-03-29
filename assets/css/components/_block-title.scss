@@ -1,11 +1,10 @@
 @mixin block-title{
     display: flex;
-    @include text-blocky;
     margin-bottom: $gap/2;
     align-items: center;
     gap: 1em;
     &__title{
-        margin-right: 1em;
+        @include text-blocky;
     }
     &:after{
         content: '';

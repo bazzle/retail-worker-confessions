@@ -64,8 +64,8 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 add_image_size('tiny', 50, 50, true);
-add_image_size('thumb', 312, 257, true);
-add_image_size('main', 630, 360, true);
+add_image_size('thumb', 374, 280, true);
+add_image_size('main', 760, 420, true);
 
 function posts_list($atts = []) {
     $sc_atts = shortcode_atts([
@@ -73,32 +73,39 @@ function posts_list($atts = []) {
         'number_of_posts' => ''
     ], $atts);
 	ob_start();
-    include( locate_template('includes/section-post-grid.php' ) );
+    include( locate_template('includes/section-posts-list.php' ) );
     return ob_get_clean();
 }
 
-function posts_grid_list($atts = []) {
+function posts_list_thumb($atts = []) {
     $sc_atts = shortcode_atts([
         'number_of_posts' => '',
-        'category' => '',
-        'image' => false
+        'category' => ''
     ], $atts);
 	ob_start();
-    include( locate_template('includes/section-post-grid--list.php' ) );
+    include( locate_template('includes/section-posts-list--thumb.php' ) );
     return ob_get_clean();
-    $sc_atts['image'] = filter_var( $args['image'], FILTER_VALIDATE_BOOLEAN );
 }
 
-function posts_list_sidebar($atts = []) {
+function posts_list_basic($atts = []) {
     $sc_atts = shortcode_atts([
         'number_of_posts' => '',
         'category' => '',
-        'image' => false
+        'excerpt_as_title' => 'false'
     ], $atts);
 	ob_start();
-    include( locate_template('includes/section-sidebar-list.php' ) );
+    include( locate_template('includes/section-posts-list--basic.php' ) );
     return ob_get_clean();
-    $sc_atts['image'] = filter_var( $args['image'], FILTER_VALIDATE_BOOLEAN );
+}
+function posts_list_images($atts = []) {
+    $sc_atts = shortcode_atts([
+        'number_of_posts' => '',
+        'category' => '',
+        'excerpt_as_title' => 'false'
+    ], $atts);
+	ob_start();
+    include( locate_template('includes/section-posts-list--images.php' ) );
+    return ob_get_clean();
 }
 
 function signup_form(){
@@ -146,8 +153,9 @@ function facebook_feature() {
 
 function shortcodes_init(){
     add_shortcode('posts_list', 'posts_list');
-    add_shortcode('posts_grid_list', 'posts_grid_list');
-    add_shortcode('posts_list_sidebar', 'posts_list_sidebar');
+    add_shortcode('posts_list_basic', 'posts_list_basic');
+    add_shortcode('posts_list_images', 'posts_list_images');
+    add_shortcode('posts_list_thumb', 'posts_list_thumb');
     add_shortcode('signup_form', 'signup_form');
     add_shortcode('ad_vertical', 'ad_vertical');
     add_shortcode('ad_square', 'ad_square');

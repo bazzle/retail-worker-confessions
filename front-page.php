@@ -10,18 +10,25 @@
                     $heroPostImageAlt = ($heroPostImageAlt == '') ? 'Hero image' : $heroPostImageAlt;
                     $heroPostTitle = get_the_title($heroPostId);
                     $heroPostLink = get_the_permalink($heroPostId);
+                    $heropostExcerpt = get_field('article_excerpt', $heroPostId);
                     ?>
-                    <div class="homepage__hero">
-                        <a class="homepage__hero__image" href="<?php echo $heroPostLink ?>">
-                            <img class="homepage__hero__image__image" src="<?php echo $heroPostImage ?>" alt="<?php echo $heroPostImageAlt ?>">
+                    <div class="homepage__hero-item">
+                        <a class="homepage__hero-item__image" href="<?php echo $heroPostLink ?>">
+                            <img class="homepage__hero-item__image__image" src="<?php echo $heroPostImage ?>" alt="<?php echo $heroPostImageAlt ?>">
                         </a>
-                        <a href="<?php echo $heroPostLink ?>" class="homepage__hero__title">
-                            <?php echo $heroPostTitle; ?>
+                        <a href="<?php echo $heroPostLink ?>" class="homepage__hero-item__title">
+                            <h2 class="homepage__hero-item__title__title">
+                                <?php echo $heroPostTitle; ?>
+                            </h2>
                         </a>
+                        <?php  ?>
+                        <p class="homepage__hero-item__excerpt">
+                            <?php echo $heropostExcerpt ?>
+                        </p>
                     </div>
                     <?php get_template_part('includes/section','content-section'); ?>
                 </div>
-                <div class="homepage__aside">
+                <div class="homepage__aside sidebar">
                     <?php get_template_part('includes/section', 'sidebar'); ?>
                 </div>
             </div>
