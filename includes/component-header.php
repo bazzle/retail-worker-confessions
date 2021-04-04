@@ -19,7 +19,7 @@
                 ?>
                 <?php wp_nav_menu( $args ) ?>
             </nav>
-            <button type=“button” class="header__trigger trigger-menu">
+            <button type="button" class="header__trigger trigger-menu">
                 <span class="header__trigger__label">Menu</span>
                 <svg class="icon header__trigger__icon">
                     <use xlink:href="<?php echo get_template_directory_uri() ?>/build/svg/icons.svg#icon-menu" />

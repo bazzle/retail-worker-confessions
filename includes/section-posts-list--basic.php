@@ -1,5 +1,6 @@
 <div class="posts-list">
     <?php
+    $exclude = $sc_atts['exclude'];
     if ($sc_atts['number_of_posts'] == "all"){
         $numberofposts = -1;
     } else {
@@ -19,14 +20,15 @@
     'orderby' => 'date',
     'order' => 'DESC',
     'showposts' => $numberofposts,
-    'category' => $category
+    'category' => $category,
+    'exclude' => $exclude
     ));
     
     foreach($recent_posts as $recent_post) :
         $itemid = $recent_post->ID;
         $excerpt = get_field('article_excerpt',$itemid);
         $itemlink = get_permalink($itemid);
-        if ( $sc_atts['excerpt_as_title'] === 'true' ){
+        if ( $excerpt && $sc_atts['excerpt_as_title'] === 'true'){
             $itemtitle = $excerpt;
         } else {
             $itemtitle = $recent_post->post_title;

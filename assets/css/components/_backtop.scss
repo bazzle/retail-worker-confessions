@@ -13,8 +13,8 @@
     left: 0;
     color: $color-text;
     @include align(center, right);
+    z-index: 999;
     &.visible{
-        z-index: 999;
     }
     &__inner{
         @include container;

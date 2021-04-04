@@ -15,15 +15,14 @@
     <div class="page__main panel">
         <div class="panel__inner">
             <div class="page__main-col main-col">
-
                 <?php
-                        if($count  % 2 == 0){
-                            $featuredPostNumber = $featuredPostNumber;
-                        }
-                        else{
-                            $featuredPostNumber = $count-1;
-                        }
-                    ?>
+                    if($count  % 2 == 0){
+                        $featuredPostNumber = $featuredPostNumber;
+                    }
+                    else{
+                        $featuredPostNumber = $count-1;
+                    }
+                ?>
                 <div class="content-section">
                     <div class="content-section__item">
                         <div class="content-section__item__title">

@@ -10,4 +10,17 @@
             margin-bottom: $gap/2;
         }
     }
+    &--flickity{
+        display: block!important;
+        width: 100%;
+    }
+    .flickity-carousel{
+        display: block!important;
+        width: 100%;
+        .posts-list__item{
+            width: calc(50% - .75rem);
+            margin:0 .75rem;
+            background: gold;
+        }
+    }
 }

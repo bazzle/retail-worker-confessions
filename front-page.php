@@ -26,7 +26,7 @@
                             <?php echo $heropostExcerpt ?>
                         </p>
                     </div>
-                    <?php get_template_part('includes/section','content-section'); ?>
+                    <?php include( locate_template( 'includes/section-content-section.php') );  ?>
                 </div>
                 <div class="homepage__aside sidebar">
                     <?php get_template_part('includes/section', 'sidebar'); ?>

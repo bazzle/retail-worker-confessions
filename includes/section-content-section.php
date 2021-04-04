@@ -1,6 +1,5 @@
 <div class="content-section">
-<?php
-if( have_rows('content_section') ):
+<?php if( have_rows('content_section') ):
     while( have_rows('content_section') ) : the_row();
         $row_config = get_sub_field('configuration');
         $row_content = get_sub_field('content');

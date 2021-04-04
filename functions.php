@@ -17,7 +17,9 @@ function consoleLog($message) {
 
 function add_theme_scripts() {
     wp_enqueue_style( 'style', get_stylesheet_uri() );
+    wp_enqueue_script( 'flickity_script', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', array(), '1.0.0', true );
     wp_enqueue_script( 'main_script', get_template_directory_uri() . '/build/scripts/main.js', array(), '1.0.0', true );
+    wp_enqueue_style ('flickity_style', 'https://unpkg.com/flickity@2/dist/flickity.min.css');
 }
 
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
@@ -70,7 +72,8 @@ add_image_size('main', 760, 420, true);
 function posts_list($atts = []) {
     $sc_atts = shortcode_atts([
         'category' => '',
-        'number_of_posts' => ''
+        'number_of_posts' => '',
+        'exclude' => ''
     ], $atts);
 	ob_start();
     include( locate_template('includes/section-posts-list.php' ) );
@@ -80,7 +83,9 @@ function posts_list($atts = []) {
 function posts_list_thumb($atts = []) {
     $sc_atts = shortcode_atts([
         'number_of_posts' => '',
-        'category' => ''
+        'category' => '',
+        'exclude' => '',
+        'scroll' => 'false'
     ], $atts);
 	ob_start();
     include( locate_template('includes/section-posts-list--thumb.php' ) );
@@ -91,7 +96,8 @@ function posts_list_basic($atts = []) {
     $sc_atts = shortcode_atts([
         'number_of_posts' => '',
         'category' => '',
-        'excerpt_as_title' => 'false'
+        'excerpt_as_title' => 'false',
+        'exclude' => ''
     ], $atts);
 	ob_start();
     include( locate_template('includes/section-posts-list--basic.php' ) );
@@ -101,7 +107,8 @@ function posts_list_images($atts = []) {
     $sc_atts = shortcode_atts([
         'number_of_posts' => '',
         'category' => '',
-        'excerpt_as_title' => 'false'
+        'excerpt_as_title' => 'false',
+        'exclude' => ''
     ], $atts);
 	ob_start();
     include( locate_template('includes/section-posts-list--images.php' ) );

@@ -1,14 +1,9 @@
 .post-list-item{
     height:100%;
     display: block;
-    border-left: 3px solid $color-primary;
     padding: 1em;
     background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     .homepage &{
-        //background-color: $off-white;
     }
     &__title{
         @include font-bold;

@@ -1,5 +1,6 @@
 <div class="posts-list">
     <?php
+    $exclude = $sc_atts['exclude'];
     if ($sc_atts['number_of_posts'] == "all"){
         $numberofposts = -1;
     } else {
@@ -14,7 +15,8 @@
     'orderby' => 'date',
     'order' => 'DESC',
     'showposts' => $numberofposts,
-    'category' => $category
+    'category' => $category,
+    'exclude' => $exclude
     ));
     
     foreach($recent_posts as $recent_post) :

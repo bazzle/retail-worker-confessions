@@ -420,6 +420,9 @@ img{
   a:hover, svg:hover{
     color:$color-primary-feint;
   }
+  .card{
+    background-color: transparent;
+  }
 }
 @mixin component-light{
   color:$color-primary;

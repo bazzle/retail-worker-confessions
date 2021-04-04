@@ -5,6 +5,7 @@ if ( have_posts() ) :
 while ( have_posts() ) : the_post(); ?>
 
 <?php
+    $catlist = get_the_category();
     $authorid = get_the_author_meta('ID');
     $authoridacf = 'user_' . $authorid;
     $authorname = get_field('author_box', $authoridacf)['author_name'];
@@ -25,8 +26,7 @@ while ( have_posts() ) : the_post(); ?>
         <header class="article__header panel">
             <div class="panel__inner">
                 <div class="article__cats">
-                    <?php $catlist = get_the_category();
-                    foreach ($catlist as $cat) :
+                    <?php foreach ($catlist as $cat) :
                         $catname = $cat->name;
                         $catlink = get_category_link($cat);
                     ?>
@@ -81,18 +81,19 @@ while ( have_posts() ) : the_post(); ?>
 
     <div class="article__related panel">
         <div class="article__related__inner panel__inner">
-
+            <div class="article__related__title">
+                <h2 class="article__related__title__title">Related Articles</h2>
+            </div>
             <div class="post-grid post-grid--4x">
                 <?php
-                $post = get_queried_object();
+                var_dump($catlist);
                 $recent_posts = get_posts(array(
                 'orderby' => 'date',
                 'order' => 'DESC',
                 'showposts' => 3,
-                'category' => get_the_category( array( $post->ID ) ),
+                // 'category' => $catlist,
                 'exclude' => array( $post->ID )
                 ));
-                
                 foreach($recent_posts as $recent_post) :
                     $cardtitle = $recent_post->post_title;
                     $cardid = $recent_post->ID;
@@ -105,10 +106,9 @@ while ( have_posts() ) : the_post(); ?>
 
         </div>
     </div>
-
 </div>
 
-<?php endwhile; 
+<?php endwhile;
 endif; ?>
 
 
