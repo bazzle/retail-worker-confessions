@@ -17,10 +17,20 @@
     .flickity-carousel{
         display: block!important;
         width: 100%;
-        .posts-list__item{
-            width: calc(50% - .75rem);
-            margin:0 .75rem;
-            background: gold;
+        &--2x{
+            .posts-list__item{
+                width: calc(50% - .75rem);
+                margin:0 .75rem;
+            }
+        }
+        &--4x{
+            .posts-list__item{
+                width: calc(25% - .75rem);
+                margin:0 .75rem;
+                @include break-under(tablet) {
+                    width: calc(50% - .75rem);
+                }
+            }
         }
     }
 }

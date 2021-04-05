@@ -1,5 +1,5 @@
 <div class="posts-list posts-list--flickity">
-    <div class="flickity-carousel">
+    <div class="flickity-carousel flickity-carousel--2x">
     <?php
     $exclude = $sc_atts['exclude'];
     if ($sc_atts['number_of_posts'] == "all"){

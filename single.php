@@ -5,7 +5,7 @@ if ( have_posts() ) :
 while ( have_posts() ) : the_post(); ?>
 
 <?php
-    $catlist = get_the_category();
+    $category = get_the_category();
     $authorid = get_the_author_meta('ID');
     $authoridacf = 'user_' . $authorid;
     $authorname = get_field('author_box', $authoridacf)['author_name'];
@@ -26,7 +26,7 @@ while ( have_posts() ) : the_post(); ?>
         <header class="article__header panel">
             <div class="panel__inner">
                 <div class="article__cats">
-                    <?php foreach ($catlist as $cat) :
+                    <?php foreach ($category as $cat) :
                         $catname = $cat->name;
                         $catlink = get_category_link($cat);
                     ?>
@@ -78,38 +78,49 @@ while ( have_posts() ) : the_post(); ?>
             </div>
         </footer>
     </article>
+    </div>
+    <?php endwhile;
+    endif; ?>
 
     <div class="article__related panel">
         <div class="article__related__inner panel__inner">
             <div class="article__related__title">
                 <h2 class="article__related__title__title">Related Articles</h2>
             </div>
-            <div class="post-grid post-grid--4x">
-                <?php
-                var_dump($catlist);
-                $recent_posts = get_posts(array(
-                'orderby' => 'date',
-                'order' => 'DESC',
-                'showposts' => 3,
-                // 'category' => $catlist,
-                'exclude' => array( $post->ID )
-                ));
-                foreach($recent_posts as $recent_post) :
-                    $cardtitle = $recent_post->post_title;
-                    $cardid = $recent_post->ID;
-                    $cardlink = get_permalink($cardid);
-                    $cardthumb = get_the_post_thumbnail($cardid,'thumb');
-                    ?>
-                    <?php include( locate_template( 'includes/component-card.php' ) );  ?>
-                <?php endforeach; ?>
-            </div>
+            <div class="posts-list posts-list--flickity">
+            <div class="flickity-carousel flickity-carousel--4x">
 
+            <?php
+            $thispostid = $post->ID;
+            $thiscategory = get_the_category($post);
+            $thiscategoryid = $thiscategory[0]->term_id;
+            $related_posts = get_posts(array(
+                'showposts' => 8,
+                'category' => $thiscategoryid,
+                'exclude' => $thispostid
+            ));
+            ?>
+        
+            <?php foreach($related_posts as $related_post) :
+                $itemid = $related_post->ID;
+                $cardtitle = $related_post->post_title;
+                $cardlink = get_permalink($itemid);
+                $cardexcerpt = get_field('article_excerpt',$related_post);
+                $cardthumb = get_the_post_thumbnail($itemid,'thumb');
+                ?>
+                <div class="posts-list__item">
+                    <?php include(locate_template('includes/component-card.php')); ?>
+                </div>
+            <?php endforeach; ?>
+            
+            </div>
         </div>
     </div>
+
+
 </div>
 
-<?php endwhile;
-endif; ?>
+
 
 
 

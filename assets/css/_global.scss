@@ -421,7 +421,7 @@ img{
     color:$color-primary-feint;
   }
   .card{
-    background-color: transparent;
+    background-color: rgba(0,0,0,.3);
   }
 }
 @mixin component-light{
