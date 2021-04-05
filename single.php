@@ -88,7 +88,7 @@ while ( have_posts() ) : the_post(); ?>
                 <h2 class="article__related__title__title">Related Articles</h2>
             </div>
             <div class="posts-list posts-list--flickity">
-            <div class="flickity-carousel flickity-carousel--4x">
+            <div class="flickity-carousel flickity-carousel--3x">
 
             <?php
             $thispostid = $post->ID;

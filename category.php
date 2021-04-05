@@ -29,7 +29,7 @@
                             <h2 class="content-section__item__title__title">Latest</h2>
                         </div>
                         <div class="content-section__item__content">
-                            <div class="post-grid">
+                            <div class="posts-list">
                                 <?php
                                     $recent_posts = get_posts(array(
                                         'orderby' => 'date',

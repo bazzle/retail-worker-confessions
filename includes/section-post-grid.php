@@ -1,4 +1,4 @@
-<div class="post-grid">
+<div class="posts-list">
     <?php
     if ($sc_atts['number_of_posts'] == "all"){
         $numberofposts = -1;
