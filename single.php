@@ -82,7 +82,7 @@ while ( have_posts() ) : the_post(); ?>
     <?php endwhile;
     endif; ?>
 
-    <div class="article__related panel">
+    <div class="article__related component-dark panel">
         <div class="article__related__inner panel__inner">
             <div class="article__related__title">
                 <h2 class="article__related__title__title">Related Articles</h2>
@@ -91,14 +91,18 @@ while ( have_posts() ) : the_post(); ?>
             <div class="flickity-carousel flickity-carousel--3x">
 
             <?php
-            $thispostid = $post->ID;
-            $thiscategory = get_the_category($post);
-            $thiscategoryid = $thiscategory[0]->term_id;
-            $related_posts = get_posts(array(
-                'showposts' => 8,
-                'category' => $thiscategoryid,
-                'exclude' => $thispostid
-            ));
+                $thispostid = $post->ID;
+                $thiscategory = get_the_category($post);
+                $thiscategoryid = $thiscategory[0]->term_id;
+                $related_posts = get_posts(array(
+                    'showposts' => 6,
+                    'category' => $thiscategoryid,
+                    'exclude' => $thispostid
+                ));
+                $related_posts_count = count($related_posts);
+                if ($related_posts_count === 4 or $related_posts_count === 5){
+                    $related_posts = array_slice($related_posts, 0, 3);
+                }
             ?>
         
             <?php foreach($related_posts as $related_post) :

@@ -86,7 +86,6 @@
         padding-bottom: $gap*2;
     }
     &__related{
-        @include component-dark;
         background-color: $color-dark-gray;
         padding-top: $gap*2;
         padding-bottom: calc( #{$gap*2} + 60px );
