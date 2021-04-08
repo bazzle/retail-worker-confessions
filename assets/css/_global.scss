@@ -557,3 +557,15 @@ form{
     @include font-std;
   }
 }
+
+
+
+// MISC ========================================================================
+
+code{
+  background-color:$off-black;
+  color:chartreuse;
+  margin-bottom: $gap;
+  padding:1em;
+  display: block;
+}
