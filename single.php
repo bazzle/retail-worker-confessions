@@ -78,9 +78,9 @@ while ( have_posts() ) : the_post(); ?>
             </div>
         </footer>
     </article>
-    </div>
-    <?php endwhile;
-    endif; ?>
+</div>
+<?php endwhile;
+endif; ?>
 
     <div class="article__related component-dark panel">
         <div class="article__related__inner panel__inner">

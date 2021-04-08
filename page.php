@@ -24,6 +24,7 @@ while ( have_posts() ) : the_post(); ?>
                         <?php echo $bodyExtra; ?>
                     </div>
                     <?php endif; ?>
+                    <?php include( locate_template( 'includes/section-content-section.php') );  ?>
                 </div>
                 <aside class="article__aside sidebar">
                     <?php get_template_part('includes/section', 'sidebar'); ?>
