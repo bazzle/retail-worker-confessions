@@ -257,6 +257,8 @@ svg path{
 
 @mixin panel--nopad{
   width:100%;
+  padding-top:0;
+  padding-bottom:0;
 }
 
 @mixin container{

@@ -1,4 +1,40 @@
 .page{
+    &__header{
+        &.panel{
+            @include panel--nopad;
+        }
+        &__title{
+            @include title;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: $gap/2;
+        }
+        &__excerpt{
+            max-width: 600px;
+            p{
+                @include font-std;
+            }
+        }
+        .panel__inner{
+            @include break(medium) {
+                @include grid;
+                grid-template-columns:1fr 1fr;
+                grid-auto-rows: auto;
+                grid-template-areas:
+                "block_1 block_2";
+            }
+        }
+        &__main{
+            grid-area: block_1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: $gap;
+        }
+        &__side{
+            grid-area: block_2;
+        }
+    }
     &__main{
         .panel__inner{
             @include break(medium) {
@@ -27,11 +63,6 @@
     }
     &__content-section{
         margin-bottom: $gap;
-    }
-    &__title{
-        @include title;
-        width: 100%;
-        max-width: 675px;
     }
     &__main{
         background-color: $off-white;

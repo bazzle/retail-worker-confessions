@@ -1,4 +1,3 @@
-<?php get_template_part('includes/component', 'category-info'); ?>
 <?php
 $term = get_queried_object();
 if( have_rows('sidebar_item',$term) ):
