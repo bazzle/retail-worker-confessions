@@ -1,18 +1,128 @@
-.timeline{
-    background: gold;
-    &_items{
-        
+$containerwidth: $thesitewidth;
+
+.timeline {
+    background-color: $off-white;
+    &__title{
+        @include title(2.2rem);
+        padding-left: .5em;
+        border-left: 4px solid $color-accent;
+        margin-bottom:$gap*2;
     }
-    &__item{
-        &__title{
-            
+    &__item {
+        position: relative;
+        width: 100%;
+        display: flex;
+        &__card {
+            background-color: white;
+            width: calc(50% - #{$gap * 2});
+            margin-bottom: $gap * 2;
+            @media screen and (max-width: $containerwidth) {
+                width: calc(100% - #{$gap * 2});
+            }
         }
-        &__image{
-
+        &__line {
+            display: block;
+            width: $gap * 4;
+            position: relative;
+            &:after {
+                position: absolute;
+                left: 50%;
+                content: "";
+                display: block;
+                width: 2px;
+                background-color:$color-primary;
+                height: 100%;
+                transform: translate(-1px, 0);
+            }
         }
-        &__descriptions{
-
+        &__image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        &__title {
+            @include break-under(tablet) {
+                font-size: 1.4rem;
+            }
+            font-size: 1.5rem;
+            @include font-bold;
+            line-height: 1.2;
+            display: block;
+            margin-top: 1.5em;
+            margin-bottom: 1em;
+            padding: 0 $gap;
+            position:relative;
+            &:after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: white;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translate(50%, -50%) rotate(45deg);
+            }
+        }
+        &__date {
+            display: inline-flex;
+            position: absolute;
+            top: 50%;
+            @include pill;
+        }
+        &__description {
+            padding: $gap;
+            padding-top: 0;
+            margin: 0;
+        }
+        &:nth-of-type(odd) {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            .timeline__item__date {
+                right: -6rem;
+                transform: translate(50%, -50%);
+                @media screen and (max-width: $containerwidth) {
+                    right: unset;
+                    left: -6rem;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            .timeline__item__title {
+                &:after {
+                    @media screen and (max-width: $containerwidth) {
+                        position: absolute;
+                        right: unset;
+                        left: 0;
+                        top: 50%;
+                        transform: translate(-50%, -50%) rotate(45deg);
+                    }
+                }
+            }
+            @media screen and (max-width: $containerwidth) {
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+        }
+        &:nth-of-type(even) {
+            flex-direction: row;
+            justify-content: flex-end;
+            .timeline__item__title {
+                &:after {
+                    background-color: white;
+                    left: 0;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                }
+            }
+            .timeline__item__date {
+                left: -6rem;
+                transform: translate(-50%, -50%);
+            }
+        }
+        &:last-of-type {
+            padding-bottom: 0;
+            .timeline__item__card {
+                margin-bottom: 0;
+            }
         }
     }
-
 }

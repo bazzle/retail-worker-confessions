@@ -89,6 +89,9 @@ main{
   @include break(medium) {
     min-height: 1000px;
   }
+  &--nomin-height{
+    min-height:auto;
+  }
 }
 
 footer{
@@ -255,6 +258,11 @@ svg path{
   padding-bottom:$gap;
 }
 
+@mixin panel--doublepad{
+  padding-top:$gap*2;
+  padding-bottom:$gap*2;
+}
+
 @mixin panel--nopad{
   width:100%;
   padding-top:0;
@@ -296,6 +304,9 @@ svg path{
   &--nopad{
     padding-top:0;
     padding-bottom:0;
+  }
+  &--doublepad{
+    @include panel--doublepad;
   }
   &--nopad-top{
     padding-top:0;

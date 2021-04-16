@@ -18,8 +18,8 @@
         @include break-under(tablet) {
             font-size: 1.4rem;
         }
-        @include font-bold;
         font-size: 1.5rem;
+        @include font-bold;
         line-height: 1.2;
         display: block;
         margin-top: 1.5em;

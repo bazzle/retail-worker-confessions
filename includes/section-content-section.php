@@ -1,6 +1,5 @@
 <div class="content-section">
-<?php if( have_rows('content_section') ):
-    while( have_rows('content_section') ) : the_row();
+    <?php while( have_rows('content_section') ) : the_row();
         $row_config = get_sub_field('configuration');
         $row_content = get_sub_field('content');
         $row_title = get_sub_field('title');
@@ -16,6 +15,5 @@
             <?php echo $row_content; ?>
         </div>
     </div>
-    <?php endwhile;
-endif; ?>
+    <?php endwhile; ?>
 </div>

@@ -1,3 +1,8 @@
+<div class="sidebar__item">
+    <div class="sidebar__item__content">
+        <?php include( locate_template('includes/section-facebook-feature.php' ) ); ?>
+    </div>
+</div>
 <?php
 $term = get_queried_object();
 if( have_rows('sidebar_item',$term) ):

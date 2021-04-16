@@ -7,7 +7,8 @@ $catfields = get_fields('term_' . $thispostcatid);
 $catfielditem = get_field('category_sidebar', 'term_' . $thispostcatid);
 ?>
 
-<?php foreach ($catfielditem as $item) :
+<?php if ($catfielditem) :
+    foreach ($catfielditem as $item) :
     $thisblock = $item['block_sidebar_item'];
     $row_config = $thisblock['configuration'];
     $row_content = $thisblock['content'];
@@ -26,7 +27,7 @@ $catfielditem = get_field('category_sidebar', 'term_' . $thispostcatid);
         </div>
     </div>
 <?php endforeach; ?>
-
+<?php endif; ?>
 <?php endif; ?>
 
 

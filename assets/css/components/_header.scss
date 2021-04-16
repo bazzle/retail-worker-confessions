@@ -28,6 +28,11 @@
                         display: block;
                     }
                 }
+                &.current-menu-item{
+                    a{
+                        color: $color-primary;
+                    }
+                }
             }
         }
         @include break-under(sitewidth){

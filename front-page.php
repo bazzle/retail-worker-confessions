@@ -26,7 +26,9 @@
                             <?php echo $heropostExcerpt ?>
                         </p>
                     </div>
-                    <?php include( locate_template( 'includes/section-content-section.php') );  ?>
+                    <?php if( have_rows('content_section') ): ?>
+                        <?php include( locate_template( 'includes/section-content-section.php') );  ?>
+                    <?php endif; ?>
                 </div>
                 <div class="homepage__aside sidebar">
                     <?php get_template_part('includes/section', 'sidebar'); ?>
