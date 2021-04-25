@@ -35,12 +35,10 @@ while ( have_posts() ) : the_post(); ?>
         </div>
 
 
-        <?php
-            $timelineitems = get_field('timeline_items');
-            if (is_page(171) && $timelineitems) : ?>
-                    <?php get_template_part('includes/section','timeline'); ?>
-            <?php endif;
-        ?>
+        <?php $timelineitems = get_field('timeline_items');
+        if ($timelineitems) : ?>
+                <?php get_template_part('includes/section','timeline'); ?>
+        <?php endif; ?>
 
     </article>
     </div>

@@ -175,7 +175,7 @@ svg path{
     }
 };
 
-@mixin button($color-button:$color-primary){
+@mixin button($color-button:$color-link){
     cursor:pointer;
     padding:1em;
     display: inline-block;
