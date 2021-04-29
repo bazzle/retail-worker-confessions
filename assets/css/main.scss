@@ -10,7 +10,6 @@
 // components
 @import 'components/_header';
 @import 'components/_pill';
-@import 'components/_block-title';
 @import 'components/_sidebar';
 @import 'components/_signup-form';
 @import 'components/_sidebar-list';
@@ -23,6 +22,7 @@
 @import 'components/_facebook-feature';
 @import 'components/_breadcrumb';
 @import 'components/_author-box';
+@import 'components/_author-info-sidebar';
 @import 'components/_wpcf7-form';
 @import 'components/_backtop';
 @import 'components/_footer';
@@ -33,6 +33,8 @@
 @import '_homepage';
 @import '_page';
 @import '_article';
+// pages
+@import '_author';
 // CMS specific
 @import '_wordpress';
 // temp

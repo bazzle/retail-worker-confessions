@@ -46,6 +46,9 @@
             }
         }
     }
+    &__inner-title{
+        @include title-body;
+    }
     &__cats{
         @include align(center, left);
         margin-bottom: $gap/2;

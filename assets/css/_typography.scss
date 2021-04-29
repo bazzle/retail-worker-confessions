@@ -101,7 +101,9 @@ $line-height-std: 1.2;
     }
 }
 
-// title standard
+// TEXT BODY =================================================================================================
+
+// title
 @mixin title($size: 4.3rem) {
     @include font-display;
     font-size: clamp(2.6rem, 3.2vw, $size);
@@ -111,6 +113,21 @@ $line-height-std: 1.2;
     @include break-under(phone) {
         word-break: break-word;
     }
+}
+
+// title body
+@mixin title-body($size: 2.2rem){
+    @include font-display;
+    font-size: clamp(2.6rem, 3.2vw, $size);
+    @include break(tablet) {
+        font-size: $size;
+    }
+    @include break-under(phone) {
+        word-break: break-word;
+    }
+    padding-left: .5em;
+    border-left: 4px solid $color-accent;
+    margin-top:$gap*2;
 }
 
 // title display
@@ -141,6 +158,33 @@ $line-height-std: 1.2;
     @include text-background;
     text-align: left;
     display: inline-block;
+}
+
+.title{
+    @include title;
+}
+.title-body{
+    @include title-body;
+}
+
+@mixin block-title{
+    display: flex;
+    margin-bottom: $gap/2;
+    align-items: center;
+    gap: 1em;
+    @include text-blocky;
+    &:after{
+        content: '';
+        display: block;
+        flex-grow: 1;
+        border-top: 1px solid #DBDBDB;
+        height: 1px;
+        background-color: #ffffff;
+    }
+}
+
+.block-title{
+    @include block-title;
 }
 
 // HTML/BODY =================================================================================================
@@ -208,7 +252,7 @@ body {
     h3,
     h4,
     h5 {
-        @include title;
+        @include title-body;
         position: relative;
         bottom: 0.02em;
     }

@@ -1,6 +1,8 @@
 .author-box{
+    width: 100%;
     display: flex;
     align-items: top;
+    max-width:760px;
     @include break($sitewidth) {
         width: 66%;
     }
@@ -14,13 +16,20 @@
         }
     }
     &__about{
+        flex-grow: 1;
         margin-bottom: $gap/2;
+        @include font-std--bold;
+    }
+    &__link{
+        @include link-styled;
+        margin-top:$gap/2;
     }
     &__section-title{
         @include block-title;
         margin-bottom: $gap/2;
     }
     &__author-name{
+        display: inline-block;
         @include font-bold;
         font-size: 2.5rem;
         color: $color-primary;

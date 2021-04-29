@@ -4,10 +4,7 @@
         margin-top:$gap*2;
     }
     &__title{
-        @include title(2.2rem);
-        padding-left: .5em;
-        border-left: 4px solid $color-accent;
-        margin-top:$gap*2;
+        @include title-body;
     }
     &__item {
         position: relative;

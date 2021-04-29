@@ -46,9 +46,9 @@ while ( have_posts() ) : the_post(); ?>
                         <div class="article__author__image">
                             <img class="article__author__image__image" src="<?php echo $authorimage ?>" alt="Profile image of <?php echo $authorname ?>">
                         </div>
-                        <div class="article__author__name">
+                        <a class="article__author__name" href="<?php echo $authorpagelink ?>">
                             <?php echo $authorname; ?>
-                        </div>
+                        </a>
                     </div>
                     <div class="article__date">
                         <?php the_date(); ?>

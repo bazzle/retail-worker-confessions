@@ -8,11 +8,12 @@
         <p class="author-box__section-title">
             About the author
         </p>
-        <p class="author-box__author-name">
+        <a href="<?php echo $authorpagelink ?>" class="author-box__author-name">
             <?php echo $authorname; ?>
-        </p>
-        <p class="author-box__about__description">
+        </a>
+        <p class="author-box__description">
             <?php echo $authorbio ?>
         </p>
+        <a class="author-box__link" href="<?php $authorpagelink ?>">Read more</a>
     </div>
 </div>

@@ -1,0 +1,25 @@
+.author-info-sidebar{
+    &__socials{
+        &__item{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: flex-start;
+            padding:1em;
+            margin-top:$gap/2;
+            background-color: white;
+            &__icon{
+                display: block;
+                width:26px;
+                height: 26px;
+                flex-shrink: 0;
+            }
+            &__label{
+                display: block;
+                flex-grow: 1;
+                padding-left: 1em;
+                @include text-blocky--lower;
+            }
+        }
+    }
+}

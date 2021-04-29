@@ -9,6 +9,7 @@
     $authorimage = get_field('author_box', $authoridacf)['author_image'];
     $authorgravatar = get_avatar_url($authoremail);
     $authorbio = get_field('author_box', $authoridacf)['author_short_bio'];
+    $authorlongbio = get_field('author_box', $authoridacf)['author_long_bio'];
     $authorpagelink = get_author_posts_url($authorid);
     $twitter = get_field( 'author_box', $authoridacf)['author_twitter'];
     $instagram = get_field( 'author_box', $authoridacf)['author_instagram'];
@@ -20,28 +21,34 @@
 
 
 
-<article class="article">
+<article class="page author">
 
-    <header class="article__header panel">
+    <header class="page__header panel">
         <div class="panel__inner">
-            <h1 class="article__title"><?php echo $authorname ?></h1>
+            <div class="page__header__main">
+                <h1 class="page__header__title"><?php echo $authorname; ?></h1>
+            </div>
+            <?php if ($headerimage) : ?>
+            <div class="page__header__side">
+                <div class="page__header__image">
+                    <img src="<?php echo $headerimage['url'] ?>" alt="<?php echo $headerimage['alt'] ?>" />
+                </div>
+            </div>
+            <?php endif; ?>
         </div>
     </header>
+    
 
-    <div class="article__main panel">
+    <div class="page__main panel panel--doublepad">
+    
         <div class="panel__inner">
-            <div class="article__main-col main-col">
-                <div class="article__body">
-                    <?php echo $authorbio; ?>
+            <div class="main-col page__main-col">
+                <div class="page__body">
+                    <?php echo $authorlongbio; ?>
                 </div>
-                <?php $bodyExtra = get_field('bodyExtra'); ?>
-                <?php if ($bodyExtra) : ?>
-                <div class="article__misc">
-                    <?php echo $bodyExtra; ?>
-                </div>
-                <?php endif; ?>
+                
                 <div class="post-list">
-                    <h2>Content by <?php echo $name ?></h2>
+                    <h2 class="author__section-title">Content by <?php echo $authorname ?></h2>
                     <?php
                     query_posts(array(
                         'orderby' => 'date',
@@ -50,31 +57,57 @@
                         'showposts' => 5
                     ));
                     if (have_posts()) : ?>
-                    <ul class="post-list__list">
+                    <div class="posts-list">
                         <?php while (have_posts()) : the_post() ?>
-                        <?php $intro = get_field( "intro" ); ?>
-                        <li class="post-list__item">
-                            <h3 class="post-list__item__title">
-                                <a href="<?php echo get_permalink() ?>"><?php echo get_the_title() ?></a>
-                            </h3>
-                            <?php if($intro) : ?>
-                            <p class="post-list__item__description">
-                                <?php echo $intro ?>
-                            </p>
-                            <?php endif; ?>
-                        </li>
+                        <div class="posts-list__item">
+                            <?php
+                                $itemtitle = get_the_title();
+                                $itemlink = get_permalink();
+                                $objid = get_queried_object_id();
+                                $itemexcerpt = get_field('article_excerpt');
+                            ?>
+                            <?php include(locate_template('includes/component-post-list-item.php')); ?>
+                        </div>
                         <?php endwhile; ?>
-                    </ul>
+                    </div>
                     <?php else : ?>
                     <p>No posts</p>
                     <?php endif; ?>
                     <?php wp_reset_query(); ?>
                 </div>
             </div>
+            <div class="page__aside sidebar">
+                
+                <div class="sidebar__item">
+                    <div class="sidebar__item__content">
+                        <div class="author__profile-info">
+                            <div class="author__profile-info__image">
+                                <img src="<?php echo $authorimage ?>" alt="Profile pic" class="author__profile-info__image">
+                            </div>
+                            <div class="author__profile-info__socials">
+                                <a href="https://twitter.com/bazzle" class="author__profile-info__socials__item">
+                                    <svg class="author__profile-info__socials__item__icon">
+                                        <title>Facebook icon</title>
+                                        <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/build/svg/icons.svg#share-facebook" />
+                                    </svg>
+                                    <span class="author__profile-info__socials__item__label">Facebook</span>
+                                </a>
+                                <a href="https://twitter.com/bazzle" class="author__profile-info__socials__item">
+                                    <svg class="author__profile-info__socials__item__icon">
+                                        <title>Facebook icon</title>
+                                        <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/build/svg/icons.svg#share-twitter" />
+                                    </svg>
+                                    <span class="author__profile-info__socials__item__label">Twitter</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-            
+            </div>
         </div>
+        
     </div>
 
 </article>
