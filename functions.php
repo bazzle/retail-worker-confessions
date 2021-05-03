@@ -80,6 +80,17 @@ function posts_list($atts = []) {
     return ob_get_clean();
 }
 
+function posts_list_stacked($atts = []) {
+    $sc_atts = shortcode_atts([
+        'category' => '',
+        'number_of_posts' => '',
+        'exclude' => ''
+    ], $atts);
+	ob_start();
+    include( locate_template('includes/section-posts-list--stacked.php' ) );
+    return ob_get_clean();
+}
+
 function posts_list_thumb($atts = []) {
     $sc_atts = shortcode_atts([
         'number_of_posts' => '',
@@ -129,26 +140,29 @@ function category_info_sidebar(){
 
 function ad_vertical() {
     ob_start(); ?>
-    <div class="ad--vertical">
-        <img class="ad__image" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ads/ad-vertical.png" alt="Ad Horizontal">
-    </div>
-    <?php return ob_get_clean();
+<div class="ad--vertical">
+    <img class="ad__image" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ads/ad-vertical.png"
+        alt="Ad Horizontal">
+</div>
+<?php return ob_get_clean();
 }
 
 function ad_square() {
     ob_start(); ?>
-    <div class="ad--vertical ad--vertical-square">
-    <img class="ad__image" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ads/ad-square.png" alt="Ad Horizontal">
-    </div>
-    <?php return ob_get_clean();
+<div class="ad--vertical ad--vertical-square">
+    <img class="ad__image" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ads/ad-square.png"
+        alt="Ad Horizontal">
+</div>
+<?php return ob_get_clean();
 }
 
 function ad_horizontal() {
     ob_start(); ?>
-    <div class="ad--horizontal">
-       <img class="ad__image" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ads/ad-horizontal.png" alt="Ad Horizontal">
-    </div>
-    <?php return ob_get_clean();
+<div class="ad--horizontal">
+    <img class="ad__image" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ads/ad-horizontal.png"
+        alt="Ad Horizontal">
+</div>
+<?php return ob_get_clean();
 }
 
 function facebook_feature() {
@@ -163,6 +177,7 @@ function shortcodes_init(){
     add_shortcode('posts_list_basic', 'posts_list_basic');
     add_shortcode('posts_list_images', 'posts_list_images');
     add_shortcode('posts_list_thumb', 'posts_list_thumb');
+    add_shortcode('posts_list_stacked', 'posts_list_stacked');
     add_shortcode('signup_form', 'signup_form');
     add_shortcode('ad_vertical', 'ad_vertical');
     add_shortcode('ad_square', 'ad_square');
@@ -172,37 +187,53 @@ function shortcodes_init(){
 
 add_action('init', 'shortcodes_init');
 
+add_shortcode('wp_caption', 'fixed_img_caption_shortcode');
+add_shortcode('caption', 'fixed_img_caption_shortcode');
+function fixed_img_caption_shortcode($attr, $content = null) {
+// New-style shortcode with the caption inside the shortcode with the link and image tags.
+if ( ! isset( $attr['caption'] ) ) {
+    if ( preg_match( '#((?:<a [^>]+>s*)?<img [^>]+>(?:s*</a>)?)(.*)#is', $content, $matches ) ) {
+        $content = $matches[1];
+        $attr['caption'] = trim( $matches[2] );
+    }
+}
+ 
+// Allow plugins/themes to override the default caption template.
+$output = apply_filters('img_caption_shortcode', '', $attr, $content);
+if ( $output != '' )
+    return $output;
 
-    add_shortcode('wp_caption', 'fixed_img_caption_shortcode');
-    add_shortcode('caption', 'fixed_img_caption_shortcode');
-    function fixed_img_caption_shortcode($attr, $content = null) {
-    // New-style shortcode with the caption inside the shortcode with the link and image tags.
-    if ( ! isset( $attr['caption'] ) ) {
-        if ( preg_match( '#((?:<a [^>]+>s*)?<img [^>]+>(?:s*</a>)?)(.*)#is', $content, $matches ) ) {
-            $content = $matches[1];
-            $attr['caption'] = trim( $matches[2] );
-        }
-    }
- 
-    // Allow plugins/themes to override the default caption template.
-    $output = apply_filters('img_caption_shortcode', '', $attr, $content);
-    if ( $output != '' )
-        return $output;
- 
-    extract(shortcode_atts(array(
-        'id'    => '',
-        'align' => 'alignnone',
-        'width' => '',
-        'caption' => ''
-    ), $attr));
- 
-    if ( 1 > (int) $width || empty($caption) )
-        return $content;
- 
-    if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
- 
-    return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . $width . 'px">'
-    . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
-    }
+extract(shortcode_atts(array(
+    'id'    => '',
+    'align' => 'alignnone',
+    'width' => '',
+    'caption' => ''
+), $attr));
+
+if ( 1 > (int) $width || empty($caption) )
+    return $content;
+
+if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
+
+return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . $width . 'px">'
+. do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
+}
+
+// The filter callback function.
+function example_callback($string) {
+    $newstring = $string . ' yeeeeeee';
+    return $newstring;
+}
+add_filter( 'example_filter', 'example_callback');
+
+/*
+ * Apply the filters by calling the 'example_callback()' function
+ * that's hooked onto `example_filter` above.
+ *
+ * - 'example_filter' is the filter hook.
+ * - 'filter me' is the value being filtered.
+ * - $arg1 and $arg2 are the additional arguments passed to the callback.
+$value = apply_filters( 'example_filter', 'filter me', $arg1, $arg2 );
+
 
 ?>

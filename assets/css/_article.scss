@@ -1,4 +1,24 @@
 .article{
+    &__leadin-section{
+        &__inner{
+            @include break(medium) {
+                @include grid;
+                grid-template-columns:1fr 1fr 1fr;
+                grid-auto-rows: auto;
+                grid-template-areas:
+                "leadin_block_1 leadin_block_1 leadin_block_2";
+            }
+        }
+        &__main-col{
+            padding-top: $gap;
+            grid-area: leadin_block_1;
+            position: relative;
+        }
+        &__aside{
+            padding-top: $gap;
+            grid-area: leadin_block_2;
+        }
+    }
     &__main{
         &__inner{
             @include break(medium) {
@@ -8,6 +28,37 @@
                 grid-template-areas:
                 "block_1 block_1 block_2";
             }
+        }
+    }
+    &__main-col{
+        padding-top: $gap;
+        grid-area: block_1;
+        position: relative;
+    }
+    &__aside{
+        padding-top: $gap;
+        grid-area: block_2;
+    }
+    &__chunk{
+        &__inner{
+            @include break(medium) {
+                @include grid;
+                grid-template-columns:1fr 1fr 1fr;
+                grid-auto-rows: auto;
+                grid-template-areas:
+                "chunk_block_1 chunk_block_1 chunk_block_2";
+            }
+        }
+        &__main-col{
+            padding-top: $gap;
+            grid-area: chunk_block_1;
+            position: relative;
+        }
+        &__aside{
+            padding-top: $gap;
+            grid-area: chunk_block_2;
+        }
+        &__footer{
         }
     }
     &__cats{
@@ -39,15 +90,6 @@
     }
     &__main{
         background-color: $off-white;
-    }
-    &__main-col{
-        padding-top: $gap;
-        grid-area: block_1;
-        position: relative;
-    }
-    &__aside{
-        padding-top: $gap;
-        grid-area: block_2;
     }
     &__body{
         @extend %text-body-format;
@@ -98,5 +140,8 @@
             @include block-title;
             margin-bottom: $gap;
         }
+    }
+    .main-col{
+        min-height:unset!important;
     }
 }

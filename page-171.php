@@ -21,6 +21,7 @@
         </div>
     </header>
 
+
     <?php $timelineitems = get_field('timeline_items');
     if ($timelineitems) : ?>
             <?php get_template_part('includes/section','timeline'); ?>

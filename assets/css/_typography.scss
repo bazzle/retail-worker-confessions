@@ -127,7 +127,6 @@ $line-height-std: 1.2;
     }
     padding-left: .5em;
     border-left: 4px solid $color-accent;
-    margin-top:$gap*2;
 }
 
 // title display
@@ -152,39 +151,11 @@ $line-height-std: 1.2;
     @include font-bold;
 }
 
-// title module
-@mixin title-module {
-    @include text-blocky;
-    @include text-background;
-    text-align: left;
-    display: inline-block;
-}
-
 .title{
     @include title;
 }
 .title-body{
     @include title-body;
-}
-
-@mixin block-title{
-    display: flex;
-    margin-bottom: $gap/2;
-    align-items: center;
-    gap: 1em;
-    @include text-blocky;
-    &:after{
-        content: '';
-        display: block;
-        flex-grow: 1;
-        border-top: 1px solid #DBDBDB;
-        height: 1px;
-        background-color: #ffffff;
-    }
-}
-
-.block-title{
-    @include block-title;
 }
 
 // HTML/BODY =================================================================================================
@@ -206,9 +177,6 @@ body {
 }
 .text-blocky--tiny {
     @include text-blocky--tiny;
-}
-.title-module {
-    @include title-module;
 }
 
 // TEXT GAPS =================================================================================================

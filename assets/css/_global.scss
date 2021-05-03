@@ -331,10 +331,6 @@ svg path {
     position: relative;
     @include container--margins--narrow;
   }
-  &__title {
-    @include title-module;
-    margin-bottom: $gap--responsive;
-  }
 }
 
 .panel.hero:not(.panel--no-inner) {
@@ -589,40 +585,28 @@ img {
 
 // DIVIDERS ========================================================================
 
-@mixin divider--dark {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 0;
-  height: 2px;
+@mixin divider{
   display: block;
-  position: relative;
-  margin-bottom: 4rem;
-  &:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    position: relative;
-    top: 0;
-    background-color: black;
+  border-top: 1px solid #DBDBDB;
+  height: 1px;
+  background-color: #ffffff;
+}
+
+@mixin block-title{
+  display: flex;
+  margin-bottom: $gap/2;
+  align-items: center;
+  gap: 1em;
+  @include text-blocky;
+  &:after{
+    @include divider;
+    content: '';
+    flex-grow: 1;
   }
 }
 
-@mixin divider--light {
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 0;
-  height: 2px;
-  display: block;
-  position: relative;
-  margin-bottom: 4rem;
-  &:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    position: relative;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+.block-title{
+  @include block-title;
 }
 
 // FORMS ========================================================================
