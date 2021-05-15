@@ -54,14 +54,14 @@ function the_field_without_wpautop( $field_name ) {
 
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
-		'page_title' 	=> 'Menus',
-		'menu_title'	=> 'Menus',
-		'menu_slug'	=> 'menus',
-    ));
-	acf_add_options_page(array(
 		'page_title' 	=> 'Global',
 		'menu_title'	=> 'Global',
 		'menu_slug'	=> 'global',
+	));
+    acf_add_options_page(array(
+		'page_title' 	=> 'Confessions',
+		'menu_title'	=> 'Confessions',
+		'menu_slug'	=> 'Confessions_setings',
 	));
 }
 
@@ -225,6 +225,41 @@ function example_callback($string) {
     return $newstring;
 }
 add_filter( 'example_filter', 'example_callback');
+
+
+// Upvote function
+function add_ajax_scripts() {
+    wp_enqueue_script( 'ajaxcalls', get_template_directory_uri() . '/build/scripts/ajaxcalls.js', array(), '1.0.0', true );
+    wp_localize_script( 'ajaxcalls', 'ajax_object', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' )
+    ) );
+}
+add_action( 'wp_enqueue_scripts', 'add_ajax_scripts' );
+
+
+
+function upvote_update() {
+    $post_id = $_POST['post_id'];
+    $count = get_field('vote_number', $post_id);
+    $count++;
+    update_field( 'vote_number', $count, $post_id );
+    echo $count;
+    wp_die();
+}
+
+add_action( 'wp_ajax_upvote_update', 'upvote_update' );
+
+/*
+function remove_category( $string, $type )  {
+    if ( $type != 'single' && $type == 'category' && ( strpos( $string, 'category' ) !== false ) ){
+        $url_without_category = str_replace( "/category/", "/", $string );
+        return trailingslashit( $url_without_category );
+    }
+    return $string;
+}
+add_filter( 'user_trailingslashit', 'remove_category', 100, 2);
+*/
+
 
 /*
  * Apply the filters by calling the 'example_callback()' function

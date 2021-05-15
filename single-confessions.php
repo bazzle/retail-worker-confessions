@@ -5,7 +5,6 @@ if ( have_posts() ) :
 while ( have_posts() ) : the_post(); ?>
 
 <?php
-    $category = get_the_category();
     $authorid = get_the_author_meta('ID');
     $authoridacf = 'user_' . $authorid;
     $authorname = get_field('author_box', $authoridacf)['author_name'];
@@ -16,6 +15,7 @@ while ( have_posts() ) : the_post(); ?>
     $authorpagelink = get_author_posts_url($authorid);
     $twitter = get_field( 'author_box', $authoridacf)['author_twitter'];
     $instagram = get_field( 'author_box', $authoridacf)['author_instagram'];
+    $headerimage = get_field('confessions_header_image', 'option');
     //$date = the_date();
     if (empty($authorimage)){
         $authorimage = $authorgravatar;
@@ -28,51 +28,15 @@ while ( have_posts() ) : the_post(); ?>
         <header class="article__header panel">
             <div class="panel__inner">
                 <div class="article__cats">
-                    <?php foreach ($category as $cat) :
-                        $catname = $cat->name;
-                        $catlink = get_category_link($cat);
-                    ?>
-                    <a href="<?php echo $catlink ?>" class="article__cats__cat">
-                        <span><?php echo $catname ?></span>
+                    <a href="<?php echo get_site_url() . '/confessions/' ?>" class="article__cats__cat">
+                        <span>Confessions</span>
                     </a>
-                    <?php endforeach ?>
                 </div>
                 <h1 class="article__title"><?php the_title(); ?></h1>
             </div>
         </header>
 
         <div class="article__main">
-
-            <div class="article__leadin-section panel panel--nopad">
-                <div class="panel__inner article__leadin-section__inner">
-                    <div class="article__leadin-section__main-col main-col">
-                        <div class="article__author">
-                            <div class="article__author__image">
-                                <img class="article__author__image__image" src="<?php echo $authorimage ?>"
-                                    alt="Profile image of <?php echo $authorname ?>">
-                            </div>
-                            <a class="article__author__name" href="<?php echo $authorpagelink ?>">
-                                <?php echo $authorname; ?>
-                            </a>
-                        </div>
-                        <div class="article__date">
-                            <?php echo $thedate ?>
-                        </div>
-                        <div class="article__hero">
-                            <?php
-                                $heroImage = get_field("article_hero_image");
-                                $heroImageUrl = $heroImage['url'];
-                                $heroImageAlt = $heroImage['alt'];
-                                ?>
-                            <img class="article__hero__image" src="<?php echo $heroImageUrl ?>"
-                                alt="<?php echo $heroImageAlt ?>">
-                        </div>
-                    </div>
-                    <div class="article__leadin-section__aside aside">
-                        Aside here
-                    </div>
-                </div>
-            </div>
 
             <?php $articlechunks = get_field('article_content'); ?>
             <?php if ($articlechunks) : ?>
@@ -81,6 +45,36 @@ while ( have_posts() ) : the_post(); ?>
             $side = $chunk['article_chunk_side'];
             $footer = $chunk['article_chunk_footer'];
             ?>
+                <div class="article__leadin-section panel panel--nopad">
+                    <div class="panel__inner article__leadin-section__inner">
+                        <div class="article__leadin-section__main-col main-col">
+                            <div class="article__author">
+                                <div class="article__author__image">
+                                    <img class="article__author__image__image" src="<?php echo $authorimage ?>"
+                                        alt="Profile image of <?php echo $authorname ?>">
+                                </div>
+                                <a class="article__author__name" href="<?php echo $authorpagelink ?>">
+                                    <?php echo $authorname; ?>
+                                </a>
+                            </div>
+                            <div class="article__date">
+                                <?php echo $thedate ?>
+                            </div>
+                            <div class="article__hero">
+                                <?php
+                                    $heroImage = get_field("article_hero_image");
+                                    $heroImageUrl = $heroImage['url'];
+                                    $heroImageAlt = $heroImage['alt'];
+                                    ?>
+                                <img class="article__hero__image" src="<?php echo $heroImageUrl ?>"
+                                    alt="<?php echo $heroImageAlt ?>">
+                            </div>
+                        </div>
+                        <div class="article__leadin-section__aside aside">
+                            Aside here
+                        </div>
+                    </div>
+                </div>
 
                 <div class="article__chunk panel panel--nopad">
                     <div class="panel__inner article__chunk__inner">
@@ -110,34 +104,26 @@ while ( have_posts() ) : the_post(); ?>
                 <div class="article__main__panel panel--nopad">
                     <div class="panel__inner article__main__inner">
                         <div class="article__main-col main-col">
-                        <div class="article__author">
-                            <div class="article__author__image">
-                                <img class="article__author__image__image" src="<?php echo $authorimage ?>"
-                                    alt="Profile image of <?php echo $authorname ?>">
+                            <div class="article__author">
+                                <div class="article__author__image">
+                                    <img class="article__author__image__image" src="<?php echo $authorimage ?>"
+                                        alt="Profile image of <?php echo $authorname ?>">
+                                </div>
+                                <a class="article__author__name" href="<?php echo $authorpagelink ?>">
+                                    <?php echo $authorname; ?>
+                                </a>
                             </div>
-                            <a class="article__author__name" href="<?php echo $authorpagelink ?>">
-                                <?php echo $authorname; ?>
-                            </a>
+                            <div class="article__date">
+                                <?php the_date(); ?>
+                            </div>
+                            <div class="article__body">
+                                <?php wpautop(the_content()); ?>
+                            </div>
                         </div>
-                        <div class="article__date">
-                            <?php the_date(); ?>
-                        </div>
-                        <div class="article__hero">
-                            <?php
-                                $heroImage = get_field("article_hero_image");
-                                $heroImageUrl = $heroImage['url'];
-                                $heroImageAlt = $heroImage['alt'];
-                                ?>
-                            <img class="article__hero__image" src="<?php echo $heroImageUrl ?>"
-                                alt="<?php echo $heroImageAlt ?>">
-                        </div>
-                        <div class="article__body">
-                            <?php wpautop(the_content()); ?>
-                        </div>
+                        <aside class="article__aside sidebar">
+                            <?php get_template_part('includes/section', 'sidebar'); ?>
+                        </aside>
                     </div>
-                    <aside class="article__aside sidebar">
-                        <?php get_template_part('includes/section', 'sidebar'); ?>
-                    </aside>
                 </div>
             <?php endif; ?>
 

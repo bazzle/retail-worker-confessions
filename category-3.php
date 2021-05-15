@@ -51,6 +51,7 @@
                                     $authoridacf = 'user_' . $authorid;
                                     $itemexcerpt = get_field('confession_excerpt',$recent_post);
                                     $itemcontent = $recent_post->post_content;
+                                    $votenumber = get_field('vote_number',$recent_post);
                                     if ($confessionsettings['user_submission'] === true){
                                         $itemauthor = get_field('confession_author_name');
                                     } else {
@@ -82,7 +83,7 @@
                                         if ($confessionsettings['long_submission'] === true) : ?>
                                             <a href="<?php echo $itemlink ?>" class="post-list-item-stacked__footer__read-more">Read more</a>
                                         <?php else : ?>
-                                            <?php get_template_part('includes/component', 'voting') ?>
+                                            <?php include( locate_template( 'includes/component-voting.php', false, false ) );  ?>
                                         <?php endif; ?>
                                     </div>
                                 </div>

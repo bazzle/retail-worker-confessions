@@ -1,0 +1,13 @@
+.voting{
+    display: flex;
+    align-items: center;
+    &__button{
+        @include button;
+        margin-right: $gap;
+    }
+    &__counter{
+        @include pill;
+        //font-size:3rem;
+        padding: 1em;
+    }
+}
