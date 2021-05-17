@@ -1,0 +1,7 @@
+.sidebar-description{
+    background-color: white;
+    padding: 1.2em;
+    &__description{
+        @include font-std--bold;
+    }
+}

@@ -48,7 +48,7 @@
                                         $confessions_posts->the_post();
                                         $confessionsettings = get_field('confession_settings',$post);
                                         $itemid = $post->ID;
-                                        $itemdate = get_the_date( 'F n, Y', $post);
+                                        $thedate = get_the_time( 'F jS, Y' );
                                         $authorid = $post->post_author;
                                         $authoridacf = 'user_' . $authorid;
                                         $itemexcerpt = get_field('confession_excerpt',$post);
@@ -75,9 +75,8 @@
                                                 <a href="<?php echo $itemlink ?>"><?php echo $itemtitle; ?></a>
                                             </h3>
                                             <div class="post-list-item-stacked__meta">
-                                                <span
-                                                    class="post-list-item-stacked__meta__item"><?php echo $itemauthor ?></span>
-                                                <span class="post-list-item-stacked__meta__item"><?php echo $itemdate ?></span>
+                                                <span class="post-list-item-stacked__meta__item"><?php echo $itemauthor ?></span>
+                                                <span class="post-list-item-stacked__meta__item"><?php echo $thedate ?></span>
                                             </div>
                                             <div class="post-list-item-stacked__content">
                                                 <?php echo wpautop( $itemcontent ) ?>

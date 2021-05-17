@@ -1,13 +1,29 @@
 .voting{
-    display: flex;
-    align-items: center;
+    position: relative;
+    display: inline-block;
     &__button{
-        @include button;
-        margin-right: $gap;
+        @include align(center, center);
+        @include btn-state($color-primary, white);
+        box-shadow: $box-shadow;
+        border-radius: 50%;
+        width:40px;
+        height:40px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 0;
+        z-index: 1;
+    }
+    &__icon{
+        width: 25px;
+        height:25px;
+        transform: rotate(0deg);
+        color: currentColor;
     }
     &__counter{
         @include pill;
-        //font-size:3rem;
-        padding: 1em;
+        padding-right: 45px;
+        position: relative;
+        right: 0;
     }
 }

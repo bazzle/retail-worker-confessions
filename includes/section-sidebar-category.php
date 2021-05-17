@@ -1,6 +1,6 @@
 <div class="sidebar__item">
     <div class="sidebar__item__content">
-        <?php include( locate_template('includes/section-facebook-feature.php' ) ); ?>
+        <?php include( locate_template('includes/component-facebook-feature.php' ) ); ?>
     </div>
 </div>
 <?php

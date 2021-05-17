@@ -63,6 +63,11 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Confessions',
 		'menu_slug'	=> 'Confessions_setings',
 	));
+    acf_add_options_page(array(
+		'page_title' 	=> 'RWC Settings',
+		'menu_title'	=> 'RWC Settings',
+		'menu_slug'	=> 'rwc_settings',
+	));
 }
 
 add_image_size('tiny', 50, 50, true);
@@ -134,7 +139,7 @@ function signup_form(){
 
 function category_info_sidebar(){
     ob_start();
-    include( locate_template('includes/section-sidebar-category-info.php' ) );
+    include( locate_template('includes/component-sidebar-category-description.php' ) );
     return ob_get_clean();
 }
 
@@ -167,7 +172,7 @@ function ad_horizontal() {
 
 function facebook_feature() {
     ob_start();
-    include( locate_template('includes/section-facebook-feature.php' ) );
+    include( locate_template('includes/component-facebook-feature.php' ) );
     return ob_get_clean();
 }
 
@@ -218,13 +223,6 @@ if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
 return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . $width . 'px">'
 . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
 }
-
-// The filter callback function.
-function example_callback($string) {
-    $newstring = $string . ' yeeeeeee';
-    return $newstring;
-}
-add_filter( 'example_filter', 'example_callback');
 
 
 // Upvote function

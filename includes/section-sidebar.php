@@ -1,9 +1,9 @@
 <?php if ( is_single() ) : ?>
-
     <?php
     if($post->post_type === 'confessions'){
         $catfielditem = get_field('confessions_sidebar', 'option');
     } else {
+        $thispostcat = get_the_category();
         $thispostcatid = $thispostcat[0]->term_id;
         $catfields = get_fields('term_' . $thispostcatid);
         $catfielditem = get_field('category_sidebar', 'term_' . $thispostcatid);

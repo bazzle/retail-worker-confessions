@@ -16,7 +16,7 @@ while ( have_posts() ) : the_post(); ?>
     $authorpagelink = get_author_posts_url($authorid);
     $twitter = get_field( 'author_box', $authoridacf)['author_twitter'];
     $instagram = get_field( 'author_box', $authoridacf)['author_instagram'];
-    //$date = the_date();
+    $thedate = get_the_date();
     if (empty($authorimage)){
         $authorimage = $authorgravatar;
     };
@@ -69,19 +69,19 @@ while ( have_posts() ) : the_post(); ?>
                         </div>
                     </div>
                     <div class="article__leadin-section__aside aside">
-                        Aside here
+                        <?php get_template_part('includes/section', 'sidebar'); ?>
                     </div>
                 </div>
             </div>
 
-            <?php $articlechunks = get_field('article_content'); ?>
+        <?php $articlechunks = get_field('article_content'); ?>
+            <!-- If article is chunked up -->
             <?php if ($articlechunks) : ?>
             <?php foreach($articlechunks as $chunk) :
-            $content = $chunk['article_content_chunk'];
-            $side = $chunk['article_chunk_side'];
-            $footer = $chunk['article_chunk_footer'];
+                $content = $chunk['article_content_chunk'];
+                $side = $chunk['article_chunk_side'];
+                $footer = $chunk['article_chunk_footer'];
             ?>
-
                 <div class="article__chunk panel panel--nopad">
                     <div class="panel__inner article__chunk__inner">
                         <div class="article__chunk__main-col main-col">
@@ -104,8 +104,9 @@ while ( have_posts() ) : the_post(); ?>
                     </div>
                 </div>
                 <?php endif; ?>
-            <?php endforeach; ?>
 
+            <?php endforeach; ?>
+            <!-- If article is not chunked up -->
             <?php else : ?>
                 <div class="article__main__panel panel--nopad">
                     <div class="panel__inner article__main__inner">
@@ -120,7 +121,7 @@ while ( have_posts() ) : the_post(); ?>
                             </a>
                         </div>
                         <div class="article__date">
-                            <?php the_date(); ?>
+                            <?php echo $thedate; ?>
                         </div>
                         <div class="article__hero">
                             <?php
