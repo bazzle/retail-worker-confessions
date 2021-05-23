@@ -53,20 +53,34 @@ function the_field_without_wpautop( $field_name ) {
 }
 
 if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page(array(
-		'page_title' 	=> 'Global',
-		'menu_title'	=> 'Global',
-		'menu_slug'	=> 'global',
-	));
-    acf_add_options_page(array(
-		'page_title' 	=> 'Confessions',
-		'menu_title'	=> 'Confessions',
-		'menu_slug'	=> 'Confessions_setings',
-	));
     acf_add_options_page(array(
 		'page_title' 	=> 'RWC Settings',
 		'menu_title'	=> 'RWC Settings',
 		'menu_slug'	=> 'rwc_settings',
+	));
+	acf_add_options_page(array(
+		'page_title' 	=> 'Global',
+		'menu_title'	=> 'Global',
+		'menu_slug'	=> 'global_settings',
+        'parent_slug' => 'rwc_settings',
+	));
+    acf_add_options_page(array(
+		'page_title' 	=> 'Confessions',
+		'menu_title'	=> 'Confessions',
+		'menu_slug'	=> 'confessions_settings',
+        'parent_slug' => 'rwc_settings',
+	));
+    acf_add_options_page(array(
+		'page_title' 	=> 'Rants',
+		'menu_title'	=> 'Rants',
+		'menu_slug'	=> 'rants_settings',
+        'parent_slug' => 'rwc_settings',
+	));
+    acf_add_options_page(array(
+		'page_title' 	=> 'Misc',
+		'menu_title'	=> 'Misc',
+		'menu_slug'	=> 'misc_settings',
+        'parent_slug' => 'rwc_settings',
 	));
 }
 
@@ -176,6 +190,19 @@ function facebook_feature() {
     return ob_get_clean();
 }
 
+function insights_subnav(){
+    $args = array(
+        'child_of' => 3
+    );
+    $pages = get_pages($args);
+    foreach ($pages as $page) :
+        $pageid = $page->ID;
+        $pageurl = get_permalink($pageid);
+        $pagename = $page->post_title;
+        echo '<a href="' . $pageurl + '">' . $pagename . '</a>';
+    endforeach;
+}
+
 
 function shortcodes_init(){
     add_shortcode('posts_list', 'posts_list');
@@ -188,6 +215,7 @@ function shortcodes_init(){
     add_shortcode('ad_square', 'ad_square');
     add_shortcode('facebook_feature', 'facebook_feature');
     add_shortcode('category_info_sidebar','category_info_sidebar');
+    add_shortcode('insights_subnav','insights_subnav');
 }
 
 add_action('init', 'shortcodes_init');

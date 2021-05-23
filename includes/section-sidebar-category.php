@@ -1,26 +1,64 @@
-<div class="sidebar__item">
-    <div class="sidebar__item__content">
-        <?php include( locate_template('includes/component-facebook-feature.php' ) ); ?>
-    </div>
-</div>
-<?php
-$term = get_queried_object();
-if( have_rows('sidebar_item',$term) ):
-while( have_rows('sidebar_item',$term) ) : the_row();
-    $row_config = get_sub_field('configuration');
-    $row_content = get_sub_field('content');
-    $row_title = get_sub_field('title');
-    $row_cta = get_sub_field('cta'); ?>
-    <div class="sidebar__item">
-        <?php if ($row_config['is_title'] == true) : ?>
-            <div class="sidebar__item__title">
-                <h3 class="sidebar__item__title__title"><?php echo $row_title ?></h3>
-            </div>
-        <?php endif; ?>
-        <div class="sidebar__item__content">
-            <?php echo $row_content; ?>
-        </div>
-    </div>
+<?php if ( is_single() ) : ?>
     <?php
-endwhile;
-endif; ?>
+    if($post->post_type === 'confessions'){
+        $catfielditem = get_field('confessions_sidebar', 'option');
+    } elseif($post->post_type === 'rants') {
+        $catfielditem = get_field('rants_sidebar', 'option');
+    } else {
+        $thispostcat = get_the_category();
+        $thispostcatid = $thispostcat[0]->term_id;
+        $catfields = get_fields('term_' . $thispostcatid);
+        $catfielditem = get_field('category_sidebar', 'term_' . $thispostcatid);
+    }
+    ?>
+
+    <?php if ($catfielditem) :
+        foreach ($catfielditem as $item) :
+        $thisblock = $item['block_sidebar_item'];
+        $row_config = $thisblock['configuration'];
+        $row_content = $thisblock['content'];
+        $row_title = $thisblock['title'];
+    ?>
+        <div class="sidebar__item">
+            <?php if ($row_config['is_title'] == true) : ?>
+                <div class="sidebar__item__title">
+                    <h3 class="sidebar__item__title__title">
+                        <?php echo $row_title; ?>
+                    </h3>
+                </div>
+            <?php endif; ?>
+            <div class="sidebar__item__content">
+                <?php echo $row_content; ?>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+<?php else : ?>
+
+    <?php $sidebaritem = get_field('sidebar'); ?>
+    <?php if ($sidebaritem) : ?>
+        <?php
+            foreach ($sidebaritem as $item) :
+            $thisblock = $item['block_sidebar_item'];
+            $row_config = $thisblock['configuration'];
+            $row_content = $thisblock['content'];
+            $row_title = $thisblock['title'];
+        ?>
+        <div class="sidebar__item">
+            <?php if ($row_config['is_title'] == true) : ?>
+                <div class="sidebar__item__title">
+                    <h3 class="sidebar__item__title__title">
+                        <?php echo $row_title; ?>
+                    </h3>
+                </div>
+            <?php endif; ?>
+            <div class="sidebar__item__content">
+                <?php echo $row_content; ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <?php endif; ?>
+
+
+<?php endif; ?>

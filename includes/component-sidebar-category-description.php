@@ -2,9 +2,12 @@
 <div class="sidebar-description">
     <div class="sidebar-description__description">
         <p>
-            <?php if( $thispost->post_type == 'confessions' ){
+            <?php
+            if( $thispost->post_type == 'confessions'){
                 echo get_field('confession_description','option');
-            } else {
+            }elseif( $thispost->post_type == 'rants'){
+                    echo get_field('rants_description','option');
+            }else{
                 $thiscategoryid = get_the_category($thispost)[0]->term_id;
                 echo category_description($thiscategoryid);
             }

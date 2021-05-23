@@ -9,10 +9,10 @@ while ( have_posts() ) : the_post(); ?>
     $votenumber = get_field('vote_number');
     $authorid = $post->post_author;
     $authoridacf = 'user_' . $authorid;
-    $confessionsettings = get_field('confession_settings');
+    $rantssettings = get_field('confession_settings');
     $thedate = get_the_time( 'F jS, Y' );
-    $headerimage = get_field('confessions_header_image', 'option');
-    if ($confessionsettings['user_submission'] === true){
+    $headerimage = get_field('rants_header_image', 'option');
+    if ($rantssettings['user_submission'] === true){
         $authorname = get_field('confession_author_name');
     } else {
         $authorid = get_the_author_meta('ID');
@@ -35,8 +35,8 @@ while ( have_posts() ) : the_post(); ?>
         <header class="article__header panel">
             <div class="panel__inner">
                 <div class="article__cats">
-                    <a href="<?php echo get_site_url() . '/confessions/' ?>" class="article__cats__cat">
-                        <span>Confessions</span>
+                    <a href="<?php echo get_site_url() . '/rants/' ?>" class="article__cats__cat">
+                        <span>rants</span>
                     </a>
                 </div>
                 <h1 class="article__title"><?php the_title(); ?></h1>
@@ -66,7 +66,7 @@ while ( have_posts() ) : the_post(); ?>
                     </aside>
                 </div>
             </div>
-            <?php if ($confessionsettings['user_submission'] === false) : ?>
+            <?php if ($rantssettings['user_submission'] === false) : ?>
             <footer class="article__footer panel">
                 <div class="panel__inner">
                     <?php include( locate_template( 'includes/component-author.php', false, false ) );  ?>

@@ -1,3 +1,8 @@
+<?php
+    $authorbio = get_field('author_box', $authoridacf)['author_short_bio'];
+    $twitter = get_field( 'author_box', $authoridacf)['author_twitter'];
+    $instagram = get_field( 'author_box', $authoridacf)['author_instagram'];
+?>
 
 
 <div class="author-box">

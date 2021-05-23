@@ -53,9 +53,9 @@
                                     $itemcontent = $recent_post->post_content;
                                     $votenumber = get_field('vote_number',$recent_post);
                                     if ($confessionsettings['user_submission'] === true){
-                                        $itemauthor = get_field('confession_author_name');
+                                        $authorname = get_field('confession_author_name');
                                     } else {
-                                        $itemauthor = get_field('author_box', $authoridacf)['author_name'];
+                                        $authorname = get_field('author_box', $authoridacf)['author_name'];
                                     }
                                     if ($confessionsettings['long_submission'] === true){
                                         $itemcontent = $itemexcerpt;
@@ -72,7 +72,7 @@
                                         <a href="<?php echo $itemlink ?>"><?php echo $itemtitle; ?></a>
                                     </h3>
                                     <div class="post-list-item-stacked__meta">
-                                        <span class="post-list-item-stacked__meta__item"><?php echo $itemauthor ?></span>
+                                        <span class="post-list-item-stacked__meta__item"><?php echo $authorname ?></span>
                                         <span class="post-list-item-stacked__meta__item"><?php echo $itemdate ?></span>
                                     </div>
                                     <div class="post-list-item-stacked__content">

@@ -32,6 +32,7 @@
                 </div>
                 <div class="homepage__aside sidebar">
                     <?php get_template_part('includes/section', 'sidebar'); ?>
+
                 </div>
             </div>
         </div>

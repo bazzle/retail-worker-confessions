@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 <?php
     $term = get_queried_object();
-    $title = 'Confessions';
-    $excerpt = get_field('confession_description', 'option');
-    $headerimage = get_field('confessions_header_image', 'option');
+    $title = 'Rants';
+    $excerpt = get_field('rants_description', 'option');
+    $headerimage = get_field('rants_header_image', 'option');
     ?>
 
 <div class="page">
@@ -38,15 +38,15 @@
                                     'orderby' => 'date',
                                     'order' => 'DESC',
                                     'showposts' => 10,
-                                    'post_type' => 'confessions'
+                                    'post_type' => 'rants'
                                 );
-                                $confessions_posts = new WP_Query($args);
+                                $rants_posts = new WP_Query($args);
 
-                                if($confessions_posts->have_posts()) :
+                                if($rants_posts->have_posts()) :
 
-                                    while($confessions_posts->have_posts()) :
-                                        $confessions_posts->the_post();
-                                        $confessionsettings = get_field('confession_settings',$post);
+                                    while($rants_posts->have_posts()) :
+                                        $rants_posts->the_post();
+                                        $rantsettings = get_field('confession_settings',$post);
                                         $itemid = $post->ID;
                                         $thedate = get_the_time( 'F jS, Y' );
                                         $authorid = $post->post_author;
@@ -54,12 +54,12 @@
                                         $itemexcerpt = get_field('confession_excerpt',$post);
                                         $itemcontent = $post->post_content;
                                         $votenumber = get_field('vote_number',$post);
-                                        if ($confessionsettings['user_submission'] === true){
+                                        if ($rantsettings['user_submission'] === true){
                                             $authorname = get_field('confession_author_name');
                                         } else {
                                             $authorname = get_field('author_box', $authoridacf)['author_name'];
                                         }
-                                        if ($confessionsettings['long_submission'] === true){
+                                        if ($rantsettings['long_submission'] === true){
                                             $itemcontent = $itemexcerpt;
                                         } else {
                                             $itemcontent = $itemcontent;
@@ -82,7 +82,7 @@
                                                 <?php echo wpautop( $itemcontent ) ?>
                                             </div>
                                             <div class="post-list-item-stacked__footer">
-                                                <?php if ($confessionsettings['long_submission'] === true) : ?>
+                                                <?php if ($rantsettings['long_submission'] === true) : ?>
                                                     <a href="<?php echo $itemlink ?>"
                                                         class="post-list-item-stacked__footer__read-more">Read more</a>
                                                 <?php else : ?>
@@ -94,7 +94,7 @@
                                     <?php
                                     endwhile; 
                                 else : ?>
-                                    <p>No confessions yet</p>
+                                    <p>No rants yet</p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -108,9 +108,10 @@
 
             </div>
             <div class="page__aside sidebar">
-                <?php include( locate_template( 'includes/section-sidebar.php', false, false ) );  ?>
-                <?php  ?>
+                <?php get_template_part('includes/section', 'sidebar'); ?>
             </div>
+
+
         </div>
     </div>
 </div>
