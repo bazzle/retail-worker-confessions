@@ -90,6 +90,7 @@ add_image_size('main', 760, 420, true);
 
 function posts_list($atts = []) {
     $sc_atts = shortcode_atts([
+        'post_type' => '',
         'category' => '',
         'number_of_posts' => '',
         'exclude' => ''
@@ -114,6 +115,7 @@ function posts_list_thumb($atts = []) {
     $sc_atts = shortcode_atts([
         'number_of_posts' => '',
         'category' => '',
+        'post_type' => '',
         'exclude' => '',
         'scroll' => 'false'
     ], $atts);
@@ -133,6 +135,7 @@ function posts_list_basic($atts = []) {
     include( locate_template('includes/section-posts-list--basic.php' ) );
     return ob_get_clean();
 }
+
 function posts_list_images($atts = []) {
     $sc_atts = shortcode_atts([
         'number_of_posts' => '',

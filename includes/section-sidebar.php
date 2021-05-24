@@ -1,5 +1,6 @@
 <?php $thisobj = get_queried_object(); ?>
 <?php if ( is_single() ) : ?>
+<!-- IF SINGLE POST -------------------------------------------->
     <div class="sidebar__item">
         <div class="sidebar__item__content">
             <?php include( locate_template('includes/component-sidebar-category-description.php' ) ); ?>
@@ -44,7 +45,7 @@
 
 
 <?php elseif ( is_post_type_archive() ) : ?>
-
+<!-- IF CUSTOM POST TYPE ARCHIVE -------------------------------------------->
     <?php
     if ($thisobj->name === 'confessions') {
         $catfielditem = get_field('confessions_sidebar', 'option');
@@ -77,7 +78,10 @@
     <?php endif; ?>
 
 
-<?php else : ?>
+
+
+<?php elseif( is_category() ) : ?>
+<!-- IF CATEGORY ARCHIVE -------------------------------------------->
 
     <div class="sidebar__item">
         <div class="sidebar__item__content">
@@ -112,6 +116,33 @@
     <?php endif; ?>
 
 
+<?php elseif( is_page() ) : ?>
+
+    <?php
+    $catfielditem = get_field('sidebar');
+    ?>
+    
+    <?php if ($catfielditem) :
+        foreach ($catfielditem as $item) :
+            $thisblock = $item['block_sidebar_item'];
+            $row_config = $thisblock['configuration'];
+            $row_content = $thisblock['content'];
+            $row_title = $thisblock['title'];
+        ?>
+        <div class="sidebar__item">
+            <?php if ($row_config['is_title'] == true) : ?>
+                <div class="sidebar__item__title">
+                    <h3 class="sidebar__item__title__title">
+                        <?php echo $row_title; ?>
+                    </h3>
+                </div>
+            <?php endif; ?>
+            <div class="sidebar__item__content">
+                <?php echo $row_content; ?>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
 
 
 <?php endif; ?>

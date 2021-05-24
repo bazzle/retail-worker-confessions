@@ -3,13 +3,11 @@
     display: block;
     padding: 1em;
     background-color: white;
-    .homepage &{
-    }
     &__title{
         @include font-bold;
         line-height: 1.2em;
         display: block;
-        margin-bottom: .5em;
+        margin-bottom: 0;
     }
     &__excerpt{
     }

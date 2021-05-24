@@ -11,10 +11,16 @@
     } else {
         $category = $sc_atts['category'];
     };
+    if ($sc_atts['post_type'] != null){
+        $posttype = $sc_atts['post_type'];
+    } else {
+        $posttype = 'post';
+    }
     $recent_posts = get_posts(array(
     'orderby' => 'date',
     'order' => 'DESC',
     'showposts' => $numberofposts,
+    'post_type' => $posttype,
     'category' => $category,
     'exclude' => $exclude
     ));
