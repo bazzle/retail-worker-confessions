@@ -17,6 +17,8 @@ while ( have_posts() ) : the_post(); ?>
     $twitter = get_field( 'author_box', $authoridacf)['author_twitter'];
     $instagram = get_field( 'author_box', $authoridacf)['author_instagram'];
     $thedate = get_the_date();
+    $articleformat = get_field('article_format');
+    $articlechunks = get_field('article_content');
     if (empty($authorimage)){
         $authorimage = $authorgravatar;
     };
@@ -42,11 +44,13 @@ while ( have_posts() ) : the_post(); ?>
         </header>
 
         <div class="article__main">
-
-            <?php $articlechunks = get_field('article_content'); ?>
-            <?php if ($articlechunks) : ?>
+        
+            
+            <?php if ($articleformat === 'chunked') : ?>
+            <?php echo 'chunked' ?>
                 <?php include( locate_template( 'includes/section-article-main--chunked.php', false, false ) );  ?>
-            <?php else : ?>
+            <?php elseif ($articleformat === 'standard') : ?>
+                <?php echo 'standard' ?>
                 <?php include( locate_template( 'includes/section-article-main--standard.php', false, false ) );  ?>
             <?php endif; ?>
 

@@ -12,25 +12,42 @@
     } else {
         $category = $sc_atts['category'];
     };
-    if ($sc_atts['post_type'] != null){
-        $posttype = $sc_atts['post_type'];
-    } else {
+    if ($sc_atts['post_type'] === null){
         $posttype = 'post';
-    }
-    $recent_posts = get_posts(array(
-    'orderby' => 'date',
-    'order' => 'DESC',
-    'showposts' => $numberofposts,
-    'post_type' => $posttype,
-    'category' => $category,
-    'exclude' => $exclude
-    )); ?>
+    } else {
+        $posttype = $sc_atts['post_type'];
+    };
+
+
+    $args = array(
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'showposts' => $numberofposts,
+        'post_type' => $posttype,
+        'category' => $category,
+        'exclude' => $exclude,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'global_categories',
+                'terms' => 'featured'
+            ),
+        ),
+    );
+
+    $recent_posts = get_posts($args); ?>
+
     <?php foreach($recent_posts as $recent_post) :
         $itemid = $recent_post->ID;
         $cardtitle = $recent_post->post_title;
         $cardlink = get_permalink($itemid);
-        $cardexcerpt = get_field('article_excerpt',$recent_post);
         $cardthumb = get_the_post_thumbnail($itemid,'thumb');
+        if ($sc_atts['post_type'] == 'confessions'){
+            $cardexcerpt = get_field('confession_short_excerpt',$recent_post);
+        } elseif ($sc_atts['post_type'] == 'rants'){
+            $cardexcerpt = get_field('rant_short_excerpt',$recent_post);
+        } else {
+            $cardexcerpt = get_field('article_excerpt',$recent_post);
+        }
         ?>        
         <div class="posts-list__item">
             <?php include(locate_template('includes/component-card.php')); ?>
