@@ -113,7 +113,6 @@ function posts_list_stacked($atts = []) {
 
 function posts_list_thumb($atts = []) {
     $sc_atts = shortcode_atts([
-        'post_type' => '',
         'number_of_posts' => '',
         'category' => '',
         'post_type' => '',

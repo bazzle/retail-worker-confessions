@@ -56,12 +56,6 @@
 
 <!-- IF CATEGORY ARCHIVE -------------------------------------------->
 
-    <div class="sidebar__item">
-        <div class="sidebar__item__content">
-            <?php include( locate_template('includes/component-sidebar-category-description.php' ) ); ?>
-        </div>
-    </div>
-
     <?php
     $catfielditem = get_field('category_sidebar',$thisobj);
     ?>

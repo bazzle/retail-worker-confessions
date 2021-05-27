@@ -47,10 +47,8 @@ while ( have_posts() ) : the_post(); ?>
         
             
             <?php if ($articleformat === 'chunked') : ?>
-            <?php echo 'chunked' ?>
                 <?php include( locate_template( 'includes/section-article-main--chunked.php', false, false ) );  ?>
             <?php elseif ($articleformat === 'standard') : ?>
-                <?php echo 'standard' ?>
                 <?php include( locate_template( 'includes/section-article-main--standard.php', false, false ) );  ?>
             <?php endif; ?>
 
@@ -70,11 +68,13 @@ while ( have_posts() ) : the_post(); ?>
 <?php endwhile;
 endif; ?>
 
+<?php if ($category[0]->category_count > 2) : ?>
+
 <div class="article__related">
     <?php include( locate_template( 'includes/component-related-articles.php', false, false ) );  ?>
 </div>
 
-
+<?php endif; ?>
 
 
 

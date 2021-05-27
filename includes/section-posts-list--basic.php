@@ -16,11 +16,11 @@
     } else {
         $showimage = false;
     };
-    if ($sc_atts['post_type'] != null){
-        $posttype = $sc_atts['post_type'];
-    } else {
+    if ($sc_atts['post_type'] === null){
         $posttype = 'post';
-    }
+    } else {
+        $posttype = $sc_atts['post_type'];
+    };
     $recent_posts = get_posts(array(
     'orderby' => 'date',
     'order' => 'DESC',

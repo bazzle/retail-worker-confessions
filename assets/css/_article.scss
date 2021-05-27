@@ -115,6 +115,9 @@
         padding-bottom: $gap*2;
     }
     &__related{
+        &__title{
+            margin-bottom: $gap*2;
+        }
     }
     .main-col{
         min-height:unset!important;

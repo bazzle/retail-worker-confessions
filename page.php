@@ -3,13 +3,10 @@
 <?php if ( have_posts() ) : 
 while ( have_posts() ) : the_post(); ?>
 
-    <div class="page">
+<div class="page">
 
-        <header class="page__header panel">
-            <div class="panel__inner">
-                <h1 class="page__title"><?php the_title(); ?></h1>
-            </div>
-        </header>
+    <?php get_template_part('includes/section','page-head'); ?>
+
         
         <div class="page__main panel">
             <div class="panel__inner page__main__inner">

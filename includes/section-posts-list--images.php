@@ -11,27 +11,29 @@
     } else {
         $category = $sc_atts['category'];
     };
+    if ($sc_atts['post_type'] === null){
+        $posttype = 'post';
+    } else {
+        $posttype = $sc_atts['post_type'];
+    };
     $recent_posts = get_posts(array(
     'orderby' => 'date',
     'order' => 'DESC',
     'showposts' => $numberofposts,
+    'post_type' => $posttype,
     'category' => $category,
     'exclude' => $exclude
     ));
     
     foreach($recent_posts as $recent_post) :
         $itemid = $recent_post->ID;
-        $itemlink = get_permalink($itemid);
-        $excerpt = get_field('article_excerpt',$itemid);
         $itemthumb = get_the_post_thumbnail($itemid,'tiny');
-        if ( $sc_atts['excerpt_as_title'] === 'true' ){
-            $itemtitle = $excerpt;
-        } else {
-            $itemtitle = $recent_post->post_title;
-        }
+        $itemtitle = $recent_post->post_title;
+        $itemlink = get_permalink($itemid);
+        $itemexcerpt = get_field('article_excerpt',$recent_post);
         ?>
         <div class="posts-list__item">
-            <?php include(locate_template('includes/component-post-list-item--image.php')); ?>
+        <?php include(locate_template('includes/component-post-list-item--image.php')); ?>
         </div>
     <?php endforeach; ?>
 </div>
