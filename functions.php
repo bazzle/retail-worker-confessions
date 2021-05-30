@@ -256,7 +256,7 @@ return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width
 }
 
 
-// Upvote function
+// Ajax calls
 function add_ajax_scripts() {
     wp_enqueue_script( 'ajaxcalls', get_template_directory_uri() . '/build/scripts/ajaxcalls.js', array(), '1.0.0', true );
     wp_localize_script( 'ajaxcalls', 'ajax_object', array(
@@ -278,26 +278,26 @@ function upvote_update() {
 
 add_action( 'wp_ajax_upvote_update', 'upvote_update' );
 
-/*
-function remove_category( $string, $type )  {
-    if ( $type != 'single' && $type == 'category' && ( strpos( $string, 'category' ) !== false ) ){
-        $url_without_category = str_replace( "/category/", "/", $string );
-        return trailingslashit( $url_without_category );
+
+
+function orderbyconfessions() {    
+    $ajaxposts = new WP_Query([
+        'meta_key' => 'vote_number',
+        'orderby' => 'meta_value',
+        'order' => 'DESC',
+        'showposts' => 10,
+        'post_type' => 'confessions'
+    ]);
+    $response = '';
+    if ($ajaxposts->have_posts()) {
+        while($ajaxposts->have_posts()) : $ajaxposts->the_post();
+            $response .= get_template_part( 'includes/section', 'confessions-posts-2' );
+        endwhile;
+    } else {
+        $response = 'Nothing here';
     }
-    return $string;
+    echo $response;
+    wp_die();
 }
-add_filter( 'user_trailingslashit', 'remove_category', 100, 2);
-*/
-
-
-/*
- * Apply the filters by calling the 'example_callback()' function
- * that's hooked onto `example_filter` above.
- *
- * - 'example_filter' is the filter hook.
- * - 'filter me' is the value being filtered.
- * - $arg1 and $arg2 are the additional arguments passed to the callback.
-$value = apply_filters( 'example_filter', 'filter me', $arg1, $arg2 );
-
-
-?>
+add_action('wp_ajax_orderbyconfessions', 'orderbyconfessions');
+add_action('wp_ajax_nopriv_orderbyconfessions', 'orderbyconfessions'); ?>
