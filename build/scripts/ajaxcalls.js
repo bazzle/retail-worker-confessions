@@ -15,21 +15,11 @@ jQuery(document).ready( function($) {
         });
     });
 
+    const filterform = $('#post_filter');
     $('#orderby').on('change',function(evt){
-        let selectedindex = evt.currentTarget.options.selectedIndex;
-        if (selectedindex === 1){
-            // if most popular selected
-            $.ajax({
-                type: 'POST',
-                url: ajax_object.ajaxurl,
-                dataType: 'html',
-                data: {
-                    action: 'orderbyconfessions'
-                },
-                success: function(response) {
-                    $('.posts-list--stacked').html(response);
-                }
-            });
-        };
-    });
-});
+        filterform.submit(function(sub){
+            evt.preventDefault();
+            console.log('wew');
+        });
+    })
+})

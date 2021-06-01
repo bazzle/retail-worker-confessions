@@ -1,0 +1,7 @@
+.filter{
+    padding-bottom: $gap;
+    &__select{
+        border:0;
+        @include pill;
+    }
+}

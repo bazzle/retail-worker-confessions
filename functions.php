@@ -280,7 +280,7 @@ add_action( 'wp_ajax_upvote_update', 'upvote_update' );
 
 
 
-function orderbyconfessions() {    
+function orderbyconfessions() {
     $ajaxposts = new WP_Query([
         'meta_key' => 'vote_number',
         'orderby' => 'meta_value',
@@ -296,6 +296,7 @@ function orderbyconfessions() {
     } else {
         $response = 'Nothing here';
     }
+    wp_reset_postdata();
     echo $response;
     wp_die();
 }
