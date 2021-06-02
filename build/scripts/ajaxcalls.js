@@ -17,19 +17,19 @@ jQuery(document).ready( function($) {
 
     $('#orderby').on('change',function(evt){
         let selectedindex = evt.currentTarget.options.selectedIndex;
-        if (selectedindex === 1){
-            // if most popular selected
-            $.ajax({
-                type: 'POST',
-                url: ajax_object.ajaxurl,
-                dataType: 'html',
-                data: {
-                    action: 'orderbyconfessions'
-                },
-                success: function(response) {
-                    $('.posts-list--stacked').html(response);
-                }
-            });
-        };
+        var selection = (selectedindex === 1) ? 'orderbypopular' : 'orderbydate';
+        console.log(selection);
+        $.ajax({
+            type: 'POST',
+            url: ajax_object.ajaxurl,
+            dataType: 'html',
+            data: {
+                action: 'orderbyconfessions',
+                selection: selection
+            },
+            success: function(response) {
+                $('.posts-list--stacked').html(response);
+            }
+        });
     });
 });

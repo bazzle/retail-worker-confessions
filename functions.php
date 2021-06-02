@@ -280,10 +280,16 @@ add_action( 'wp_ajax_upvote_update', 'upvote_update' );
 
 
 
-function orderbyconfessions() {    
+function orderbyconfessions() {
+    $thisselection = $_POST['selection'];
+    if($thisselection === 'orderbydate'){
+        $orderby = 'date';
+    } else{
+        $orderby = 'meta_value';
+    }
     $ajaxposts = new WP_Query([
         'meta_key' => 'vote_number',
-        'orderby' => 'meta_value',
+        'orderby' => $orderby,
         'order' => 'DESC',
         'showposts' => 10,
         'post_type' => 'confessions'
