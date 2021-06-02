@@ -47,7 +47,7 @@
                                     $recent_posts = get_posts(array(
                                         'orderby' => 'date',
                                         'order' => 'DESC',
-                                        'showposts' => $featuredPostNumber,
+                                        'posts_per_page' => $featuredPostNumber,
                                         'category' => $thiscategory
                                         ));
                                     ?>

@@ -39,7 +39,7 @@
                                 $recent_posts = get_posts(array(
                                     'orderby' => 'date',
                                     'order' => 'DESC',
-                                    'showposts' => $numberofposts,
+                                    'posts_per_page' => $numberofposts,
                                     'category' => $thiscategory
                                 ));
                                 ?>

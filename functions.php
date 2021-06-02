@@ -282,6 +282,7 @@ add_action( 'wp_ajax_upvote_update', 'upvote_update' );
 
 function orderbyconfessions() {
     $thisselection = $_POST['selection'];
+    $thisposttype = $_POST['posttype'];
     if($thisselection === 'orderbydate'){
         $orderby = 'date';
     } else{
@@ -291,8 +292,8 @@ function orderbyconfessions() {
         'meta_key' => 'vote_number',
         'orderby' => $orderby,
         'order' => 'DESC',
-        'showposts' => 10,
-        'post_type' => 'confessions'
+        'posts_per_page' => -1,
+        'post_type' => $thisposttype
     ]);
     $response = '';
     if ($ajaxposts->have_posts()) {

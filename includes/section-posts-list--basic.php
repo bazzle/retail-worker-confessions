@@ -24,7 +24,7 @@
     $recent_posts = get_posts(array(
     'orderby' => 'date',
     'order' => 'DESC',
-    'showposts' => $numberofposts,
+    'posts_per_page' => $numberofposts,
     'post_type' => $posttype,
     'category' => $category,
     'exclude' => $exclude

@@ -18,14 +18,20 @@ jQuery(document).ready( function($) {
     $('#orderby').on('change',function(evt){
         let selectedindex = evt.currentTarget.options.selectedIndex;
         var selection = (selectedindex === 1) ? 'orderbypopular' : 'orderbydate';
-        console.log(selection);
+        if (document.body.classList.contains('post-type-archive-confessions')){
+            var posttype = 'confessions';
+        } else if (document.body.classList.contains('post-type-archive-rants')){
+            var posttype = 'rants';
+        }
+        console.log(posttype);
         $.ajax({
             type: 'POST',
             url: ajax_object.ajaxurl,
             dataType: 'html',
             data: {
                 action: 'orderbyconfessions',
-                selection: selection
+                selection: selection,
+                posttype: posttype
             },
             success: function(response) {
                 $('.posts-list--stacked').html(response);

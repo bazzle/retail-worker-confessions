@@ -33,12 +33,11 @@
                         </div>
                         <div class="content-section__item__content">
                             <div class="posts-list--stacked">
-
                                 <?php 
                                 $args = array(
                                     'orderby' => 'date',
                                     'order' => 'DESC',
-                                    'showposts' => 10,
+                                    'posts_per_page' => -1,
                                     'post_type' => 'confessions'
                                 );
                                 $confessions_posts = new WP_Query($args);

@@ -25,6 +25,7 @@
     <div class="page__main panel">
         <div class="panel__inner">
             <div class="page__main-col main-col">
+                <?php include(locate_template( 'includes/component-filter.php' )) ?>
                 <div class="content-section">
                     <div class="content-section__item">
                         <div class="content-section__item__title">
@@ -37,7 +38,7 @@
                                 $args = array(
                                     'orderby' => 'date',
                                     'order' => 'DESC',
-                                    'showposts' => 10,
+                                    'posts_per_page' => -1,
                                     'post_type' => 'rants'
                                 );
                                 $rants_posts = new WP_Query($args);

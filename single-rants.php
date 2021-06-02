@@ -97,7 +97,7 @@ endif; ?>
                 $thiscategory = get_the_category($post);
                 $thiscategoryid = $thiscategory[0]->term_id;
                 $related_posts = get_posts(array(
-                    'showposts' => 3,
+                    'posts_per_page' => 3,
                     'category' => $thiscategoryid,
                     'exclude' => $thispostid
                 ));

@@ -54,7 +54,7 @@
                         'orderby' => 'date',
                         'order' => 'DESC' ,
                         'author' => get_queried_object_id(),
-                        'showposts' => 5
+                        'posts_per_page' => 5
                     ));
                     if (have_posts()) : ?>
                     <div class="posts-list">
