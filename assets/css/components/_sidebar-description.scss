@@ -1,7 +1,7 @@
 .sidebar-description{
     background-color: white;
     padding: 1.2em;
+    @include raised-object;
     &__description{
-        @include font-std--bold;
     }
 }

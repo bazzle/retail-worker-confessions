@@ -12,7 +12,7 @@
         &__excerpt{
             max-width: 600px;
             p{
-                @include font-std;
+                @include font-body;
             }
         }
         .panel__inner{
@@ -75,6 +75,7 @@
     }
     &__body{
         @extend %text-body-format;
+        margin-bottom: $gap*2;
     }
     &__aside{
         grid-area: block_2;

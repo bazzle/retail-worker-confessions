@@ -93,7 +93,8 @@ function posts_list($atts = []) {
         'post_type' => '',
         'category' => '',
         'number_of_posts' => '',
-        'exclude' => ''
+        'exclude' => '',
+        'excerpts' => ''
     ], $atts);
 	ob_start();
     include( locate_template('includes/section-posts-list.php' ) );
@@ -116,8 +117,7 @@ function posts_list_thumb($atts = []) {
         'number_of_posts' => '',
         'category' => '',
         'post_type' => '',
-        'exclude' => '',
-        'scroll' => 'false'
+        'exclude' => ''
     ], $atts);
 	ob_start();
     include( locate_template('includes/section-posts-list--thumb.php' ) );
@@ -133,18 +133,6 @@ function posts_list_basic($atts = []) {
     ], $atts);
 	ob_start();
     include( locate_template('includes/section-posts-list--basic.php' ) );
-    return ob_get_clean();
-}
-
-function posts_list_images($atts = []) {
-    $sc_atts = shortcode_atts([
-        'number_of_posts' => '',
-        'category' => '',
-        'excerpt_as_title' => 'false',
-        'exclude' => ''
-    ], $atts);
-	ob_start();
-    include( locate_template('includes/section-posts-list--images.php' ) );
     return ob_get_clean();
 }
 
@@ -210,7 +198,6 @@ function insights_subnav(){
 function shortcodes_init(){
     add_shortcode('posts_list', 'posts_list');
     add_shortcode('posts_list_basic', 'posts_list_basic');
-    add_shortcode('posts_list_images', 'posts_list_images');
     add_shortcode('posts_list_thumb', 'posts_list_thumb');
     add_shortcode('posts_list_stacked', 'posts_list_stacked');
     add_shortcode('signup_form', 'signup_form');
@@ -277,7 +264,7 @@ function upvote_update() {
 }
 
 add_action( 'wp_ajax_upvote_update', 'upvote_update' );
-
+add_action( 'wp_ajax_nopriv_upvote_update', 'upvote_update' );
 
 
 function orderbyconfessions() {
@@ -298,7 +285,7 @@ function orderbyconfessions() {
     $response = '';
     if ($ajaxposts->have_posts()) {
         while($ajaxposts->have_posts()) : $ajaxposts->the_post();
-            $response .= get_template_part( 'includes/section', 'confessions-posts-2' );
+            $response .= get_template_part( 'includes/section', 'confessions-posts' );
         endwhile;
     } else {
         $response = 'Nothing here';

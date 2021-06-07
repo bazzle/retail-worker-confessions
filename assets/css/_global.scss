@@ -5,10 +5,6 @@ button {
   cursor: pointer;
 }
 
-img {
-  border-radius: $border-radius;
-}
-
 input,
 button,
 textarea {
@@ -20,7 +16,7 @@ textarea {
 
 body {
   background-color: $color-bg;
-  color: $off-black;
+  color: $color-text;
 }
 // anchor
 a {
@@ -270,6 +266,14 @@ svg path {
   font-size: 0.8em;
 }
 
+@mixin raised-object{
+  border-radius: $border-radius;
+  box-shadow:$box-shadow;
+  .component-dark &{
+    box-shadow:$box-shadow--black-bg;
+  }
+}
+
 // GLOBAL ELEMENTS AND CLASSES =====================================================================================
 
 // hidden/visible
@@ -299,7 +303,7 @@ ol {
   text-decoration-thickness: 0.1em;
   text-decoration-color: $color;
   display: inline-block;
-  @include font-std--bold;
+  @include font-semi;
   border-bottom:3px solid $color-primary;
   &:hover {
     color: $color-hover;
@@ -316,12 +320,6 @@ ol {
 // text no break
 .nobreak {
   white-space: nowrap;
-}
-
-// images
-
-img {
-  border-radius: none;
 }
 
 // component globals
@@ -345,24 +343,9 @@ img {
   svg:hover {
     color: $color-primary-feint;
   }
-  .card {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
 }
 @mixin component-light {
-  color: $color-primary;
   background-color: $white;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  ul,
-  ol,
-  p,
-  a {
-    color: $color-primary;
-  }
 }
 
 .component-dark {
@@ -526,7 +509,7 @@ form {
   }
   label {
     font-size: $font-size-std;
-    @include font-std;
+    @include font-body;
   }
 }
 

@@ -27,6 +27,11 @@
                         border-radius: 2px;
                         display: block;
                     }
+                    &.current-menu-item{
+                        a{
+                            color: white;
+                        }
+                    }
                 }
                 &.current-menu-item{
                     a{

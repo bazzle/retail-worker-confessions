@@ -7,7 +7,8 @@
             <?php echo $cardtitle; ?>
         </a>
         <?php if ($cardexcerpt) : ?>
-            <?php echo $cardexcerpt; ?>
+            <p><?php echo $cardexcerpt; ?></p>
         <?php endif; ?>
+        <a class="card__cta" href="<?php echo $cardlink ?>">Read more</a>
     </div>
 </div>

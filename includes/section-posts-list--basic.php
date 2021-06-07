@@ -11,11 +11,6 @@
     } else {
         $category = $sc_atts['category'];
     };
-    if ($sc_atts['images'] == true) {
-        $showimage = true;
-    } else {
-        $showimage = false;
-    };
     if ($sc_atts['post_type'] === null){
         $posttype = 'post';
     } else {

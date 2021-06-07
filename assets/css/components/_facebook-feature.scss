@@ -1,11 +1,12 @@
 .facebook-feature{
     background-color: white;
     padding: 1.2em;
+    @include raised-object;
     &__description{
         padding-bottom: $gap/2;
         margin-bottom: $gap/2;
         border-bottom: 1px solid #DBDBDB;
-        @include font-std--bold;
+        @include font-body--bold;
     }
     &__link{
         display: flex;
@@ -19,7 +20,7 @@
         &__label{
             display: block;
             margin-left: 1em;
-            @include font-std--bold;
+            @include font-body--bold;
         }
     }
 }

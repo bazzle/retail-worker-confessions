@@ -1,7 +1,8 @@
 // font loading
 
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Poppins:wght@600&family=Signika:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Signika:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
 
 @mixin font-display {
     font-family: "Poppins", sans-serif;
@@ -11,11 +12,19 @@
     font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
-@mixin font-std {
+@mixin font-semi {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+@mixin font-body {
     font-family: "Signika", sans-serif;
     font-weight: 300;
 }
-@mixin font-std--bold {
+@mixin font-body--medium {
+    font-family: "Signika", sans-serif;
+    font-weight: 400;
+}
+@mixin font-body--bold {
     font-family: "Signika", sans-serif;
     font-weight: 600;
 }
@@ -44,13 +53,13 @@ $line-height-std: 1.2;
 }
 
 @mixin text-body{
-    @include font-std;
+    @include font-body;
     font-size:$font-size-body-copy;
     line-height:1.6;
 }
 
 @mixin text-tiny {
-    @include font-std;
+    @include font-body;
     font-size:$font-size-tiny;
     line-height: 1.4;
 }
@@ -163,7 +172,7 @@ html {
     font-size: $font-size-base;
 }
 body {
-    @include font-std;
+    @include font-body--medium;
     font-size: $font-size-std;
     line-height: $line-height-std;
 }

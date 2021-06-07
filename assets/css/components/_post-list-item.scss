@@ -3,6 +3,13 @@
     display: block;
     padding: 1em;
     background-color: white;
+    @include raised-object;
+    .component-light &{
+        background-color:$off-white;
+    }
+    .component-dark &{
+        background-color:$darken-overlay;
+    }
     &__title{
         @include font-bold;
         line-height: 1.2em;
@@ -10,5 +17,7 @@
         margin-bottom: 0;
     }
     &__excerpt{
+        padding-top: 1em;
+        @include font-body;
     }
 }

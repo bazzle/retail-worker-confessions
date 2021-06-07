@@ -1,0 +1,8 @@
+.related-confessions{
+    padding-top: $gap*2;
+    padding-bottom: calc( #{$gap*2} + 60px );
+    &__title{
+        @include block-title;
+        margin-bottom: $gap;
+    }
+}

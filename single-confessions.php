@@ -80,10 +80,11 @@ while ( have_posts() ) : the_post(); ?>
     </article>
 </div>
 
-
 <?php endwhile;
 endif; ?>
 
-
+<div class="article__related">
+    <?php include( locate_template( 'includes/component-related-confessions.php') );  ?>
+</div>
 
 <?php get_footer(); ?>

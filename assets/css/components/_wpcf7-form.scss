@@ -8,7 +8,7 @@
     max-width: 650px;
     input, textarea{
         width: 100%;
-        @include font-std;
+        @include font-body;
     }
     input[type='submit']{
         width: auto;

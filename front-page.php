@@ -34,10 +34,10 @@
                                 <?php echo $heroPostTitle; ?>
                             </h2>
                         </a>
-                        <?php  ?>
                         <p class="homepage__hero-item__excerpt">
                             <?php echo $heropostExcerpt ?>
                         </p>
+                        <a class="homepage__hero-item__link" href="<?php echo $heroPostLink ?>">Read more</a>
                     </div>
                     <?php endif; ?>
                     <?php if( have_rows('content_section') ): ?>

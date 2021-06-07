@@ -47,7 +47,7 @@ $timelineitems = get_field('timeline_items');
 
     <?php if ($timelineafter) : ?>
         <div class="panel__inner">
-            <div class="timeline__beforeafter-copy timeline__beforeafter-copy--after">
+            <div class="timeline__beforeafter-copy">
                 <?php echo $timelineafter ?>
             </div>
         </div>

@@ -10,6 +10,7 @@
         margin-right: $gap;
         flex-shrink: 0;
         &__image{
+            @include raised-object;
             display: block;
             width: 144px;
             height: 144px;
@@ -18,7 +19,6 @@
     &__about{
         flex-grow: 1;
         margin-bottom: $gap/2;
-        @include font-std--bold;
     }
     &__link{
         @include link-styled;

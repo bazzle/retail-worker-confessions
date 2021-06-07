@@ -2,6 +2,7 @@
     background-color: #E7E7E7;
     &__timeline{
         margin-top:$gap*2;
+        margin-bottom:$gap*4;
     }
     &__title{
         @include title-body;
@@ -80,7 +81,7 @@
                 color:$color-accent;
             }
             p{
-                font-size: 1.7rem;
+                @include font-body;
                 line-height: 1.6;
             }
         }
@@ -136,8 +137,6 @@
     }
     &__beforeafter-copy{
         @extend %text-body-format;
-        &--after{
-            margin-top:$gap*2;
-        }
+        margin-bottom:$gap*2;
     }
 }

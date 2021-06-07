@@ -55,6 +55,7 @@
                                     $cardtitle = $recent_post->post_title;
                                     $cardlink = get_permalink($recent_post);
                                     $cardthumb = get_the_post_thumbnail($recent_post,'thumb');
+                                    $cardexcerpt = get_field('article_excerpt',$recent_post);
                                     ?>
                                 <?php include( locate_template( 'includes/component-card.php' ) );  ?>
                                 <?php endforeach; ?>
@@ -68,7 +69,7 @@
                             <h2 class="content-section__item__title__title">All posts</h2>
                         </div>
                         <div class="content-section__item__content">
-                            <div class="post-list__list">
+                            <div class="posts-list">
                                 <?php
                                     $args = array(
                                         'offset' => $featuredPostNumber,
@@ -80,8 +81,8 @@
                                             $category_posts->the_post();
                                             $itemtitle = get_the_title();
                                             $itemlink = get_the_permalink();
-                                            $itemthumb = get_the_post_thumbnail($itemid,'tiny');
-                                            include(locate_template('includes/component-post-list-item--image.php'));
+                                            $itemexcerpt = get_field('article_excerpt');
+                                            include(locate_template('includes/component-post-list-item.php'));
                                         endwhile;
                                         else:
                                     endif;

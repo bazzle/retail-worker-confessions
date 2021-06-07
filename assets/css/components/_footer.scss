@@ -1,5 +1,6 @@
 .footer{
     @include component-dark;
+    background-color: black;
     @include align(center, right);
     &__inner{
         display: flex;

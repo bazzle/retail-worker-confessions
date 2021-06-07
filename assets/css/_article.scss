@@ -78,6 +78,7 @@
     }
     &__hero{
         margin-bottom: $gap;
+        @include raised-object;
         &__image{
             width: 100%;
             height: auto;
@@ -99,8 +100,6 @@
     }
     &__misc{
         padding-top: $gap;
-    }
-    &__author{
     }
     &__date{
         @include pill;

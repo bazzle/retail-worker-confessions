@@ -29,7 +29,15 @@
         $itemid = $recent_post->ID;
         $itemtitle = $recent_post->post_title;
         $itemlink = get_permalink($itemid);
-        $itemexcerpt = get_field('article_excerpt',$recent_post);
+        if ($sc_atts['excerpts'] === 'true'){
+            if ($posttype === 'confessions'){
+                $itemexcerpt = get_field('confession_short_excerpt',$recent_post);
+            } elseif ($posttype === 'rants'){
+                $itemexcerpt = get_field('rant_short_excerpt',$recent_post);
+            } else {
+                $itemexcerpt = get_field('article_excerpt',$recent_post);
+            }
+        }
         ?>
         <div class="posts-list__item">
         <?php include(locate_template('includes/component-post-list-item.php')); ?>

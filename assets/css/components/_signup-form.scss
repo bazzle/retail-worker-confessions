@@ -35,7 +35,7 @@
         padding-bottom: $gap/2;
     }
     &__label{
-        @include font-std--bold;
+        @include font-body--bold;
         padding-bottom: .2em;
         display: block;
     }
