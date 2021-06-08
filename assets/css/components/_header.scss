@@ -1,5 +1,13 @@
 .header{
     @include header-height;
+    background-color: white;
+    position: relative;
+    @include break-under(sitewidth) {
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
     &__inner{
         @include header-height;
         display: flex;

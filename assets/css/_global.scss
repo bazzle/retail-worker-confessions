@@ -58,9 +58,17 @@ a {
 
 // MAIN LAYOUT =============================================================
 
+body.logged-in.admin-bar{
+  @include break-under(sitewidth) {
+    top: -32px !important;
+    position: relative!important;
+  }
+}
+
 html,
 body {
   width: 100%;
+  overflow-x:hidden;
 }
 
 body {
@@ -76,26 +84,22 @@ body {
 
 // main
 main {
-  min-height: 500px;
+  min-height: 1000px;
   position: relative;
-  // margin-top:$header-height-mobile;
   flex-grow: 1;
-  @include break(tablet) {
-    // margin-top:$header-height;
-  }
-}
-// to stretch the page
-.main-col {
-  @include break(medium) {
-    min-height: 1000px;
-  }
-  &--nomin-height {
-    min-height: auto;
+  @include break-under(sitewidth) {
+    padding-top:80px;
   }
 }
 
 footer {
   flex-shrink: 0;
+}
+
+#wpadminbar{
+  @include break-under(sitewidth) {
+    display: none;
+  }
 }
 
 // ANIMATION =============================================================

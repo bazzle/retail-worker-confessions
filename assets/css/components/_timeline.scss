@@ -13,7 +13,9 @@
         display: flex;
         &__card {
             background-color: white;
-            width: calc(100% - #{$gap * 2});
+            @include break(tablet) {
+                width: calc(100% - #{$gap * 2});
+            }
             box-shadow: 0px 3px 12px rgb(0 0 0 / 10%);
             margin-bottom:$gap * 2;
             @include break(sitewidth) {
@@ -35,6 +37,9 @@
                 height: 100%;
                 transform: translate(-1px, 0);
             }
+            @include break-under(tablet) {
+                display: none;
+            }
         }
         &__image {
             width: 100%;
@@ -44,8 +49,6 @@
         &__title{
             &__title{
                 @include title(2rem);
-            }
-            @include break-under(tablet) {
             }
             font-size: 1.5rem;
             @include font-bold;
@@ -65,13 +68,27 @@
                 right: 0;
                 top: 50%;
                 transform: translate(50%, -50%) rotate(45deg);
+                @include break-under(tablet) {
+                    display: none;
+                }
             }
         }
         &__date {
-            display: inline-flex;
-            position: absolute;
-            top: 50%;
-            @include pill;
+            display: block;
+            position: relative;
+            @include break-under(tablet) {
+                left:0;
+                display: block;
+                padding-bottom: 1em;
+            }
+            @include break(tablet) {
+                @include pill;
+                position: absolute;
+                top: 50%;
+                display: inline-flex;
+                left: unset;
+                right: unset;
+            }
         }
         &__description {
             padding: $gap;
@@ -85,47 +102,49 @@
                 line-height: 1.6;
             }
         }
-        &:nth-of-type(odd) {
-            flex-direction: row-reverse;
-            justify-content: flex-end;
-            .timeline__item__date {
-                right: -6rem;
-                transform: translate(50%, -50%);
+        @include break(tablet) {
+            &:nth-of-type(odd) {
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                .timeline__item__date {
+                    transform: translate(50%, -50%);
+                    right: -6rem;
+                    @include break-under(sitewidth) {
+                        right: unset;
+                        left: -6rem;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+                .timeline__item__title {
+                    &:after {
+                        @include break-under(sitewidth) {
+                            position: absolute;
+                            right: unset;
+                            left: 0;
+                            top: 50%;
+                            transform: translate(-50%, -50%) rotate(45deg);
+                        }
+                    }
+                }
                 @include break-under(sitewidth) {
-                    right: unset;
-                    left: -6rem;
-                    transform: translate(-50%, -50%);
+                    flex-direction: row;
+                    justify-content: flex-end;
                 }
             }
-            .timeline__item__title {
-                &:after {
-                    @include break-under(sitewidth) {
-                        position: absolute;
-                        right: unset;
+            &:nth-of-type(even) {
+                flex-direction: row;
+                justify-content: flex-end;
+                .timeline__item__title {
+                    &:after {
+                        background-color: white;
                         left: 0;
-                        top: 50%;
                         transform: translate(-50%, -50%) rotate(45deg);
                     }
                 }
-            }
-            @include break-under(sitewidth) {
-                flex-direction: row;
-                justify-content: flex-end;
-            }
-        }
-        &:nth-of-type(even) {
-            flex-direction: row;
-            justify-content: flex-end;
-            .timeline__item__title {
-                &:after {
-                    background-color: white;
-                    left: 0;
-                    transform: translate(-50%, -50%) rotate(45deg);
+                .timeline__item__date {
+                        left: -6rem;
+                        transform: translate(-50%, -50%);
                 }
-            }
-            .timeline__item__date {
-                left: -6rem;
-                transform: translate(-50%, -50%);
             }
         }
         &:last-of-type {

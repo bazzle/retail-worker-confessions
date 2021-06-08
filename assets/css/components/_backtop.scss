@@ -5,7 +5,12 @@
     $color_bg_darken: darken($color_bg, 8);
     border-radius: $border-radius $border-radius 0 0;
     text-align: center;
-    position: sticky;
+    position: fixed;
+    @include break(sitewidth) {
+        position: static;
+        bottom: 93px;
+        right: 0;
+    }
     width: 100vw;
     padding-left:5vw;
     padding-right:5vw;
@@ -13,37 +18,26 @@
     left: 0;
     color: $color-text;
     @include align(center, right);
-    z-index: 999;
-    &.visible{
-    }
+    z-index: 899;
     &__inner{
         @include container;
         position: relative;
-    }
-    &__button{
-        position:absolute;
-        right: $sidegap;
-        bottom: 0;
-        background: $white;
-        height: 60px;
-        @include align(center, center);
-        border-radius: $border-radius;
-        padding-left:1.7em;
-        padding-right:1.7em;
-        @keyframes fadeout{
-            from{
-                opacity:1;
+        @include break-under(sitewidth) {
+            @keyframes fadeout{
+                from{
+                    opacity:1;
+                }
+                to{
+                    opacity:0;
+                }
             }
-            to{
-                opacity:0;
-            }
-        }
-        @keyframes fadein{
-            from{
-                opacity:0;
-            }
-            to{
-                opacity:1;
+            @keyframes fadein{
+                from{
+                    opacity:0;
+                }
+                to{
+                    opacity:1;
+                }
             }
         }
         &.fadeout{
@@ -54,17 +48,34 @@
             animation: fadein .5s;
             animation-fill-mode:forwards;
         }
+    }
+    &__button{
+        position:absolute;
+        right: 0;
+        @include break(sitewidth) {
+            right: $sidegap;
+        }
+        bottom: 0;
+        background: $white;
+        height: 40px;
+        @include align(center, center);
+        border-radius: $border-radius;
+        padding-left:1em;
+        padding-right:1em;
         span {
             @include text-blocky(1.2rem);
             display:inline-block;
             margin-left:1em;
             color:$black;
             @include transition;
+            @include break-under(sitewidth) {
+                display: none;
+            }
         }
     }
     &__icon {
         transform: rotate(180deg);
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
     }
 }

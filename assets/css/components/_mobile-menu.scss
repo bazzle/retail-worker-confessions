@@ -1,6 +1,6 @@
 .mobile-menu{
     $bgcolor:white;
-    z-index: 100;
+    z-index: 999;
     display:block;
     @include break(sitewidth) {
       display:none;

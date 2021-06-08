@@ -8,12 +8,11 @@
     }
     &__profile{
         margin-right: $gap;
-        flex-shrink: 0;
         &__image{
             @include raised-object;
             display: block;
             width: 144px;
-            height: 144px;
+            height: auto;
         }
     }
     &__about{

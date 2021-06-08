@@ -95,8 +95,6 @@
     &__body{
         @extend %text-body-format;
         padding-bottom: $gap*2;
-        &__footer{
-        }
     }
     &__misc{
         padding-top: $gap;

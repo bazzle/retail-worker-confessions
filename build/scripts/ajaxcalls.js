@@ -2,6 +2,7 @@ jQuery(document).ready( function($) {
     $('.voting__button').on('click', function() {
         var self = $(this);
         var post_id = self.attr( 'id' );
+        console.log('click');
         $.ajax({
             type: 'POST',
             url: ajax_object.ajaxurl,
