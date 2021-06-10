@@ -18,7 +18,7 @@
                 if ($related_posts_count === 4 or $related_posts_count === 5){
                     $related_posts = array_slice($related_posts, 0, 3);
                 }
-            ?>
+                ?>
 
                 <?php foreach($related_posts as $related_post) :
                 $itemid = $related_post->ID;

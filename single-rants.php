@@ -12,6 +12,10 @@ while ( have_posts() ) : the_post(); ?>
     $rantssettings = get_field('confession_settings');
     $thedate = get_the_time( 'F jS, Y' );
     $headerimage = get_field('rants_header_image', 'option');
+    $nextpost = get_next_post();
+    $nextpostlink = get_permalink($nextpost);
+    $prevpost = get_previous_post();
+    $prevpostlink = get_permalink($prevpost);
     if ($rantssettings['user_submission'] === true){
         $authorname = get_field('confession_author_name');
     } else {
@@ -56,8 +60,38 @@ while ( have_posts() ) : the_post(); ?>
                         </div>
                         <div class="article__body">
                             <?php wpautop(the_content()); ?>
-                            <div class="article__body__footer">
+                        </div>
+                        <div class="article__body-footer">
+                            <div class="article__body-footer__voting">
                                 <?php include( locate_template( 'includes/component-voting.php', false, false ) );  ?>
+                            </div>
+                            <div class="article__body-footer__share">
+                                
+                                <h4 class="article__body-footer__share__title">
+                                    Share this
+                                </h4>
+                                <div class="article__body-footer__share__links">
+                                    <a class="article__body-footer__share__link" href="#">
+                                        <svg class="facebook-icon">
+                                            <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/build/svg/icons.svg#share-facebook" />
+                                        </svg>
+                                    </a>
+                                    <a class="article__body-footer__share__link" href="#">
+                                        <svg class="twitter-icon">
+                                            <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/build/svg/icons.svg#share-twitter" />
+                                        </svg>
+                                    </a>
+                                    <a class="article__body-footer__share__link" href="#">
+                                        <svg class="instagram-icon">
+                                            <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/build/svg/icons.svg#share-instagram" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="article__footer__link">
+                                <?php if ($prevpost) : ?>
+                                    <a href="<?php echo $prevpostlink ?>" class="article__footer__link__link">Next Confession</a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

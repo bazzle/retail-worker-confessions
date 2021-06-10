@@ -48,7 +48,7 @@
         } else {
             $cardexcerpt = get_field('article_excerpt',$recent_post);
         }
-        ?>        
+        ?>
         <div class="posts-list__item">
             <?php include(locate_template('includes/component-card.php')); ?>
         </div>

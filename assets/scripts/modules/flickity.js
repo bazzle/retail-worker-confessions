@@ -2,9 +2,11 @@
 const flickityelem2x = document.querySelector('.flickity-carousel--2x');
 const flickityelem3x = document.querySelector('.flickity-carousel--3x');
 
+
 function flickity(x){
 
   if (flickityelem2x !== null){
+    console.log('ok');
     const flickitychildren = flickityelem2x.childElementCount;
     if (flickitychildren > 2 && x.matches){
     var flkty2x = new Flickity( flickityelem2x, {
@@ -12,7 +14,8 @@ function flickity(x){
       prevNextButtons: false,
       freeScroll: false,
       cellAlign: 'left',
-      setGallerySize: true
+      setGallerySize: true,
+      wrapAround: true
     });
     } else {
       flickityelem2x.className = "";
@@ -29,7 +32,8 @@ function flickity(x){
         prevNextButtons: false,
         freeScroll: false,
         cellAlign: 'left',
-        setGallerySize: true
+        setGallerySize: true,
+        wrapAround: true
       });
     } else {
       flickityelem3x.className = "";
@@ -42,4 +46,5 @@ function flickity(x){
 
 
 var x = window.matchMedia("(max-width: 700px)")
+console.log(x);
 flickity(x);

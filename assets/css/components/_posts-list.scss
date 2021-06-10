@@ -65,18 +65,5 @@
                 }
             }
         }
-        .posts-list__item{
-            &:after{
-                content: "";
-                height: 100%;
-                width: 100%;
-                display: block;
-                position: absolute;
-                background-color: white;
-                .component-dark &{
-                    background-color: $off-black;
-                }
-            }
-        }
     }
 }
