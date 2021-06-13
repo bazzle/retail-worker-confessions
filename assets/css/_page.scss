@@ -9,10 +9,16 @@
             max-width: 600px;
             margin-bottom: $gap/2;
         }
-        &__excerpt{
-            max-width: 600px;
-            p{
-                @include font-body;
+        &__cat-description-mobile{
+            width: 100%;
+            margin-top: $gap;
+            margin-bottom: $gap;
+            display: block;
+            @include break(medium) {
+                display: none;
+            }
+            a{
+                @include link-styled--inline;
             }
         }
         .panel__inner{

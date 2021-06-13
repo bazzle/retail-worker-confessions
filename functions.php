@@ -144,7 +144,7 @@ function signup_form(){
 
 function category_info_sidebar(){
     ob_start();
-    include( locate_template('includes/component-sidebar-category-description.php' ) );
+    include( locate_template('includes/component-category-description.php' ) );
     return ob_get_clean();
 }
 
@@ -181,6 +181,12 @@ function facebook_feature() {
     return ob_get_clean();
 }
 
+function contribute_cta() {
+    ob_start();
+    include( locate_template('includes/component-sidebar-contribute.php' ) );
+    return ob_get_clean();
+}
+
 function insights_subnav(){
     $args = array(
         'child_of' => 3
@@ -206,6 +212,7 @@ function shortcodes_init(){
     add_shortcode('facebook_feature', 'facebook_feature');
     add_shortcode('category_info_sidebar','category_info_sidebar');
     add_shortcode('insights_subnav','insights_subnav');
+    add_shortcode('contribute_cta','contribute_cta');
 }
 
 add_action('init', 'shortcodes_init');

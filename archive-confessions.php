@@ -11,7 +11,9 @@
         <div class="panel__inner">
             <div class="page__header__main">
                 <h1 class="page__header__title"><?php echo $title; ?></h1>
-                <div class="page__header__excerpt"><?php echo $excerpt; ?></div>
+                <div class="page__header__cat-description-mobile">
+                    <?php include( locate_template('includes/component-category-description--mobile.php' ) ); ?>
+                </div>
             </div>
             <?php if ($headerimage) : ?>
             <div class="page__header__side">
@@ -28,9 +30,6 @@
                 <?php include(locate_template( 'includes/component-filter.php' )) ?>
                 <div class="content-section">
                     <div class="content-section__item">
-                        <div class="content-section__item__title">
-                            <h2 class="content-section__item__title__title">Latest</h2>
-                        </div>
                         <div class="content-section__item__content">
                             <div class="posts-list--stacked">
                                 <?php 

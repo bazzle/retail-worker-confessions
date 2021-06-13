@@ -14,7 +14,9 @@
         <div class="panel__inner">
             <div class="page__header__main">
                 <h1 class="page__header__title"><?php echo $title; ?></h1>
-                <div class="page__header__excerpt"><?php echo $excerpt; ?></div>
+                <div class="page__header__cat-description-mobile">
+                    <?php include( locate_template('includes/component-category-description--mobile.php' ) ); ?>
+                </div>
             </div>
             <?php if ($headerimage) : ?>
             <div class="page__header__side">

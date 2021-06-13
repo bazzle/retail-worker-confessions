@@ -27,19 +27,21 @@ $itemlink = get_permalink($itemid);
     <h3 class="post-list-item-stacked__title">
         <a href="<?php echo $itemlink ?>"><?php echo $itemtitle; ?></a>
     </h3>
-    <div class="post-list-item-stacked__meta">
-        <span class="post-list-item-stacked__meta__item"><?php echo $authorname ?></span>
-        <span class="post-list-item-stacked__meta__item"><?php echo $thedate ?></span>
+    <div class="post-list-item-stacked__top-row">
+        <div class="post-list-item-stacked__meta">
+            <span class="post-list-item-stacked__meta__item"><?php echo $authorname ?></span>
+            <span class="post-list-item-stacked__meta__item"><?php echo $thedate ?></span>
+        </div>
+        <div class="post-list-item-stacked__upvote">
+            <?php include( locate_template( 'includes/component-voting.php', false, false ) );  ?>
+        </div>
     </div>
     <div class="post-list-item-stacked__content">
         <?php echo wpautop( $itemcontent ) ?>
     </div>
     <div class="post-list-item-stacked__footer">
         <?php if ($confessionsettings['long_submission'] === true) : ?>
-            <a href="<?php echo $itemlink ?>"
-                class="post-list-item-stacked__footer__read-more">Read more</a>
-        <?php else : ?>
-            <?php include( locate_template( 'includes/component-voting.php', false, false ) );  ?>
+            <a href="<?php echo $itemlink ?>" class="post-list-item-stacked__footer__read-more">Read more</a>
         <?php endif; ?>
     </div>
 </div>

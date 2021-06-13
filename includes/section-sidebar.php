@@ -8,11 +8,21 @@
 
     <div class="sidebar__item">
         <div class="sidebar__item__content">
-            <?php include( locate_template('includes/component-sidebar-category-description.php' ) ); ?>
+            <div class="sidebar-description">
+                <div class="sidebar-description__description">
+                    <?php include( locate_template('includes/component-category-description.php' ) ); ?>
+                </div>
+                <?php if($post->post_type === 'rants' or $post->post_type === 'confessions') : ?>
+                <p class="sidebar-description__contribute">
+                    <span class="sidebar-description__contribute__pre">Interested in sharing your story?</span>
+                    <a class="sidebar-description__contribute__link" href="<?php echo get_site_url() . '/submit/' ?>">contribute</a>
+                </p>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
-    <?php
 
+    <?php
     if($post->post_type === 'confessions'){
         $catfielditem = get_field('confessions_sidebar', 'option');
     } elseif($post->post_type === 'rants') {

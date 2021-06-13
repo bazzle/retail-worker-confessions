@@ -1,4 +1,24 @@
 .article{
+    &__header{
+        &__title{
+            @include title;
+            width: 100%;
+            max-width: 760px;
+            margin-bottom: $gap/2;
+        }
+        &__cat-description-mobile{
+            width: 100%;
+            margin-top: $gap;
+            margin-bottom: $gap;
+            display: block;
+            @include break(medium) {
+                display: none;
+            }
+            a{
+                @include link-styled--inline;
+            }
+        }
+    }
     &__leadin-section{
         &__inner{
             @include break(medium) {
@@ -83,11 +103,6 @@
             width: 100%;
             height: auto;
         }
-    }
-    &__title{
-        @include title;
-        width: 100%;
-        max-width: 675px;
     }
     &__main{
         background-color: $off-white;

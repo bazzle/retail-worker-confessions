@@ -1,0 +1,15 @@
+.sidebar-contribute{
+    display: flex;
+    align-items: stretch;
+    max-width: 500px;
+    background-color:white;
+    @include raised-object;
+    &__pre{
+        padding:$gap/2;
+        flex-grow:1;
+    }
+    &__link{
+        @include button($color-primary);
+        border-radius: none;
+    }
+}

@@ -1,7 +1,21 @@
 .sidebar-description{
     background-color: white;
-    padding: 1.2em;
     @include raised-object;
     &__description{
+        padding: 1.2em;
+    }
+    &__contribute{
+        display: flex;
+        align-items: stretch;
+        max-width: 500px;
+        background-color:$off-white;
+        &__pre{
+            padding:$gap/2;
+            flex-grow:1;
+        }
+        &__link{
+            @include button($color-primary);
+            border-radius: none;
+        }
     }
 }

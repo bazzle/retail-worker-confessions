@@ -314,6 +314,17 @@ ol {
     text-decoration-color: $color-hover;
   }
 }
+@mixin link-styled--inline($color: black) {
+  color: $color;
+  text-decoration-thickness: 0.1em;
+  text-decoration-color: $color;
+  display: inline-block;
+  border-bottom:2px solid $color-primary;
+  &:hover {
+    color: $color-hover;
+    text-decoration-color: $color-hover;
+  }
+}
 
 // text highlight
 ::selection {
@@ -387,7 +398,8 @@ ol {
 @mixin button($color-button: $color-link) {
   cursor: pointer;
   padding: 1em;
-  display: inline-block;
+  @include align;
+  display: inline-flex;
   width: auto;
   text-align: center;
   position: relative;

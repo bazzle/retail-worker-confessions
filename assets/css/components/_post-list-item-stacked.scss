@@ -4,11 +4,16 @@
         @include title(3.2rem);
         margin-top: $gap;
     }
+    &__top-row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: $gap;
+        gap: $gap/2;
+    }
     &__meta{
         @include pill;
-        padding-left: 1em;
-        padding-right: 1em;
-        margin-top: $gap;
         &__item{
             &:after{
                 content:'|';

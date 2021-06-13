@@ -43,7 +43,10 @@ while ( have_posts() ) : the_post(); ?>
                         <span>rants</span>
                     </a>
                 </div>
-                <h1 class="article__title"><?php the_title(); ?></h1>
+                <div class="article__header__cat-description-mobile">
+                <?php include( locate_template('includes/component-category-description--mobile.php' ) ); ?>
+                </div>
+                <h1 class="article__header__title"><?php the_title(); ?></h1>
             </div>
         </header>
 
@@ -88,7 +91,7 @@ while ( have_posts() ) : the_post(); ?>
                                     </a>
                                 </div>
                             </div>
-                            <div class="article__footer__link">
+                            <div class="article__body-footer__link">
                                 <?php if ($prevpost) : ?>
                                     <a href="<?php echo $prevpostlink ?>" class="article__footer__link__link">Next Confession</a>
                                 <?php endif; ?>

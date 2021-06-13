@@ -1,8 +1,8 @@
 <form class="filter">
 
-    <select class="filter__select" name="orderby" id="orderby">
-        <option class="orderby__date" value="date">Order by date</option>
-        <option class="orderby__popular" value="popular">Order by most popular</option>
-    </select>
+    <input id="date" type="radio" name="filter" class="orderby orderby__date" value="orderbydate">
+    <label for="date">Order by date</label>
+    <input id="popular" type="radio" name="filter" class="orderby orderby__popular" value="orderbypopular">
+    <label for="popular">Order by most popular</label>
 
 </form>

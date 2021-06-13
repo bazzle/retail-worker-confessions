@@ -2,7 +2,6 @@ jQuery(document).ready( function($) {
     $('.voting__button').on('click', function() {
         var self = $(this);
         var post_id = self.attr( 'id' );
-        console.log('click');
         $.ajax({
             type: 'POST',
             url: ajax_object.ajaxurl,
@@ -16,22 +15,22 @@ jQuery(document).ready( function($) {
         });
     });
 
-    $('#orderby').on('change',function(evt){
-        let selectedindex = evt.currentTarget.options.selectedIndex;
-        var selection = (selectedindex === 1) ? 'orderbypopular' : 'orderbydate';
+    $('input:radio[name="filter"]').on('change',function(evt){
+        var target = evt.target;
+        var targetvalue = $(target).attr('value');
+        console.log(targetvalue);
         if (document.body.classList.contains('post-type-archive-confessions')){
             var posttype = 'confessions';
         } else if (document.body.classList.contains('post-type-archive-rants')){
             var posttype = 'rants';
         }
-        console.log(posttype);
         $.ajax({
             type: 'POST',
             url: ajax_object.ajaxurl,
             dataType: 'html',
             data: {
                 action: 'orderbyconfessions',
-                selection: selection,
+                selection: targetvalue,
                 posttype: posttype
             },
             success: function(response) {

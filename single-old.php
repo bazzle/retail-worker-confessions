@@ -35,7 +35,7 @@ while ( have_posts() ) : the_post(); ?>
                     </a>
                     <?php endforeach ?>
                 </div>
-                <h1 class="article__title"><?php the_title(); ?></h1>
+                <h1 class="article__header__title"><?php the_title(); ?></h1>
             </div>
         </header>
 
