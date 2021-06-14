@@ -1,7 +1,40 @@
 .filter{
-    padding-bottom: $gap;
+    &__main-label{
+        margin-right: $gap/2;
+    }
+    &__object{
+        @include font-body--bold;
+        font-size: 1.4rem;
+        display: inline-flex;
+        background-color: white;
+        box-shadow: $box-shadow;
+        @include align(center);
+        display: inline-flex;
+        border-radius:1.2rem;
+    }
     &__select{
+        display: inline-flex;
+        align-items: center;
+        padding: 0 .8em;
         border:0;
-        @include pill;
+        cursor: pointer;
+        background-color: darken($white, 5);
+        height:2.4rem;
+        @include font-body--medium;
+        &:first-of-type{
+            border-radius:1.2rem 0 0 1.2rem;
+        }
+        &:last-of-type{
+            border-radius:0 1.2rem 1.2rem 0;
+        }
+        &:hover{
+            background-color:$white;
+        }
+        input{
+            display: none;
+        }
+        &__active{
+            background-color:$white;
+        }
     }
 }

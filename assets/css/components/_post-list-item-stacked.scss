@@ -13,7 +13,6 @@
         gap: $gap/2;
     }
     &__meta{
-        @include pill;
         &__item{
             &:after{
                 content:'|';

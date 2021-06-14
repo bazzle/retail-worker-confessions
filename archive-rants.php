@@ -30,9 +30,6 @@
                 <?php include(locate_template( 'includes/component-filter.php' )) ?>
                 <div class="content-section">
                     <div class="content-section__item">
-                        <div class="content-section__item__title">
-                            <h2 class="content-section__item__title__title">Latest</h2>
-                        </div>
                         <div class="content-section__item__content">
                             <div class="posts-list--stacked">
 
@@ -48,53 +45,9 @@
                                 if($rants_posts->have_posts()) :
 
                                     while($rants_posts->have_posts()) :
-                                        $rants_posts->the_post();
-                                        $rantsettings = get_field('confession_settings',$post);
-                                        $itemid = $post->ID;
-                                        $thedate = get_the_time( 'F jS, Y' );
-                                        $authorid = $post->post_author;
-                                        $authoridacf = 'user_' . $authorid;
-                                        $itemexcerpt = get_field('confession_excerpt',$post);
-                                        $itemcontent = $post->post_content;
-                                        $votenumber = get_field('vote_number',$post);
-                                        if ($rantsettings['user_submission'] === true){
-                                            $authorname = get_field('confession_author_name');
-                                        } else {
-                                            $authorname = get_field('author_box', $authoridacf)['author_name'];
-                                        }
-                                        if ($rantsettings['long_submission'] === true){
-                                            $itemcontent = $itemexcerpt;
-                                        } else {
-                                            $itemcontent = $itemcontent;
-                                        }
-                                        $itemid = $post->ID;
-                                        $itemtitle = $post->post_title;
-                                        $itemlink = get_permalink($itemid);
-                                        ?>
 
+                                        include(locate_template('includes/section-rants-posts.php'));
 
-                                        <div class="posts-list--stacked__item post-list-item-stacked">
-                                            <h3 class="post-list-item-stacked__title">
-                                                <a href="<?php echo $itemlink ?>"><?php echo $itemtitle; ?></a>
-                                            </h3>
-                                            <div class="post-list-item-stacked__meta">
-                                                <span class="post-list-item-stacked__meta__item"><?php echo $authorname ?></span>
-                                                <span class="post-list-item-stacked__meta__item"><?php echo $thedate ?></span>
-                                            </div>
-                                            <div class="post-list-item-stacked__content">
-                                                <?php echo wpautop( $itemcontent ) ?>
-                                            </div>
-                                            <div class="post-list-item-stacked__footer">
-                                                <?php if ($rantsettings['long_submission'] === true) : ?>
-                                                    <a href="<?php echo $itemlink ?>"
-                                                        class="post-list-item-stacked__footer__read-more">Read more</a>
-                                                <?php else : ?>
-                                                    <?php include( locate_template( 'includes/component-voting.php', false, false ) );  ?>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-
-                                    <?php
                                     endwhile; 
                                 else : ?>
                                     <p>No rants yet</p>

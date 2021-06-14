@@ -316,9 +316,9 @@ ol {
 }
 @mixin link-styled--inline($color: black) {
   color: $color;
+  display: inline-block;
   text-decoration-thickness: 0.1em;
   text-decoration-color: $color;
-  display: inline-block;
   border-bottom:2px solid $color-primary;
   &:hover {
     color: $color-hover;

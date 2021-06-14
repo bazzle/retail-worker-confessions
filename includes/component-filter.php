@@ -1,8 +1,13 @@
 <form class="filter">
-
-    <input id="date" type="radio" name="filter" class="orderby orderby__date" value="orderbydate">
-    <label for="date">Order by date</label>
-    <input id="popular" type="radio" name="filter" class="orderby orderby__popular" value="orderbypopular">
-    <label for="popular">Order by most popular</label>
-
+    <span class="filter__main-label">Order by</span>
+    <div class="filter__object">
+    <label class="filter__select filter__select__active" for="date">
+        <input id="date" type="radio" name="filter" class="orderby orderby__date" value="orderbydate">
+        <span>Date</span>
+        </label>
+    <label class="filter__select" for="popular">
+        <input id="popular" type="radio" name="filter" class="orderby orderby__popular" value="orderbypopular">
+        <span>Most popular</span>
+    </label>
+    </div>
 </form>
