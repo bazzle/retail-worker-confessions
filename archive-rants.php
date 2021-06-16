@@ -35,19 +35,16 @@
 
                                 <?php 
                                 $args = array(
-                                    'orderby' => 'date',
+                                    'meta_key' => 'vote_number',
+                                    'orderby' => 'meta_value_num',
                                     'order' => 'DESC',
                                     'posts_per_page' => -1,
                                     'post_type' => 'rants'
                                 );
                                 $rants_posts = new WP_Query($args);
-
                                 if($rants_posts->have_posts()) :
-
                                     while($rants_posts->have_posts()) :
-
                                         include(locate_template('includes/section-rants-posts.php'));
-
                                     endwhile; 
                                 else : ?>
                                     <p>No rants yet</p>

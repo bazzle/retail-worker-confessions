@@ -1,7 +1,7 @@
 jQuery(document).ready( function($) {
-    $('.voting__button').on('click', function() {
-        var self = $(this);
-        var post_id = self.attr( 'id' );
+
+    function upvote(self){
+        var post_id = $(self).attr( 'id' );
         $.ajax({
             type: 'POST',
             url: ajax_object.ajaxurl,
@@ -10,14 +10,23 @@ jQuery(document).ready( function($) {
                 post_id: post_id
             },
             success: function(response){
-                self.next('.voting__counter').text(response);
+                $(self).next('.voting__counter').text(response);
             }
         });
-    });
+    }
+
+    $('body').on('click', function(target){
+        targetelem = target.target;
+        targetbutton = targetelem.closest('button');
+        if ($(targetbutton).hasClass('voting__button')){
+            upvote(targetbutton);
+        }
+    })
 
     $('input:radio[name="filter"]').on('change',function(evt){
         var target = evt.target;
         var targetvalue = $(target).attr('value');
+        console.log(targetvalue);
         var label = $(target).parent('label');
         $('.filter__select').removeClass('filter__select__active');
         $(label).addClass('filter__select__active');

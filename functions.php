@@ -279,8 +279,8 @@ function orderbyconfessions() {
     $thisposttype = $_POST['posttype'];
     if($thisselection === 'orderbydate'){
         $orderby = 'date';
-    } else{
-        $orderby = 'meta_value';
+    }elseif($thisselection === 'orderbypopular'){
+        $orderby = 'meta_value_num';
     }
     $ajaxposts = new WP_Query([
         'meta_key' => 'vote_number',

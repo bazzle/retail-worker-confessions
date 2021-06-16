@@ -34,7 +34,8 @@
                             <div class="posts-list--stacked">
                                 <?php 
                                 $args = array(
-                                    'orderby' => 'date',
+                                    'meta_key' => 'vote_number',
+                                    'orderby' => 'meta_value_num',
                                     'order' => 'DESC',
                                     'posts_per_page' => -1,
                                     'post_type' => 'confessions'
