@@ -3,10 +3,8 @@
         <div class="panel__inner header__inner">
             <div class="header__logo-lockup">
                 <a href="<?php echo get_option('home'); ?>" class="header__logo-lockup__logo">
-                    <svg class="header__logo-lockup__logo__svg">
-                    <title>Retail Worker Confessions Logo</title>
-                    <use xlink:href="<?php echo get_template_directory_uri() ?>/build/svg/icons.svg#logo" />
-                    </svg>
+                    
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/logo.png" alt="" class="">
                 </a>
             </div>
             <nav role="navigation" aria-label="Main" class="header__menu">
