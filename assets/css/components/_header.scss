@@ -55,10 +55,14 @@
     &__logo-lockup{
         width:160px;
         height: 100%;
-        display: block;
+        display: flex;
+        @include break-under(tablet) {
+            width: 100px;
+            height: auto;
+        }
         &__logo{
-            width:160px;
-            height: 100%;
+            width:100%;
+            height: auto;
             display: flex;
             align-items: center;
             &__svg{

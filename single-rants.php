@@ -91,11 +91,9 @@ while ( have_posts() ) : the_post(); ?>
                                     </a>
                                 </div>
                             </div>
-                            <div class="article__body-footer__link">
-                                <?php if ($prevpost) : ?>
-                                    <a href="<?php echo $prevpostlink ?>" class="article__footer__link__link">Next Confession</a>
-                                <?php endif; ?>
-                            </div>
+                            <?php if ($prevpost) : ?>
+                                <a href="<?php echo $prevpostlink ?>" class="article__body-footer__link">Next Rant ></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <aside class="article__aside sidebar">

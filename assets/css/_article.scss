@@ -135,24 +135,11 @@
             flex-grow: 1;
             display: flex;
             gap: $gap/3;
-            &__title{
-            }
-            &__links{
-                flex-grow: 1;
-                display: flex;
-                gap: $gap/3;
-            }
-            &__link{
-                display: block;
-                width:18px;
-                height:18px;
-                svg{
-                    width:18px;
-                    height:18px;
-                }
-            }
         }
         &__link{
+            @include link-styled;
+        }
+        &__link-next{
             @include link-styled;
         }
     }
