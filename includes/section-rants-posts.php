@@ -41,9 +41,6 @@ $itemlink = get_permalink($itemid);
         <?php echo wpautop( $itemcontent ) ?>
     </div>
     <div class="post-list-item-stacked__footer">
-        <?php if ($rantsettings['long_submission'] === true) : ?>
-            <a href="<?php echo $itemlink ?>"
-                class="post-list-item-stacked__footer__read-more">Read more</a>
-        <?php endif; ?>
+        <a href="<?php echo $itemlink ?>"class="post-list-item-stacked__footer__read-more">Read more</a>
     </div>
 </div>

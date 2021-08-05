@@ -13,9 +13,5 @@
                 <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/build/svg/icons.svg#share-twitter" />
             </svg>
         </a>
-        <div class="fb-share-button" 
-        data-href="https://www.your-domain.com/your-page.html" 
-        data-layout="button_count">
-        </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
 .article{
     &__header{
+        background-color: white;
         &__title{
             @include title;
             width: 100%;

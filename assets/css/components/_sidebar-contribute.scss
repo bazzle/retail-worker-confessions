@@ -1,6 +1,7 @@
 .sidebar-contribute{
+    padding: $gap/2;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     max-width: 500px;
     background-color:white;
     @include raised-object;

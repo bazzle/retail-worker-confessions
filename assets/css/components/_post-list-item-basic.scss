@@ -2,11 +2,13 @@
     height:100%;
     display: block;
     border-left: 3px solid $color-primary;
-    padding-left: 1em;
+    background: white;
+    padding: 1em;
+    @include raised-object;
     &__title{
         line-height: 1.2em;
         display: block;
         margin-bottom:0;
-        @include font-body;
+        @include font-body--bold;
     }
 }

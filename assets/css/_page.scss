@@ -1,5 +1,6 @@
 .page{
     &__header{
+        background-color: white;
         &.panel{
             @include panel--nopad;
         }

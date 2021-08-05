@@ -86,9 +86,16 @@ body {
 main {
   min-height: 1000px;
   position: relative;
-  flex-grow: 1;
+  background-color: $off-white;
   @include break-under(sitewidth) {
     padding-top:80px;
+  }
+  @include break(tablet) {
+    display: flex;
+    flex-direction: column;
+    .article{
+      flex-grow: 1;
+    }
   }
 }
 
@@ -490,6 +497,11 @@ ol {
   border-top: 1px solid #DBDBDB;
   height: 1px;
   background-color: #ffffff;
+}
+@mixin divider-whitebg{
+  display: block;
+  height: 1px;
+  border-top: 1px solid #DBDBDB;
 }
 
 @mixin block-title{

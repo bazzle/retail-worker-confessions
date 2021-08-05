@@ -12,6 +12,7 @@
                 <div class="sidebar-description__description">
                     <?php include( locate_template('includes/component-category-description.php' ) ); ?>
                 </div>
+                <hr class="sidebar-description__divider">
                 <?php if($post->post_type === 'rants' or $post->post_type === 'confessions') : ?>
                 <p class="sidebar-description__contribute">
                     <span class="sidebar-description__contribute__pre">Interested in sharing your story?</span>

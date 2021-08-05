@@ -134,8 +134,6 @@ $line-height-std: 1.2;
     @include break-under(phone) {
         word-break: break-word;
     }
-    padding-left: .5em;
-    border-left: 4px solid $color-accent;
 }
 
 // title display
@@ -179,7 +177,6 @@ body {
 
 .text-blocky {
     @include text-blocky;
-    color: blue;
 }
 .text-blocky--lower {
     @include text-blocky--lower;
@@ -236,8 +233,6 @@ body {
     h1,
     h2 {
         font-size: 2.2rem;
-        padding-left: .5em;
-        border-left: 4px solid $color-accent;
     }
     h3 {
         font-size: 1.8rem;

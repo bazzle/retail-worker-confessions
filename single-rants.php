@@ -69,30 +69,10 @@ while ( have_posts() ) : the_post(); ?>
                                 <?php include( locate_template( 'includes/component-voting.php', false, false ) );  ?>
                             </div>
                             <div class="article__body-footer__share">
-                                
-                                <h4 class="article__body-footer__share__title">
-                                    Share this
-                                </h4>
-                                <div class="article__body-footer__share__links">
-                                    <a class="article__body-footer__share__link" href="#">
-                                        <svg class="facebook-icon">
-                                            <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/build/svg/icons.svg#share-facebook" />
-                                        </svg>
-                                    </a>
-                                    <a class="article__body-footer__share__link" href="#">
-                                        <svg class="twitter-icon">
-                                            <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/build/svg/icons.svg#share-twitter" />
-                                        </svg>
-                                    </a>
-                                    <a class="article__body-footer__share__link" href="#">
-                                        <svg class="instagram-icon">
-                                            <use xlink:href="<?php echo get_stylesheet_directory_uri(); ?>/build/svg/icons.svg#share-instagram" />
-                                        </svg>
-                                    </a>
-                                </div>
+                            <?php include( locate_template( 'includes/component-article-share.php', false, false ) );  ?>
                             </div>
                             <?php if ($prevpost) : ?>
-                                <a href="<?php echo $prevpostlink ?>" class="article__body-footer__link">Next Rant ></a>
+                                <a href="<?php echo $prevpostlink ?>" class="article__body-footer__link">Next Confession ></a>
                             <?php endif; ?>
                         </div>
                     </div>

@@ -1,21 +1,25 @@
 .sidebar-description{
     background-color: white;
     @include raised-object;
+    padding: $gap/2;
     &__description{
-        padding: 1.2em;
     }
     &__contribute{
         display: flex;
-        align-items: stretch;
+        align-items: center;
         max-width: 500px;
-        background-color:$off-white;
         &__pre{
-            padding:$gap/2;
             flex-grow:1;
         }
         &__link{
             @include button($color-primary);
             border-radius: none;
         }
+    }
+    &__divider{
+        background: none;
+        margin-top: $gap/2;
+        margin-bottom: $gap/2;
+        @include divider-whitebg;
     }
 }
