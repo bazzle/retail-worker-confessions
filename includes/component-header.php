@@ -21,7 +21,6 @@
                 <svg class="icon header__trigger__icon">
                     <use xlink:href="<?php echo get_template_directory_uri() ?>/build/svg/icons.svg#icon-menu" />
                 </svg>
-                <img src="<?php get_template_directory_uri() ?>/assets/images/logo.svg ?>" alt="logo">
             </button>
         </div>
         <?php get_template_part('includes/component','mobile-menu'); ?>

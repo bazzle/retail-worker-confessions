@@ -54,7 +54,8 @@
                         'orderby' => 'date',
                         'order' => 'DESC' ,
                         'author' => get_queried_object_id(),
-                        'posts_per_page' => 5
+                        'posts_per_page' => 5,
+                        'post_type' => 'any'
                     ));
                     if (have_posts()) : ?>
                     <div class="posts-list">
@@ -64,14 +65,20 @@
                                 $itemtitle = get_the_title();
                                 $itemlink = get_permalink();
                                 $objid = get_queried_object_id();
-                                $itemexcerpt = get_field('article_excerpt');
+                                if ($post->post_type === 'post'){
+                                    $itemexcerpt = get_the_excerpt();
+                                } elseif ($post->post_type === 'confessions'){
+                                    $itemexcerpt = get_the_excerpt();
+                                } elseif ($post->post_type === 'rants'){
+                                    $itemexcerpt = get_the_excerpt();
+                                }
                             ?>
                             <?php include(locate_template('includes/component-post-list-item.php')); ?>
                         </div>
                         <?php endwhile; ?>
                     </div>
                     <?php else : ?>
-                    <p>No posts</p>
+                    <p>No posts yet</p>
                     <?php endif; ?>
                     <?php wp_reset_query(); ?>
                 </div>

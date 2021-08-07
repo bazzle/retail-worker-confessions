@@ -2,6 +2,7 @@
     $authorbio = get_field('author_box', $authoridacf)['author_short_bio'];
     $twitter = get_field( 'author_box', $authoridacf)['author_twitter'];
     $instagram = get_field( 'author_box', $authoridacf)['author_instagram'];
+    $authorpagelink = get_author_posts_url($authorid);
 ?>
 
 
@@ -19,6 +20,6 @@
         <p class="author-box__description">
             <?php echo $authorbio ?>
         </p>
-        <a class="author-box__link" href="<?php $authorpagelink ?>">Read more</a>
+        <a class="author-box__link" href="<?php echo $authorpagelink ?>">Read more</a>
     </div>
 </div>

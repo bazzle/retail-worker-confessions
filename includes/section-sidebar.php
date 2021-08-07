@@ -1,29 +1,70 @@
 <?php $thisobj = get_queried_object(); ?>
 
 
-<?php if ( is_single() ) : ?>
+
+<?php if ( is_singular('confessions') ) : ?>
+
+    <?php
+    include( locate_template('includes/component-sidebar-about-category.php' ) );
+    $catfielditem = get_field('confessions_sidebar', 'option');
+    foreach ($catfielditem as $item) :
+        $thisblock = $item['block_sidebar_item'];
+        $row_config = $thisblock['configuration'];
+        $row_content = $thisblock['content'];
+        $row_title = $thisblock['title'];
+    ?>
+        <div class="sidebar__item">
+            <?php if ($row_config['is_title'] == true) : ?>
+                <div class="sidebar__item__title">
+                    <h3 class="sidebar__item__title__title">
+                        <?php echo $row_title; ?>
+                    </h3>
+                </div>
+            <?php endif; ?>
+            <div class="sidebar__item__content">
+                <?php echo $row_content; ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
+
+
+
+<?php elseif ( is_singular('rants') ) : ?>
+
+    <?php
+    include( locate_template('includes/component-sidebar-about-category.php' ) );
+    $catfielditem = get_field('rants_sidebar', 'option');
+    foreach ($catfielditem as $item) :
+        $thisblock = $item['block_sidebar_item'];
+        $row_config = $thisblock['configuration'];
+        $row_content = $thisblock['content'];
+        $row_title = $thisblock['title'];
+    ?>
+        <div class="sidebar__item">
+            <?php if ($row_config['is_title'] == true) : ?>
+                <div class="sidebar__item__title">
+                    <h3 class="sidebar__item__title__title">
+                        <?php echo $row_title; ?>
+                    </h3>
+                </div>
+            <?php endif; ?>
+            <div class="sidebar__item__content">
+                <?php echo $row_content; ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
+
+
+
+<?php elseif ( is_single() ) : ?>
 
 
 <!-- IF SINGLE POST -------------------------------------------->
 
-    <div class="sidebar__item">
-        <div class="sidebar__item__content">
-            <div class="sidebar-description">
-                <div class="sidebar-description__description">
-                    <?php include( locate_template('includes/component-category-description.php' ) ); ?>
-                </div>
-                <hr class="sidebar-description__divider">
-                <?php if($post->post_type === 'rants' or $post->post_type === 'confessions') : ?>
-                <p class="sidebar-description__contribute">
-                    <span class="sidebar-description__contribute__pre">Interested in sharing your story?</span>
-                    <a class="sidebar-description__contribute__link" href="<?php echo get_site_url() . '/submit/' ?>">contribute</a>
-                </p>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-
     <?php
+     include( locate_template('includes/component-sidebar-about-category.php' ) );
     if($post->post_type === 'confessions'){
         $catfielditem = get_field('confessions_sidebar', 'option');
     } elseif($post->post_type === 'rants') {
@@ -67,11 +108,11 @@
 
 <!-- IF CATEGORY ARCHIVE -------------------------------------------->
 
+
     <?php
+    include( locate_template('includes/component-sidebar-contribute.php' ) );
     $catfielditem = get_field('category_sidebar',$thisobj);
-    ?>
-    
-    <?php if ($catfielditem) :
+    if ($catfielditem) :
         foreach ($catfielditem as $item) :
             $thisblock = $item['block_sidebar_item'];
             $row_config = $thisblock['configuration'];
@@ -100,15 +141,15 @@
 
 
 <!-- IF CUSTOM POST TYPE ARCHIVE -------------------------------------------->
+
     <?php
+    include( locate_template('includes/component-sidebar-contribute.php' ) );
     if ($thisobj->name === 'confessions') {
         $catfielditem = get_field('confessions_sidebar', 'option');
     } elseif ($thisobj->name === 'rants') {
         $catfielditem = get_field('rants_sidebar', 'option');
     };
     ?>
-
-
     <?php if ($catfielditem) :
         foreach ($catfielditem as $item) :
             $thisblock = $item['block_sidebar_item'];
