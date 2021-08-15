@@ -1,7 +1,7 @@
 
 
 
-<div class="related-rants panel component-dark">
+<div class="related-rants panel">
     <div class="related-rants__inner panel__inner">
         <div class="related-rants__title">
             <h2 class="related-rants__title__title">More Rants</h2>

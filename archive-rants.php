@@ -32,11 +32,9 @@
                     <div class="content-section__item">
                         <div class="content-section__item__content">
                             <div class="posts-list--stacked">
-
                                 <?php 
                                 $args = array(
-                                    'meta_key' => 'vote_number',
-                                    'orderby' => 'meta_value_num',
+                                    'orderby' => 'date',
                                     'order' => 'DESC',
                                     'posts_per_page' => -1,
                                     'post_type' => 'rants'

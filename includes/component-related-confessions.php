@@ -1,7 +1,7 @@
 
 
 
-<div class="related-confessions panel component-dark">
+<div class="related-confessions panel">
     <div class="related-confessions__inner panel__inner">
         <div class="related-confessions__title">
             <h2 class="related-confessions__title__title">More Confessions</h2>

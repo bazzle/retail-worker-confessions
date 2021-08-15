@@ -81,13 +81,6 @@ while ( have_posts() ) : the_post(); ?>
                     </aside>
                 </div>
             </div>
-            <?php if ($rantssettings['user_submission'] === false) : ?>
-            <footer class="article__footer panel">
-                <div class="panel__inner">
-                    <?php include( locate_template( 'includes/component-author.php', false, false ) );  ?>
-                </div>
-            </footer>
-            <?php endif; ?>
 
         </div><!-- end article main -->
 

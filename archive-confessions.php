@@ -34,8 +34,7 @@
                             <div class="posts-list--stacked">
                                 <?php 
                                 $args = array(
-                                    'meta_key' => 'vote_number',
-                                    'orderby' => 'meta_value_num',
+                                    'orderby' => 'date',
                                     'order' => 'DESC',
                                     'posts_per_page' => -1,
                                     'post_type' => 'confessions'
@@ -54,12 +53,6 @@
                         </div>
                     </div>
                 </div><!-- end content section -->
-
-
-
-
-
-
             </div>
             <div class="page__aside sidebar">
                 <?php include( locate_template( 'includes/section-sidebar.php', false, false ) );  ?>
