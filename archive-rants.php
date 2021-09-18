@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php
     $term = get_queried_object();
-    $title = 'Rants';
+    $title = get_field('rants_page_title', 'option');
     $excerpt = get_field('rants_description', 'option');
     $headerimage = get_field('rants_header_image', 'option');
     ?>

@@ -111,6 +111,10 @@
     &__body{
         @extend %text-body-format;
         padding-bottom: $gap*2;
+        &__gap{
+            height: 3rem;
+            display: block;
+        }
     }
     &__misc{
         padding-top: $gap;

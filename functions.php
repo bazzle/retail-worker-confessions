@@ -187,6 +187,12 @@ function contribute_cta() {
     return ob_get_clean();
 }
 
+function gap() {
+    ob_start(); ?>
+    <div class="article__body__gap"></div>
+    <?php return ob_get_clean();
+}
+
 function insights_subnav(){
     $args = array(
         'child_of' => 3
@@ -213,6 +219,7 @@ function shortcodes_init(){
     add_shortcode('category_info_sidebar','category_info_sidebar');
     add_shortcode('insights_subnav','insights_subnav');
     add_shortcode('contribute_cta','contribute_cta');
+    add_shortcode('gap','gap');
 }
 
 add_action('init', 'shortcodes_init');
@@ -301,4 +308,11 @@ function orderbyconfessions() {
     wp_die();
 }
 add_action('wp_ajax_orderbyconfessions', 'orderbyconfessions');
-add_action('wp_ajax_nopriv_orderbyconfessions', 'orderbyconfessions'); ?>
+add_action('wp_ajax_nopriv_orderbyconfessions', 'orderbyconfessions');
+
+
+
+function filter_ptags_on_images($content){
+    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php
     $term = get_queried_object();
-    $title = 'Confessions';
+    $title = get_field('confessions_page_title', 'option');
     $excerpt = get_field('confession_description', 'option');
     $headerimage = get_field('confessions_header_image', 'option');
     ?>
