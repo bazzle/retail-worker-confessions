@@ -25,7 +25,7 @@
                 $cardtitle = $related_post->post_title;
                 $cardlink = get_permalink($itemid);
                 $cardexcerpt = get_field('article_excerpt',$related_post);
-                $cardthumb = get_the_post_thumbnail($itemid,'thumbcustom');
+                $cardthumb = get_the_post_thumbnail($itemid,'thumb');
                 ?>
                 <div class="posts-list__item">
                     <?php include(locate_template('includes/component-card.php')); ?>

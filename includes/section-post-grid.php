@@ -21,7 +21,7 @@
         $cardtitle = $recent_post->post_title;
         $cardid = $recent_post->ID;
         $cardlink = get_permalink($cardid);
-        $cardthumb = get_the_post_thumbnail($cardid,'thumbcustom');
+        $cardthumb = get_the_post_thumbnail($cardid,'thumb');
         ?>
         <?php include( locate_template( 'includes/component-card.php' ) );  ?>
     <?php endforeach; ?>

@@ -85,15 +85,8 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 add_image_size('tiny', 50, 50, true);
-add_image_size('thumbcustom', 374, 280, true);
-add_image_size('postimagesize', 760, false);
-
-add_filter( 'image_size_names_choose', 'my_custom_sizes' );
-function my_custom_sizes( $sizes ) {
-    return array_merge( $sizes, array(
-        'postimagesize' => __( 'Standard image size' ),
-    ) );
-}
+add_image_size('thumb', 374, 280, true);
+add_image_size('main', 760, 420, true);
 
 function posts_list($atts = []) {
     $sc_atts = shortcode_atts([

@@ -12,7 +12,7 @@
             <div class="page__header__main">
                 <h1 class="page__header__title"><?php echo $title; ?></h1>
                 <div class="page__header__cat-description">
-                    <?php include( locate_template('includes/component-category-description--mobile.php' ) ); ?>
+                    <?php include( locate_template('includes/component-category-description--main.php' ) ); ?>
                 </div>
             </div>
             <?php if ($headerimage) : ?>
