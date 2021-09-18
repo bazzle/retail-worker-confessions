@@ -56,7 +56,7 @@
                                 <?php foreach ($recent_posts as $recent_post) :
                                     $cardtitle = $recent_post->post_title;
                                     $cardlink = get_permalink($recent_post);
-                                    $cardthumb = get_the_post_thumbnail($recent_post,'thumb');
+                                    $cardthumb = get_the_post_thumbnail($recent_post,'thumbcustom');
                                     $cardexcerpt = get_field('article_excerpt',$recent_post);
                                     ?>
                                 <?php include( locate_template( 'includes/component-card.php' ) );  ?>

@@ -217,10 +217,6 @@ body {
     ol {
         @include text-gap;
     }
-    img {
-        width: 100%;
-        max-width: $sitewidth;
-    }
     h1,
     h2,
     h3,

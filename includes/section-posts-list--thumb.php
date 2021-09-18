@@ -40,7 +40,7 @@
         $itemid = $recent_post->ID;
         $cardtitle = $recent_post->post_title;
         $cardlink = get_permalink($itemid);
-        $cardthumb = get_the_post_thumbnail($itemid,'thumb');
+        $cardthumb = get_the_post_thumbnail($itemid,'thumbcustom');
         if ($sc_atts['post_type'] == 'confessions'){
             $cardexcerpt = get_field('confession_short_excerpt',$recent_post);
         } elseif ($sc_atts['post_type'] == 'rants'){
