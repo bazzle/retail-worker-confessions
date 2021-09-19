@@ -5,27 +5,29 @@
 <?php if ( is_singular('confessions') ) : ?>
 
     <?php
-    include( locate_template('includes/component-sidebar-about-category.php' ) );
+    include( locate_template('includes/component-category-description--sidebar.php' ) );
     $catfielditem = get_field('confessions_sidebar', 'option');
-    foreach ($catfielditem as $item) :
-        $thisblock = $item['block_sidebar_item'];
-        $row_config = $thisblock['configuration'];
-        $row_content = $thisblock['content'];
-        $row_title = $thisblock['title'];
-    ?>
-        <div class="sidebar__item">
-            <?php if ($row_config['is_title'] == true) : ?>
-                <div class="sidebar__item__title">
-                    <h3 class="sidebar__item__title__title">
-                        <?php echo $row_title; ?>
-                    </h3>
+    if ($catfielditem) :
+        foreach ($catfielditem as $item) :
+            $thisblock = $item['block_sidebar_item'];
+            $row_config = $thisblock['configuration'];
+            $row_content = $thisblock['content'];
+            $row_title = $thisblock['title'];
+        ?>
+            <div class="sidebar__item">
+                <?php if ($row_config['is_title'] == true) : ?>
+                    <div class="sidebar__item__title">
+                        <h3 class="sidebar__item__title__title">
+                            <?php echo $row_title; ?>
+                        </h3>
+                    </div>
+                <?php endif; ?>
+                <div class="sidebar__item__content">
+                    <?php echo $row_content; ?>
                 </div>
-            <?php endif; ?>
-            <div class="sidebar__item__content">
-                <?php echo $row_content; ?>
             </div>
-        </div>
-    <?php endforeach; ?>
+        <?php endforeach;
+    endif; ?>
 
 
 
@@ -33,8 +35,9 @@
 <?php elseif ( is_singular('rants') ) : ?>
 
     <?php
-    include( locate_template('includes/component-sidebar-about-category.php' ) );
+    include( locate_template('includes/component-category-description--sidebar.php' ) );
     $catfielditem = get_field('rants_sidebar', 'option');
+    if ($catfielditem) :
     foreach ($catfielditem as $item) :
         $thisblock = $item['block_sidebar_item'];
         $row_config = $thisblock['configuration'];
@@ -53,7 +56,8 @@
                 <?php echo $row_content; ?>
             </div>
         </div>
-    <?php endforeach; ?>
+    <?php endforeach;
+    endif; ?>
 
 
 
@@ -64,7 +68,7 @@
 <!-- IF SINGLE POST -------------------------------------------->
 
     <?php
-     include( locate_template('includes/component-sidebar-about-category.php' ) );
+     include( locate_template('component-category-description--sidebar.php' ) );
     if($post->post_type === 'confessions'){
         $catfielditem = get_field('confessions_sidebar', 'option');
     } elseif($post->post_type === 'rants') {
