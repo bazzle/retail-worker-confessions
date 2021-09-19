@@ -145,7 +145,7 @@
 <!-- IF CUSTOM POST TYPE ARCHIVE -------------------------------------------->
 
     <?php
-    include( locate_template('includes/component-sidebar-contribute.php' ) );
+    include( locate_template('includes/component-category-description--sidebar.php' ) );
     if ($thisobj->name === 'confessions') {
         $catfielditem = get_field('confessions_sidebar', 'option');
     } elseif ($thisobj->name === 'rants') {
