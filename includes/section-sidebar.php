@@ -68,7 +68,6 @@
 <!-- IF SINGLE POST -------------------------------------------->
 
     <?php
-     include( locate_template('component-category-description--sidebar.php' ) );
     if($post->post_type === 'confessions'){
         $catfielditem = get_field('confessions_sidebar', 'option');
     } elseif($post->post_type === 'rants') {
@@ -114,7 +113,6 @@
 
 
     <?php
-    include( locate_template('includes/component-sidebar-contribute.php' ) );
     $catfielditem = get_field('category_sidebar',$thisobj);
     if ($catfielditem) :
         foreach ($catfielditem as $item) :

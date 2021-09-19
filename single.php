@@ -40,7 +40,7 @@ while ( have_posts() ) : the_post(); ?>
                     <?php endforeach ?>
                 </div>
                 <div class="article__header__cat-description-mobile">
-                    <?php include( locate_template('includes/component-category-description--mobile.php' ) ); ?>
+                    <?php include( locate_template('includes/component-category-description--main.php' ) ); ?>
                 </div>
                 <h1 class="article__header__title"><?php the_title(); ?></h1>
             </div>
