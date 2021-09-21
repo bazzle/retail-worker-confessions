@@ -88,6 +88,13 @@ add_image_size('tiny', 50, 50, true);
 add_image_size('thumb', 374, 280, true);
 add_image_size('main', 760, 420, true);
 
+add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+function my_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'main' => __( 'Max image size' ),
+    ) );
+}
+
 function posts_list($atts = []) {
     $sc_atts = shortcode_atts([
         'post_type' => '',
